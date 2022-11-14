@@ -62,15 +62,20 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  async function getCategories(){
-    const response = await fetch('http://127.0.0.1:8000/api/categories');
-    const data = await response.json();
-    console.log(data)
-  }
+  const URL = "http://localhost:8000/api/categories"
+  const [data,setData] = React.useState({});
+  React.useEffect(() =>{
+    async function loadCategories() {
+      const res = await fetch(URL);
+      const data = await res.json();
+      setData(data);
+    }
+    loadCategories()
+  },[])
 
   return (
     <>
-      {/* {await getCategories()} */}
+      {console.log(data)}
       <Popover className="relative bg-white">
         <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20">
@@ -162,13 +167,13 @@ export default function Navbar() {
                           <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py- sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
                             {categories.map((item) => (
                               <a
-                                key={item.id}
-                                href={item.href}
+                                key={item.category_id}
+                                href={"#"}
                                 className="-m-3 p-3 flex flex-col justify-between rounded-lg hover:bg-gray-50"
                               >
                                 <div className="flex md:h-full lg:flex-col">
                                   <div>
-                                    <p className="text-base font-medium text-gray-900">{item.name}</p>
+                                    <p className="text-base font-medium text-gray-900">{item.category_name}</p>
                                   </div>
                                 </div>
                               </a>
