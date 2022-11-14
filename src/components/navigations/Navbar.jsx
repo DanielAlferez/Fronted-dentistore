@@ -24,7 +24,8 @@ import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import axios from "axios";
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import Modal from "../../containers/auth/Login"
 
 const categories = [
   {
@@ -74,11 +75,11 @@ export default function Navbar() {
   },[])
   if(!data.length) return
   return (
-    <>
+    <div>
       {console.log(data)}
       <Popover className="relative bg-white">
-        <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-20">
+        <div className="absolute inset-0 shadow z-3 pointer-events-none" aria-hidden="true" />
+        <div className="relative z-2">
           <div className=" max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start">
             <div className="hidden md:flex-1 md:flex md:items-center md:justify-center">
               <Popover.Group as="nav" className="flex space-x-10">        
@@ -102,9 +103,10 @@ export default function Navbar() {
 
                 <div className="flex items-center">
                   <div className='w-10'>
-                    <a href="#" className="text-black hover:text-light">
+                    <Modal></Modal>
+                    {/* <a href="" className="text-black hover:text-light">
                       <BiUser className='w-8 h-8' />
-                    </a>
+                    </a> */}
                   </div>
                   <div className='w-10'>
                     <a href="#" className="text-black hover:text-light">
@@ -124,8 +126,8 @@ export default function Navbar() {
       </Popover>
 
       <Popover className="relative bg-white">
-        <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-20">
+        <div className="absolute inset-0 shadow z-2 pointer-events-none" aria-hidden="true" />
+        <div className="relative z-1">
           <div className=" max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start">
             <div className="-mr-2 -my-2 md:hidden">
               <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light">
@@ -271,6 +273,6 @@ export default function Navbar() {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </>
+    </div>
   )
 }
