@@ -22,6 +22,8 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import axios from "axios";
+import React from 'react';
 
 
 const categories = [
@@ -52,13 +54,23 @@ const categories = [
   },
 ]
 
+
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
+
+  async function getCategories(){
+    const response = await fetch('http://127.0.0.1:8000/api/categories');
+    const data = await response.json();
+    console.log(data)
+  }
+
   return (
     <>
+      {/* {await getCategories()} */}
       <Popover className="relative bg-white">
         <div className="absolute inset-0 shadow z-30 pointer-events-none" aria-hidden="true" />
         <div className="relative z-20">
