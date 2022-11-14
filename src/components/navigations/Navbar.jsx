@@ -63,7 +63,7 @@ function classNames(...classes) {
 export default function Navbar() {
 
   const URL = "http://localhost:8000/api/categories"
-  const [data,setData] = React.useState({});
+  const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
       const res = await fetch(URL);
@@ -72,7 +72,7 @@ export default function Navbar() {
     }
     loadCategories()
   },[])
-
+  if(!data.length) return
   return (
     <>
       {console.log(data)}
@@ -165,7 +165,7 @@ export default function Navbar() {
                       >
                         <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
                           <div className="max-w-7xl mx-auto grid gap-y-6 px-4 py- sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16">
-                            {categories.map((item) => (
+                            {data.map((item) => (
                               <a
                                 key={item.category_id}
                                 href={"#"}
@@ -228,13 +228,13 @@ export default function Navbar() {
                 <div className="mt-6 sm:mt-8">
                   <nav>
                     <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                      {categories.map((item) => (
+                      {data.map((item) => (
                         <a
-                          key={item.id}
-                          href={item.href}
+                          key={item.category_id}
+                          href={'#'}
                           className="-m-3 flex items-center p-3 rounded-lg hover:bg-gray-50"
                         >
-                          <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
+                          <div className="ml-4 text-base font-medium text-gray-900">{item.category_name}</div>
                         </a>
                       ))}
                     </div>
