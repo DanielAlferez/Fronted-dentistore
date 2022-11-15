@@ -4,11 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: '#53B848',
-        dark: '#3A8732'
-      }
+        light: "#53B848",
+        dark: "#3A8732",
+      },
     },
   },
-  plugins: [require("@tailwindcss/forms"), 
-  require("@headlessui/react")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@headlessui/react"),
+    require("@material-tailwind/react/utils/withMT"),
+  ],
 };

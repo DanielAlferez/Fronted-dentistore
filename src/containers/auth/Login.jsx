@@ -1,6 +1,5 @@
 import React from "react";
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
-// import singUp from "../../redux/actions/auth";
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -29,7 +28,7 @@ export default function Modal() {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/register/`,{method: 'POST', body: JSON.stringify(form), headers: {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/register/`,{method: 'POST', body: JSON.stringify({...form, userrole: 'usuario'}), headers: {
         "Content-Type": 'application/json'
       }})
       const data = await response.json()
@@ -47,8 +46,6 @@ export default function Modal() {
           error: true
         })
     }
-    
- 
 
   }
 
@@ -88,22 +85,22 @@ export default function Modal() {
           <div className=" justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className=" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <form  onSubmit={handleSubmit}  className="space-y-6">
-                    <div className="justify-center">
-                        <center><img width={'100px'} src="../public/diente1.png"/></center>
-                                
-                        <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
-                        <br />
-                        <hr /> 
-                    </div>
-                    {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full my-10 rounded-xl `}>{message.message}</div>) }
-                    <div>
+                <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                  <div className="justify-center">
+                      <center><img width={'100px'} src="../public/diente1.png"/></center>    
+                      <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
+                      <br />
+                      <hr /> 
+                      <br />
+                  </div>
+                  <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
+                    {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 `}>{message.message}</div>) }
+                    <div className="col-span-2">
                       <label
                         htmlFor="username"
-                        className="block text-sm font-medium text-gray-700"
+                        className=" block text-sm font-medium text-gray-700"
                       >
                         Nombre
                       </label>
@@ -113,7 +110,7 @@ export default function Modal() {
                           onChange={handleChangeForm}
                           type="text"
                           required
-                          className="appearance-none block w-80 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm w-full"
+                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
                         />
                       </div>
                     </div>
@@ -128,7 +125,6 @@ export default function Modal() {
                       </label>
                       <div className="mt-1">
                         <input
-
                           name="usermail"
                           onChange={handleChangeForm}
                           type="email"
@@ -195,14 +191,16 @@ export default function Modal() {
                           className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
                         />
                       </div>
+
+                      
                     </div>
 
-                    <div>
+                    <div className="col-span-2">
                       <button
                         type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                        className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                       >
-                        Register
+                        Registar
                       </button>
                     </div>
                   </form>
@@ -210,11 +208,11 @@ export default function Modal() {
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    className="text-white bg-red-600 hover:bg-red-900 rounded-md background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="text-white bg-red-600 hover:bg-red-900 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
-                    Close
+                    Cerrar
                   </button>
                 </div>
               </div>

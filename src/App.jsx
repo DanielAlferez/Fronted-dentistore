@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import {Provider} from "react-redux"
 import store from "./store"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import styles from "./App.module.css";
+import Card from "./components/Card";
+import posts from "./data/posts";
 
 import Home from './containers/Home'
 import Error404 from "./containers/errors/Error404";
