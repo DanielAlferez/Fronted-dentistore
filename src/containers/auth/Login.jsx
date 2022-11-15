@@ -1,8 +1,71 @@
 import React from "react";
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
+// import singUp from "../../redux/actions/auth";
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
+  const [message, setMessage] = React.useState({
+    message: '',
+    error: false
+  })
+
+  const [form, setForm] = React.useState({
+    username: '',
+    usermail: '',
+    userphone: '',
+    password_user: '',
+    confirmPassword: '',
+  })
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if(form.password_user !== form.confirmPassword){
+      setMessage({
+        message:'Las contraseñas no coinciden',
+        error:true
+      })
+      return
+    }
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/register/`,{method: 'POST', body: JSON.stringify(form), headers: {
+        "Content-Type": 'application/json'
+      }})
+      const data = await response.json()
+      console.log(data)
+      if(response.status !== 200) throw new Error(data.usermail)
+      setMessage({
+        message: 'Registro Exitoso',
+        error: false
+      })
+      setTimeout(()=>window.location.reload(false),1500)
+    } catch (error) {
+      console.log(error)
+      setMessage({
+          message: error.message,
+          error: true
+        })
+    }
+    
+ 
+
+  }
+
+
+
+
+  const handleChangeForm = (event) => {
+    const {value, name} = event.target;
+
+    setForm({
+      ...form,
+      [name]: value
+    })
+    
+  }
+
+
   return (
     <>
       {/* <button
@@ -28,7 +91,7 @@ export default function Modal() {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <form onSubmit={(e) => onSubmit(e)} className="space-y-6">
+                  <form  onSubmit={handleSubmit}  className="space-y-6">
                     <div className="justify-center">
                         <center><img width={'100px'} src="../public/diente1.png"/></center>
                                 
@@ -36,21 +99,21 @@ export default function Modal() {
                         <br />
                         <hr /> 
                     </div>
-
+                    {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full my-10 rounded-xl `}>{message.message}</div>) }
                     <div>
                       <label
-                        htmlFor="first_name"
+                        htmlFor="username"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Nombre
                       </label>
                       <div className="mt-1">
                         <input
-                          name="first_name"
-                          onChange={(e) => onChange(e)}
+                          name="username"
+                          onChange={handleChangeForm}
                           type="text"
                           required
-                          className="appearance-none block w-80 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          className="appearance-none block w-80 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm w-full"
                         />
                       </div>
                     </div>
@@ -58,15 +121,16 @@ export default function Modal() {
 
                     <div>
                       <label
-                        htmlFor="email"
+                        htmlFor="usermail"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Email address
                       </label>
                       <div className="mt-1">
                         <input
-                          name="email"
-                          onChange={(e) => onChange(e)}
+
+                          name="usermail"
+                          onChange={handleChangeForm}
                           type="email"
                           required
                           className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
@@ -83,8 +147,9 @@ export default function Modal() {
                       </label>
                       <div className="mt-1">
                         <input
+
                           name="userphone"
-                          onChange={(e) => onChange(e)}
+                          onChange={handleChangeForm}
                           type="text"
                           required
                           className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
@@ -94,15 +159,16 @@ export default function Modal() {
 
                     <div>
                       <label
-                        htmlFor="password"
+                        htmlFor="password_user"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Password
                       </label>
                       <div className="mt-1">
                         <input
-                          name="password"
-                          onChange={(e) => onChange(e)}
+
+                          name="password_user"
+                          onChange={handleChangeForm}
                           type="password"
                           required
                           autoComplete="off"
@@ -113,15 +179,16 @@ export default function Modal() {
 
                     <div>
                       <label
-                        htmlFor="password"
+                        htmlFor="confirmPassword"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Repeat Password
                       </label>
                       <div className="mt-1">
                         <input
-                          name="re_password"
-                          onChange={(e) => onChange(e)}
+
+                          name="confirmPassword"
+                          onChange={handleChangeForm}
                           type="password"
                           required  
                           autoComplete="off"

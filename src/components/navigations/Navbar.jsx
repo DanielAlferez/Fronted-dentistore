@@ -103,7 +103,7 @@ export default function Navbar() {
 
                 <div className="flex items-center">
                   <div className='w-10'>
-                    <Modal></Modal>
+                    <Modal/>
                     {/* <a href="" className="text-black hover:text-light">
                       <BiUser className='w-8 h-8' />
                     </a> */}
