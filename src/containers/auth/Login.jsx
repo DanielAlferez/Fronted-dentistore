@@ -49,9 +49,6 @@ export default function Modal() {
 
   }
 
-
-
-
   const handleChangeForm = (event) => {
     const {value, name} = event.target;
 
@@ -65,15 +62,10 @@ export default function Modal() {
 
   return (
     <>
-      {/* <button
-        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        type="button"
-        onClick={() => setShowModal(true)}
-      > */}
       <a
         onClick={() => setShowModal(true)}
         href="#"
-        className="text-black hover:text-light"
+        className="text-gray-600 hover:text-light"
       >
         <BiUser className="w-8 h-8" />
       </a>
@@ -97,99 +89,113 @@ export default function Modal() {
                   </div>
                   <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
                     {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 `}>{message.message}</div>) }
-                    <div className="col-span-2">
-                      <label
-                        htmlFor="username"
-                        className=" block text-sm font-medium text-gray-700"
-                      >
-                        Nombre
-                      </label>
-                      <div className="mt-1">
+                    
+                    <div className="col-span-2 ">
+                      <div className="relative mt-1">
                         <input
                           name="username"
                           onChange={handleChangeForm}
                           type="text"
                           required
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          id="floatingInput1"
+                          placeholder=" "
+                          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
+                        <label
+                          htmlFor="username"
+                          for="floatingInput1"
+                          className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                    
+                        >
+                          Nombre
+                        </label>
                       </div>
                     </div>
-                    
 
                     <div>
-                      <label
-                        htmlFor="usermail"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Email address
-                      </label>
-                      <div className="mt-1">
+                      <div className=" relative mt-1">
                         <input
                           name="usermail"
                           onChange={handleChangeForm}
                           type="email"
                           required
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          id="floatingInput2"
+                          placeholder=" "
+                          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
+                      <label
+                          htmlFor="usermail"
+                          for="floatingInput2" 
+                          className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                        >
+                          Correo electrónico
+                        </label>
                       </div>
                     </div>
                     
                     <div>
-                      <label
-                        htmlFor="userphone"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Telefono
-                      </label>
-                      <div className="mt-1">
+                      <div className="relative mt-1">
                         <input
-
                           name="userphone"
                           onChange={handleChangeForm}
                           type="text"
                           required
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          id="floatingInput3"
+                          placeholder=" "
+                          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
+                        <label
+                          htmlFor="userphone"
+                          for="floatingInput3" 
+                          className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                        >
+                          Teléfono
+                        </label>
                       </div>
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="password_user"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Password
-                      </label>
-                      <div className="mt-1">
+                      <div className="relative mt-1">
                         <input
-
                           name="password_user"
                           onChange={handleChangeForm}
                           type="password"
                           required
+                          id="floatingInput4"
+                          placeholder=" "
                           autoComplete="off"
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
+                        <label
+                          htmlFor="password_user"
+                          for="floatingInput4" 
+                          className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                        >
+                          Contraseña
+                        </label>
                       </div>
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="confirmPassword"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Repeat Password
-                      </label>
-                      <div className="mt-1">
+                      <div className="relative mt-1">
                         <input
 
                           name="confirmPassword"
                           onChange={handleChangeForm}
                           type="password"
                           required  
+                          id="floatingInput5"
+                          placeholder=" "
                           autoComplete="off"
-                          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-600 focus:border-blue-600 sm:text-sm"
+                          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         />
+                        <label
+                        htmlFor="confirmPassword"
+                        for="floatingInput5" 
+                        className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                      >
+                        Confirmar Contraseña
+                      </label>
                       </div>
 
                       
@@ -198,7 +204,7 @@ export default function Modal() {
                     <div className="col-span-2">
                       <button
                         type="submit"
-                        className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                        className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                       >
                         Registar
                       </button>
@@ -208,7 +214,7 @@ export default function Modal() {
                 {/*footer*/}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    className="text-white bg-red-600 hover:bg-red-900 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="text-white bg-red-500 hover:bg-red-800 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >

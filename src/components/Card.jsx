@@ -6,7 +6,7 @@ import { BiShoppingBag } from "react-icons/bi";
 
 import styles from "./Card.module.css";
 
-const Card = ({ title, likes, order, image }) => {
+const Card = ({ title, image, description }) => {
   return (
     <div className={classNames([styles.wrapper, styles.wrapperAnime])}>
       <div className={styles.header}>
@@ -14,7 +14,7 @@ const Card = ({ title, likes, order, image }) => {
           <img src={image} className={styles.image} alt="" />
         </div>
         <div className={styles.badgeWrapper}>
-          <div
+          <div 
             className={classNames([
               styles.primaryBadge,
               styles.badgeAnime,
@@ -31,7 +31,10 @@ const Card = ({ title, likes, order, image }) => {
         </div>
       </div>
       <div className={styles.textWrapper}>
-        <h1 className={styles.text}>{`${order}. ${title}`}</h1>
+        <h1 className={styles.text}>{title}</h1>
+      </div>
+      <div className={styles.descriptionWrapper}>
+        <p className={styles.description}>{description}</p>
       </div>
     </div>
   );

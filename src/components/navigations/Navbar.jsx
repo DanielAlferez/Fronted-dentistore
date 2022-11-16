@@ -76,54 +76,42 @@ export default function Navbar() {
   if(!data.length) return
   return (
     <div>
-      {console.log(data)}
-      <Popover className="relative bg-white">
-        <div className="absolute inset-0 shadow z-3 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-2">
-          <div className=" max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start">
-            <div className="hidden md:flex-1 md:flex md:items-center md:justify-center">
-              <Popover.Group as="nav" className="flex space-x-10">        
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                  <img width={'220px'} src="../public/logo.png"/>
-                </a>
+      <Popover.Group as="nav" className="grid grid-cols-3 py-2">        
+        <div className='grid justify-center'>
+          <a href="#" className=" text-gray-500 hover:text-gray-900">
+            <img width={'230px'} src="../public/logo.png"/>
+          </a>
+        </div>
+        
+        <div className="flex items-center justify-center">
+            <form className="flex space-x-1 w-full" action="">
+              <input
+                type="text"
+                className="w-full text-black bg-white border rounded-full focus:ring-light  focus:ring focus:ring-opacity-40"
+                placeholder="Buscar..."
+                />
+              <button className="px-4 text-white bg-light hover:bg-dark rounded-full ">
+                <BiSearch/>
+              </button>
+            </form> 
+        </div>
 
-                <div className="flex items-center w-90">
-                    <form className="flex space-x-1" action="">
-                      <input
-                        type="text"
-                        width={'80px'}
-                        className="block w-full px-4 py-2 text-black bg-white border rounded-full focus:ring-light focus:outline-none focus:ring focus:ring-opacity-40"
-                        placeholder="Buscar..."
-                        />
-                      <button className="px-4 text-white bg-light hover:bg-dark rounded-full ">
-                        <BiSearch/>
-                      </button>
-                    </form> 
-                </div>
-
-                <div className="flex items-center">
-                  <div className='w-10'>
-                    <Modal/>
-                    {/* <a href="" className="text-black hover:text-light">
-                      <BiUser className='w-8 h-8' />
-                    </a> */}
-                  </div>
-                  <div className='w-10'>
-                    <a href="#" className="text-black hover:text-light">
-                      <BiHeart className='w-8 h-8' />
-                    </a> 
-                  </div>
-                  <div className='w-10'>
-                    <a href="#" className="text-black hover:text-light">
-                      <HiOutlineShoppingCart className='w-8 h-8' />
-                    </a> 
-                  </div>
-                </div>
-              </Popover.Group>
-            </div>
+        <div className="flex items-center justify-center">
+          <div className='w-10'>
+            <Modal/>
+          </div>
+          <div className='w-10 '>
+            <a href="#" className="text-gray-700 hover:text-light ">
+              <BiHeart className='w-8 h-8' />
+            </a> 
+          </div>
+          <div className='w-10'>
+            <a href="#" className="text-gray-700 hover:text-light">
+              <HiOutlineShoppingCart className='w-8 h-8' />
+            </a> 
           </div>
         </div>
-      </Popover>
+      </Popover.Group>
 
       <Popover className="relative bg-white">
         <div className="absolute inset-0 shadow z-2 pointer-events-none" aria-hidden="true" />
