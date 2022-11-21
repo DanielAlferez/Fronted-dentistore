@@ -49,6 +49,12 @@ export default function Navbar() {
       setData(data);
     }
     loadCategories()
+    if(!data.length){
+      const data = [
+        {"category_id":0,"category_name":"No categories available"}
+      ]
+      setData(data)
+    }
   },[])
   if(!data.length) return
   return (
