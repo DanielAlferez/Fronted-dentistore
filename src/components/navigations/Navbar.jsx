@@ -63,11 +63,16 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  const URL = "http://localhost:8000/api/categories"
+  const URL = "http://127.0.0.1:8000/api/categories"
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
-      const res = await fetch(URL);
+      const res = await fetch(URL,{
+        'mode':'cors',
+        'headers':{
+          'Access-Control-Allow-Origin':'*',
+        }
+      });
       const data = await res.json();
       setData(data);
     }
