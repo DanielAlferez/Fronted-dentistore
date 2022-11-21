@@ -51,7 +51,7 @@ export default function Navbar() {
     loadCategories()
     if(!data.length){
       const data = [
-        {"category_id":0,"category_name":"No categories available"}
+        {"category_id":0,"category_name":"No hay categorias disponibles"}
       ]
       setData(data)
     }
