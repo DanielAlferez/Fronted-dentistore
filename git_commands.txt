@@ -1,0 +1,8 @@
+Git:
+git pull origin main
+git push origin main
+
+------------------------------
+
+dokku:
+git push -u dokku main:master
