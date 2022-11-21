@@ -26,6 +26,7 @@ import axios from "axios";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../../containers/auth/Login"
+import IMG from '../../../images/logo.png'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -33,7 +34,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  const URL = "http://127.0.0.1:8000/api/categories"
+  const URL = "http://0.0.0.0:8000/api/categories"
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
@@ -55,7 +56,7 @@ export default function Navbar() {
       <Popover.Group as="nav" className="grid grid-cols-3 py-2">        
         <div className='grid justify-center'>
           <a href="#" className=" text-gray-500 hover:text-gray-900">
-            <img width={'230px'} src="../images/logo.png"/>
+            <img width={'230px'} src={IMG}/>
           </a>
         </div>
         

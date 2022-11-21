@@ -1,5 +1,6 @@
 import React from "react";
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
+import IMG from '../../../images/diente1.png'
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -81,7 +82,7 @@ export default function Modal() {
                 {/*header*/}
                 <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <div className="justify-center">
-                      <center><img width={'100px'} src="../images/diente1.png"/></center>    
+                      <center><img width={'100px'} src={IMG}/></center>    
                       <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
                       <br />
                       <hr /> 

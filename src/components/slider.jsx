@@ -1,7 +1,12 @@
 import React from "react";
+import IMG1 from '../../images/banner.png'
+import IMG2 from '../../images/molde.jpg'
+import IMG3 from '../../images/insumos.jpg'
+
+
 
 export default function Slider(){
-    const images = ["../../images/banner.png","../../images/molde.jpg","../../images/insumos.jpg"]
+    const images = [IMG1,IMG2,IMG3]
     
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [selectedImage, setSelectedImage] = React.useState(images[0]);
