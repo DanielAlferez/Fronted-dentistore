@@ -27,36 +27,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from "../../containers/auth/Login"
 
-const categories = [
-  {
-    id: 1,
-    name: 'Dientes Acrilicos',
-    href: '#',
-  },
-  {
-    id: 2,
-    name: 'Resinas Acrilicas',
-    href: '#',
-  },
-  { 
-    id: 3,
-    name: 'Anestésicos', 
-    href: '#', 
-  },
-  {
-    id: 4,
-    name: 'Aleaciones Dentales',
-    href: '#',
-  },
-  {
-    id: 5,
-    name: 'Otros Productos',
-    href: '#',
-  },
-]
-
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -67,12 +37,13 @@ export default function Navbar() {
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
-      const res = await fetch(URL,{
-        'mode':'cors',
-        'headers':{
-          'Access-Control-Allow-Origin':'*',
-        }
-      });
+      const res = await fetch(URL);
+      //{
+      //   'mode':'cors',
+      //   'headers':{
+      //     'Access-Control-Allow-Origin':'*',
+      //   }
+      // });
       const data = await res.json();
       setData(data);
     }
@@ -84,7 +55,7 @@ export default function Navbar() {
       <Popover.Group as="nav" className="grid grid-cols-3 py-2">        
         <div className='grid justify-center'>
           <a href="#" className=" text-gray-500 hover:text-gray-900">
-            <img width={'230px'} src="../public/logo.png"/>
+            <img width={'230px'} src="../images/logo.png"/>
           </a>
         </div>
         
