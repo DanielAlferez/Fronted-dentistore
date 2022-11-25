@@ -34,7 +34,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  const URL = "http://0.0.0.0:8000/api/categories"
+  const URL = "http://127.0.0.1:8000/api/categories"
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {

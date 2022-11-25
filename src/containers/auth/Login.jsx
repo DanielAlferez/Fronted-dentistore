@@ -1,6 +1,7 @@
 import React from "react";
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
 import IMG from '../../../images/diente1.png'
+import validator from 'validator'
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -28,6 +29,17 @@ export default function Modal() {
       return
     }
 
+    if (!validator.isStrongPassword(form.password_user, {
+      minLength: 8, minLowercase: 1,
+      minUppercase: 1, minNumbers: 1, minSymbols: 1
+    })) {
+      setMessage({
+        message:'La contraseña debe contener: Una mayuscula, una minuscula, un numero y un simbolo.',
+        error:true
+      })
+      return
+    }
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/register/`,{method: 'POST', body: JSON.stringify({...form, userrole: 'usuario'}), headers: {
         "Content-Type": 'application/json'
@@ -50,6 +62,7 @@ export default function Modal() {
 
   }
 
+  
   const handleChangeForm = (event) => {
     const {value, name} = event.target;
 
@@ -89,7 +102,7 @@ export default function Modal() {
                       <br />
                   </div>
                   <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
-                    {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 `}>{message.message}</div>) }
+                    {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm`}>{message.message}</div>) }
                     
                     <div className="col-span-2 ">
                       <div className="relative mt-1">

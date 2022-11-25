@@ -2,8 +2,8 @@ import Layout from "../../hocs/Layout";
 import styles from "./Home.module.css";
 import Card from "../Card";
 import products from "../../data/products";
-import Slider from "../slider";
 import CardHome from "../cardHome";
+
 
 const Home = () => {
   return (
