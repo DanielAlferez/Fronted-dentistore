@@ -202,7 +202,7 @@ export default function Modal() {
                         <label
                           htmlFor="password_user"
                           for="floatingInput4" 
-                          className={`${message.type === 'passwords' ? 'text-red-600' : 'text-gray-500'} absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1`}
+                          className={`${message.type === 'passwords' ? 'text-red-600' : 'text-gray-500'} absolute text-sm text-gray-500 scale-75 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 left-1`}
                         >
                           Contraseña
                         </label>
@@ -245,7 +245,7 @@ export default function Modal() {
                   </form>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
                     className="text-white bg-red-500 hover:bg-red-800 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
@@ -253,6 +253,7 @@ export default function Modal() {
                   >
                     Cerrar
                   </button>
+                  <a href="#" className="mt-5 underline decoration-solid text-gray-400 hover:text-black">¿Ya tienes una cuenta? ¡Inicia sesión!</a>
                 </div>
               </div>
             </div>
