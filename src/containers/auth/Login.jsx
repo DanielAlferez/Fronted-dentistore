@@ -2,6 +2,7 @@ import React from "react";
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
 import IMG from '../../../images/diente1.png'
 import validator from 'validator'
+import {Tabs, TabsHeader, TabsBody, Tab, TabPanel} from "@material-tailwind/react";
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
