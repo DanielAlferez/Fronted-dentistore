@@ -2,7 +2,7 @@ import React from "react";
 import { BiUser, BiHeart, BiSearch, BiLogIn, BiUserPlus} from "react-icons/bi";
 import IMG from '../../../images/diente1.png'
 import validator from 'validator'
-import {Tabs, TabsHeader, TabsBody, Tab, TabPanel} from "@material-tailwind/react";
+import {IoIosCloseCircleOutline} from 'react-icons/io'
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -115,10 +115,17 @@ export default function Modal() {
             {/*content*/}
               <div className=" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*Tabs*/}
-                <ul className="flex bg-gray-200 px-6 pt-6 rounded-t-lg">
+                  <div className="bg-gray-200  rounded-t-lg text-right pr-2 pt-2">
+                  <button
+                        type="button"
+                        onClick={() => setShowModal(false)}
+                      >
+                        <IoIosCloseCircleOutline className='w-5 h-5'></IoIosCloseCircleOutline>
+                      </button>
+                  </div>
+                <ul className="flex bg-gray-200 px-4">
                   <li>
-                    
-                    <a href="#" onClick={() => setOpenTab(1)} className={openTab === 1 ? "rounded-t-lg  inline-block px-4 py-2 text-black bg-white" : "inline-block px-4 py-2 bg-gray-200"}> 
+                    <a href="#" onClick={() => setOpenTab(1)} className={openTab === 1 ? "rounded-t-lg  inline-block px-4 py-2 text-black bg-white" : "rounded-t-lg inline-block px-4 py-2 bg-gray-200"}> 
                         <div className="flex items-center">
                           <BiLogIn/>
                           <p className="ml-2">
@@ -145,15 +152,15 @@ export default function Modal() {
                   <div className={openTab === 1 ? "block" : "hidden"}>
                     {/*header*/}
                     <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                      <div className="justify-center">
+                      {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Ingresa en DentiStore</h1>
                           <br />
                           <hr /> 
                           <br />
-                      </div>
+                      </div> */}
                       <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
-                        {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 `}>{message.message}</div>) }
+                        {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm `}>{message.message}</div>) }
                         <div className="col-span-2">
                           <div className=" relative mt-1 ">
                             <input
@@ -200,7 +207,7 @@ export default function Modal() {
                         <div className="col-span-2">
                           <button
                             type="submit"
-                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
                             Ingresar
                           </button>
@@ -208,30 +215,22 @@ export default function Modal() {
                       </form>
                     </div>
                     {/*footer*/}
-                    <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                      <button
-                        className="text-white bg-red-500 hover:bg-red-800 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Cerrar
-                      </button>
-                    </div>
+                    
                   </div>
 
                   {/*Register*/}
                   <div className={openTab === 2 ? "block" : "hidden"}>
                     {/*header*/}
                     <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                      <div className="justify-center">
+                      {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
                           <br />
                           <hr /> 
                           <br />
-                      </div>
+                      </div> */}
                       <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
-                        {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2`}>{message.message}</div>) }
+                        {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm`}>{message.message}</div>) }
                         
                         <div className="col-span-2 ">
                           <div className="relative mt-1">
@@ -348,7 +347,7 @@ export default function Modal() {
                         <div className="col-span-2">
                           <button
                             type="submit"
-                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
                             Registar
                           </button>
@@ -356,15 +355,7 @@ export default function Modal() {
                       </form>
                     </div>
                     {/*footer*/}
-                    <div className="flex flex-col items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
-                      <button
-                        className="text-white bg-red-500 hover:bg-red-800 rounded-md background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Cerrar
-                      </button>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
