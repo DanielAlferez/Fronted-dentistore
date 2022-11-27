@@ -22,6 +22,7 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import {CgProfile} from "react-icons/cg"
 import axios from "axios";
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -89,7 +90,19 @@ export default function Navbar() {
 
         <div className="flex items-center justify-center">
           <div className='w-10'>
-            <Modal/>
+            <a href="#" className="text-gray-700 hover:text-light ">
+              {(()=>{
+                if(localStorage.getItem('token')  !== null){
+                  return(
+                    <CgProfile className='w-8 h-8'></CgProfile>
+                  )
+                  }else{
+                  return(
+                    <Modal/>
+                  )
+                }
+              })()}
+            </a> 
           </div>
           <div className='w-10 '>
             <a href="#" className="text-gray-700 hover:text-light ">
