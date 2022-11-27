@@ -75,7 +75,7 @@ export default function Navbar() {
           </a>
         </div>
         
-        <div className="flex items-center justify-center">
+        <div className="invisible md:visible flex items-center justify-center">
             <form className="flex space-x-1 w-full" action="">
               <input
                 type="text"
@@ -117,13 +117,29 @@ export default function Navbar() {
 
       <Popover className="relative bg-white">
         <div className="absolute inset-0 shadow z-2 pointer-events-none" aria-hidden="true" />
-        <div className="relative z-1">
+        <div className="relative z-1 ">
           <div className=" max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start">
-            <div className="-mr-2 -my-2 md:hidden">
+            {/* Menu celular */}
+            <div className="-mr-2 -my-2 md:hidden flex w-full">
               <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-light">
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
               </Popover.Button>
+              {/* Search cel */}
+              <div className='block md:hidden w-full mx-12'>
+                <div className="flex items-center justify-center w-full">
+                  <form className="flex space-x-1 w-full" action="">
+                    <input
+                      type="text"
+                      className="w-full text-black bg-white border rounded-full focus:ring-light  focus:ring focus:ring-opacity-40"
+                      placeholder="Buscar..."
+                      />
+                    <button className="px-4 text-white bg-light hover:bg-dark rounded-full ">
+                      <BiSearch/>
+                    </button>
+                  </form> 
+                </div>
+              </div> 
             </div>
             <div className="hidden md:flex-1 md:flex md:items-center md:justify-center">
               <Popover.Group as="nav" className="flex space-x-10">
@@ -188,12 +204,11 @@ export default function Navbar() {
                 <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Medios de Pago
                 </a> 
-
+                      
               </Popover.Group>
             </div>
           </div>
         </div>
-
         <Transition
           as={Fragment}
           enter="duration-200 ease-out"
