@@ -164,11 +164,11 @@ export default function Modal() {
         <div className="z-50">
           {/*principal*/}
           <div className="container mx-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="flex flex-col relative w-[26rem] my-6 mx-auto max-w-3xl">  
+            <div className="flex flex-col relative w-[26rem] my-4 mx-auto max-w-3xl">  
             {/*content*/}
               <div className=" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*Tabs*/}
-                  <div className="bg-gray-200  rounded-t-lg text-right pr-2 pt-2">
+                  <div className="bg-gray-200 rounded-t-lg text-right pr-2 pt-2">
                   <button
                         type="button"
                         onClick={() => setShowModal(false)}
@@ -200,11 +200,11 @@ export default function Modal() {
                   </li>
                 </ul>
                 {/*Body*/}
-                <div className="p-3">
+                <div>
                   {/*Login*/}
                   <div className={openTab === 1 ? "block" : "hidden"}>
                     {/*header*/}
-                    <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                    <div className="items-start justify-between py-5 px-4 border-b border-solid border-slate-200 rounded-t">
                       {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Ingresa en DentiStore</h1>
@@ -274,7 +274,7 @@ export default function Modal() {
                   {/*Register*/}
                   <div className={openTab === 2 ? "block" : "hidden"}>
                     {/*header*/}
-                    <div className="items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                    <div className="items-start justify-between py-5 px-4 border-b border-solid border-slate-200 rounded-t">
                       {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
