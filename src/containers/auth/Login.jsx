@@ -3,6 +3,7 @@ import { BiUser, BiHeart, BiSearch, BiLogIn, BiUserPlus} from "react-icons/bi";
 import IMG from '../../../images/diente1.png'
 import validator from 'validator'
 import {IoIosCloseCircleOutline} from 'react-icons/io'
+import jwt from 'jwt-decode'
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -22,6 +23,10 @@ export default function Modal() {
     confirmPassword: '',
   })
 
+  const [formLogin,setFormLogin] = React.useState({
+    email: '',
+    password:''
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -76,16 +81,51 @@ export default function Modal() {
 
   }
 
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/login/`,{method: 'POST', body: JSON.stringify({...formLogin}), headers: {
+        "Content-Type": 'application/json'
+      }})
+      const data = await response.json()
+      if(response.status !== 200) throw new Error(data.detail)
+      console.log(data)
+      setMessage({
+        message: 'Ingreso exitoso!',
+        error: false
+      })
+      const user = jwt(data.jwt)
+      console.log(user)
+      localStorage.setItem('token',data.jwt)
+      setTimeout(()=>window.location.reload(false),1500)
+    }
+    catch(error){
+      setMessage({
+        message: error.message,
+        error:true
+      })
+    }
+  }
+
   
   const handleChangeForm = (event) => {
     const {value, name} = event.target;
-
     setForm({
       ...form,
       [name]: value
     })
     
   }
+
+  const handleChangeFormLogin = (event) => {
+    const {value, name} = event.target;
+    setFormLogin({
+      ...formLogin,
+      [name]: value
+    })
+    
+  }
+
   if(!showModal && message.error){
     setMessage({
       message:'',
@@ -159,23 +199,23 @@ export default function Modal() {
                           <hr /> 
                           <br />
                       </div> */}
-                      <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
+                      <form  onSubmit={handleSubmitLogin}  className="gap-x-4 gap-y-3 grid grid-cols-2">
                         {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm `}>{message.message}</div>) }
                         <div className="col-span-2">
                           <div className=" relative mt-1 ">
                             <input
-                              name="usermail"
-                              onChange={handleChangeForm}
+                              name="email"
+                              onChange={handleChangeFormLogin}
                               type="email"
                               required
-                              id="floatingInput1"
+                              id="floatingInput1_login"
                               placeholder=" "
                               autoComplete="off"
                               className={`${message.type === 'email'  ? 'border-red-600' : 'focus:border-blue-600'} block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer`}
                             />
                           <label
-                              htmlFor="usermail"
-                              for="floatingInput1" 
+                              htmlFor="email"
+                              for="floatingInput1_login" 
                               className={`${message.type === 'email' ? 'text-red-600' : 'text-gray-500'} absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1`}
                             >
                                   Correo electrónico
@@ -185,18 +225,18 @@ export default function Modal() {
                         <div className="col-span-2">
                           <div className="relative mt-1">
                             <input
-                              name="password_user_login"
-                              onChange={handleChangeForm}
+                              name="password"
+                              onChange={handleChangeFormLogin}
                               type="password"
                               required
-                              id="floatingInput2"
+                              id="floatingInput2_login"
                               placeholder=" "
                               autoComplete="off"
                               className={`${message.type === 'passwords'  ? 'border-red-600' : 'focus:border-blue-600'} block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer`}
                             />
                             <label
-                              htmlFor="password_user_login"
-                              for="floatingInput2" 
+                              htmlFor="password"
+                              for="floatingInput2_login" 
                               className={`${message.type === 'passwords' ? 'text-red-600' : 'text-gray-500'} absolute text-sm text-gray-500 scale-75 duration-300 transform -translate-y-4 top-2 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:-translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 left-1`}
                             >
                               Contraseña
