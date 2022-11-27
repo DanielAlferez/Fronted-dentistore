@@ -6,7 +6,7 @@ import IMG3 from '../../images/insumos.jpg'
 export default function CardHome() {
     return (
         <div className="flex flex-wrap lg:flex-nowrap gap-7 justify-center">
-            <div className="w-80 bg-white border border-gray-200 rounded-lg shadow-md">
+            <div className="cursor-pointer hover:opacity-90 w-80 bg-white border border-gray-200 rounded-lg shadow-md">
                     <img className="h-48 w-full rounded-t-lg" src={IMG2} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-black">Calidad</h5>
@@ -14,7 +14,7 @@ export default function CardHome() {
                 </div>
             </div>
 
-            <div className="w-80 bg-white border border-gray-200 rounded-lg shadow-md">
+            <div className="cursor-pointer hover:opacity-90 w-80 bg-white border border-gray-200 rounded-lg shadow-md">
                     <img className="h-48 w-full rounded-t-lg" src={IMG1} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-black">Dentistore</h5>
@@ -22,7 +22,7 @@ export default function CardHome() {
                 </div>
             </div>
 
-            <div className="w-80 bg-white border border-gray-200 rounded-lg shadow-md">
+            <div className="cursor-pointer hover:opacity-90 w-80 bg-white border border-gray-200 rounded-lg shadow-md">
                     <img className="h-48 w-full rounded-t-lg" src={IMG3} alt="" />
                 <div className="p-5">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-black">Tecnología</h5>

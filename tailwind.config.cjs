@@ -7,6 +7,7 @@ module.exports = {
         light: "#53B848",
         dark: "#3A8732",
       },
+      display: ["group-hover"],
     },
   },
   plugins: [

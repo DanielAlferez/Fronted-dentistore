@@ -95,62 +95,20 @@ const navigation = {
           Footer
         </h2>
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          
-            <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Solutions</h3>
-                  <ul role="list" className="mt-4 space-y-4">
-                    {navigation.solutions.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Support</h3>
-                  <ul role="list" className="mt-4 space-y-4">
-                    {navigation.support.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="md:grid md:grid-cols-2 md:gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
-                  <ul role="list" className="mt-4 space-y-4">
-                    {navigation.company.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-12 md:mt-0">
-                  <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
-                  <ul role="list" className="mt-4 space-y-4">
-                    {navigation.legal.map((item) => (
-                      <li key={item.name}>
-                        <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-y-8 xl:col-span-2">
+            <div className="text-center md:grid md:grid-cols-1">
+              <h1 className="font-extrabold text-gray-500">DentiStore</h1>
+              <p className="font-light text-gray-500">Insumos, Materiales y Equipos <br /> para   Odontología y Mecanica Dental</p>
+            </div>
+            <div className="text-center md:grid md:grid-cols-1">
+              <h2 className="font-extrabold text-gray-500">Contactanos</h2>
+              <p className="font-light text-gray-500">Email: dentistorevillavicencio@hotmail.com</p>
+              <p className="font-light text-gray-500">Dirección: Calle. 15 No. 36 - 39 Br. La Esperanza 7 Etp.</p>
+              <p className="font-light text-gray-500">Celular: 315 620 3127</p>
+            </div>
           </div>
+          <br />
+          <h1 className="text-center font-extrabold text-gray-400">Villavicencio, Meta</h1>
           <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
             <div className="flex space-x-6 md:order-2">
               {navigation.social.map((item) => (

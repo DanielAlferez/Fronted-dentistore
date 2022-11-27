@@ -163,7 +163,7 @@ export default function Modal() {
         <div className="z-50">
           {/*principal*/}
           <div className="container mx-auto justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="flex flex-col relative w-auto my-6 mx-auto max-w-3xl">  
+            <div className="flex flex-col relative w-1/3 my-6 mx-auto max-w-3xl">  
             {/*content*/}
               <div className=" border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*Tabs*/}
@@ -256,12 +256,12 @@ export default function Modal() {
                           </div>
                         </div>
 
-                        <div className="col-span-2">
+                        <div className="col-span-2 ">
                           <button
                             type="submit"
-                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full rounded-3xl justify-center py-2 px-4 border border-transparent  shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
-                            Ingresar
+                            INGRESAR
                           </button>
                         </div>
                       </form>
@@ -399,9 +399,9 @@ export default function Modal() {
                         <div className="col-span-2">
                           <button
                             type="submit"
-                            className="w-full justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full rounded-3xl justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
-                            Registar
+                            CREAR CUENTA
                           </button>
                         </div>
                       </form>

@@ -21,7 +21,6 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
-import { HiOutlineShoppingCart } from "react-icons/hi";
 import {CgProfile} from "react-icons/cg"
 import axios from "axios";
 import React from 'react';
@@ -29,6 +28,7 @@ import { Link } from 'react-router-dom';
 import Modal from "../../containers/auth/Login"
 import IMG from '../../../images/logo.png'
 import Logout from '../../containers/auth/logout';
+import Cart from '../Shop/Cart'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -110,9 +110,7 @@ export default function Navbar() {
             </a> 
           </div>
           <div className='w-10'>
-            <a href="#" className="text-gray-700 hover:text-light">
-              <HiOutlineShoppingCart className='w-8 h-8' />
-            </a> 
+            <Cart></Cart> 
           </div>
         </div>
       </Popover.Group>

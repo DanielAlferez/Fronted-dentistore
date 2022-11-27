@@ -1,39 +1,40 @@
-import IMG1 from '../../images/in1.png'
-import IMG2 from '../../images/in2.png'
-import IMG3 from '../../images/in3.png'
-import IMG4 from '../../images/in4.png'
-import IMG5 from '../../images/in5.png'
+import IMG1 from '../../images/prod1.jpg'
+import IMG2 from '../../images/prod2.jpg'
+import IMG3 from '../../images/prod3.jpg'
+import IMG4 from '../../images/prod4.jpg'
+import IMG5 from '../../images/prod5.jpg'
+import IMG6 from '../../images/prod6.jpg'
 
 export default [
     {
-      title: "Crema para los dientes antes de irse a acostar",
+      title: "Duratone-n®",
       image: IMG1,
-      description: "$20.000",
+      price: "$20.000",
     },
     {
-      title: "Crema para los dientes antes de irse a acostar",
+      title: "Tiziano® ",
       image: IMG2,
-      description: "$20.000",
+      price: "$300.000",
     },
     {
-      title: "Crema para los dientes antes de irse a acostar",
+      title: "Veracril® / Opti-Cryl® Termopolimerizable Monómero",
       image: IMG3,
-      description: "$20.000",
+      price: "$900.000",
     },
     {
-      title: "Crema para los dientes antes de irse a acostar",
+      title: "O-cryl® Autopolimerizable",
       image: IMG4,
-      description: "$20.000",
+      price: "$20.000",
     },
     {
-      title: "Crema para los dientes ",
+      title: "Adesivo Zafira Bond",
       image: IMG5,
-      description: "$20.000",
+      price: "$20.000",
     },
     {
-      title: "Crema para los dientes",
-      image: IMG4,
-      description: "$20.000",
+      title: "Veracril® / Opti-Cryl® Acrílico Alto Impacto",
+      image: IMG6,
+      price: "$20.000",
     },
     
   ];
