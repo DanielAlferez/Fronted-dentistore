@@ -9,7 +9,7 @@ import CardHome from "../cardHome";
 const Home = () => {
   return (
     <Layout>
-      <div className="py-20 2xl:px-60 lg:px-28 sm:px-14 md:px-10 px-10">
+      <div className="py-20 2xl:px-52 lg:px-12 sm:px-6 md:px-6 px-6">
         <main className={styles.section}>
           <section className={styles.container}>
             <CardHome></CardHome>
