@@ -12,7 +12,7 @@ const Card = ({ title, image, description }) => {
         <AiFillHeart />
       </div>
       <div className="relative mt-2 mx-2">
-        <div className="x-1 h-36 sm:h-40 lg:h-44 2xl:h-48 w-full rounded-xl overflow-hidden flex">
+        <div className="x-1 h-40 sm:h-44 lg:h-48 2xl:h-52 w-full rounded-xl overflow-hidden flex">
           <img src={image} className="transition-all duration-500 ease-in-out object-cover w-full h-full" alt="" />
         </div>
       </div>
