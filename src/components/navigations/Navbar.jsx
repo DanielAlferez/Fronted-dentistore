@@ -90,11 +90,12 @@ export default function Navbar() {
 
         <div className="flex items-center justify-center">
           <div className='w-10'>
-            <a href="#" className="text-gray-700 hover:text-light ">
               {(()=>{
                 if(localStorage.getItem('token')  !== null){
                   return(
-                    <CgProfile className='w-8 h-8'></CgProfile>
+                    <a href="#" className="text-gray-700 hover:text-light">
+                      <CgProfile className='w-8 h-8'></CgProfile>
+                    </a> 
                   )
                   }else{
                   return(
@@ -102,7 +103,6 @@ export default function Navbar() {
                   )
                 }
               })()}
-            </a> 
           </div>
           <div className='w-10 '>
             <a href="#" className="text-gray-700 hover:text-light ">
