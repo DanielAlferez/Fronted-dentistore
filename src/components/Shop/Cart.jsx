@@ -32,7 +32,7 @@ export default function Cart() {
     
                 <div className="fixed inset-0 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                    <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full ">
                     <Transition.Child
                         as={Fragment}
                         enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -42,7 +42,7 @@ export default function Cart() {
                         leaveFrom="translate-x-0"
                         leaveTo="translate-x-full"
                     >
-                        <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                        <Dialog.Panel className="pointer-events-auto w-[25rem]">
                         <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                             <div className="flex items-start justify-between">
