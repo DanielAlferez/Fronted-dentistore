@@ -110,7 +110,7 @@ export default function Navbar() {
             </a> 
           </div>
           <div className='w-10'>
-            <Cart></Cart> 
+            <Cart></Cart>
           </div>
         </div>
       </Popover.Group>

@@ -204,7 +204,7 @@ export default function Modal() {
                   {/*Login*/}
                   <div className={openTab === 1 ? "block" : "hidden"}>
                     {/*header*/}
-                    <div className="items-start justify-between py-5 px-4 border-b border-solid border-slate-200 rounded-t">
+                    <div className="items-start justify-between py-5 px-4 border-solid border-slate-200 rounded-t">
                       {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Ingresa en DentiStore</h1>
@@ -260,7 +260,7 @@ export default function Modal() {
                         <div className="col-span-2 ">
                           <button
                             type="submit"
-                            className="w-full rounded-3xl justify-center py-2 px-4 border border-transparent  shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full rounded-3xl justify-center py-3 px-4 my-3 border border-transparent  shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
                             INGRESAR
                           </button>
@@ -274,7 +274,7 @@ export default function Modal() {
                   {/*Register*/}
                   <div className={openTab === 2 ? "block" : "hidden"}>
                     {/*header*/}
-                    <div className="items-start justify-between py-5 px-4 border-b border-solid border-slate-200 rounded-t">
+                    <div className="items-start justify-between py-5 px-4 border-solid border-slate-200 rounded-t">
                       {/* <div className="justify-center">
                           <center><img width={'100px'} src={IMG}/></center>    
                           <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
@@ -400,7 +400,7 @@ export default function Modal() {
                         <div className="col-span-2">
                           <button
                             type="submit"
-                            className="w-full rounded-3xl justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
+                            className="w-full rounded-3xl justify-center py-3 px-4 my-3 border border-transparent shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
                             CREAR CUENTA
                           </button>

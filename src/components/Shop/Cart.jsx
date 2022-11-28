@@ -1,20 +1,45 @@
+import React from 'react';
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import products from "../../data/products";
+//import products from "../../data/products";
+
+
+
 
 export default function Cart() {
-  const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false)
+    const [products,setProducts] = React.useState([])
+    const [total,setTotal] = React.useState()
 
-  return (
+    const handleDelete = (e) => {
+        const num = e.target.value
+        const data = JSON.parse(localStorage.getItem('car'))
+        const resultado = data.filter(function(item){
+            return item !== data[num]
+        });
+        localStorage.setItem('car',JSON.stringify(resultado))
+        setProducts(resultado)
+    }
+
+    React.useEffect(()=>{
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price ), 0))
+        setProducts(datos_existentes)
+
+    },[localStorage.getItem('car')])
+    
+
+
+return (
     <>
         <a href="#" 
         onClick={() => setOpen(true)}
         className="text-gray-700 hover:text-light">
                 <HiOutlineShoppingCart className='w-8 h-8' />
         </a>
-
         {open ? (
             <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -46,7 +71,7 @@ export default function Cart() {
                         <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                             <div className="flex items-start justify-between">
-                                <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
+                                    <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
                                 <div className="ml-3 flex h-7 items-center">
                                 <button
                                     type="button"
@@ -58,11 +83,13 @@ export default function Cart() {
                                 </button>
                                 </div>
                             </div>
+
+                            
     
                             <div className="mt-8">
                                 <div className="flow-root">
                                 <ul role="list" className="-my-6 divide-y divide-gray-200">
-                                    {products.map((product, index) => (
+                                    {products.length > 0 && products.map((product, index) => (
                                     <li key={index} className="flex py-6">
                                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                         <img
@@ -77,7 +104,7 @@ export default function Cart() {
                                             <h3>
                                                 <a className='font-normal' href={product.href}>{product.title}</a>
                                             </h3>
-                                            <p className="ml-10">{product.price}</p>
+                                            <p className="ml-10">${product.price}</p>
                                             </div>
                                         </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
@@ -85,6 +112,8 @@ export default function Cart() {
     
                                             <div className="flex">
                                             <button
+                                                value={index}
+                                                onClick={handleDelete}
                                                 type="button"
                                                 className="font-medium text-dark hover:text-light"
                                             >
@@ -95,6 +124,13 @@ export default function Cart() {
                                         </div>
                                     </li>
                                     ))}
+                                    {(()=>{
+                                        if(products.length == 0){
+                                            return(
+                                                <p>No hay productos en el carrito</p>
+                                            )
+                                        }
+                                    })()}
                                 </ul>
                                 </div>
                             </div>
@@ -103,7 +139,7 @@ export default function Cart() {
                             <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                             <div className="flex justify-between text-base font-medium text-gray-900">
                                 <p>Subtotal</p>
-                                <p>$262.00</p>
+                                <p>${total}</p>
                             </div>
                             <p className="mt-0.5 text-sm text-gray-500">Pedido mínimo: $20.000</p>
                             <div className="mt-6">

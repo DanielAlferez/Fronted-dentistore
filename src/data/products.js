@@ -7,34 +7,40 @@ import IMG6 from '../../images/prod6.jpg'
 
 export default [
     {
+      id:1,
       title: "Duratone-n®",
       image: IMG1,
-      price: "$20.000",
+      price: 20000,
     },
     {
+      id:2,
       title: "Tiziano® ",
       image: IMG2,
-      price: "$300.000",
+      price: 300000,
     },
     {
+      id:3,
       title: "Veracril® / Opti-Cryl® Termopolimerizable Monómero",
       image: IMG3,
-      price: "$900.000",
+      price: 900000,
     },
     {
+      id:4,
       title: "O-cryl® Autopolimerizable",
       image: IMG4,
-      price: "$20.000",
+      price: 20000
     },
     {
+      id:5,
       title: "Adesivo Zafira Bond",
       image: IMG5,
-      price: "$20.000",
+      price: 20000
     },
     {
+      id:6,
       title: "Veracril® / Opti-Cryl® Acrílico Alto Impacto",
       image: IMG6,
-      price: "$20.000",
+      price: 20.000
     },
     
   ];
