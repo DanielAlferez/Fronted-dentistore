@@ -3,6 +3,9 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
+import {GrAddCircle} from "react-icons/gr"
+import {AiOutlineMinusCircle} from "react-icons/ai"
+import findOcc from './contador';
 //import products from "../../data/products";
 
 
@@ -11,7 +14,23 @@ import { IoMdClose } from "react-icons/io";
 export default function Cart() {
     const [open, setOpen] = useState(false)
     const [products,setProducts] = React.useState([])
+    // const [cantidad,setCantidad] = React.useState([])
     const [total,setTotal] = React.useState()
+
+    const handleAddCant = (id,title,image,price) => {
+        const newProduct = {
+            id,
+            title,
+            image,
+            price
+        }
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+
+        datos_existentes.push(newProduct);
+        localStorage.setItem('car',JSON.stringify(datos_existentes))
+        setProducts(datos_existentes)
+    }
 
     const handleDelete = (e) => {
         const num = e.target.value
@@ -26,7 +45,26 @@ export default function Cart() {
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price ), 0))
+        const cantidad = findOcc(datos_existentes,"id")
+        //console.log(cantidad)
+        datos_existentes.forEach(function(i){
+            cantidad.forEach(function(x){
+                if(i.id === x.id){
+                    i.cantidad = x.occurrence
+                }
+            })
+        })
+
+        let hash = {};
+        datos_existentes = datos_existentes.filter(function(current) {
+            const exists = !hash[current.id];
+            hash[current.id] = true;
+            return exists;
+        });
+
+        //console.log(datos_existentes)
+
+        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.cantidad ), 0))
         setProducts(datos_existentes)
 
     },[localStorage.getItem('car')])
@@ -101,14 +139,31 @@ return (
                                         <div className="ml-3 flex flex-1 flex-col">
                                         <div>
                                             <div className="flex justify-between text-base font-medium text-gray-900">
-                                            <h3>
-                                                <a className='font-normal' href={product.href}>{product.title}</a>
-                                            </h3>
-                                            <p className="ml-10">${product.price}</p>
+                                            
+                                                <a className='font-normal w-40' href={product.href}>{product.title}</a>
+                                            
+                                            <div className='grid grid-cols-1'>
+                                                <p className="ml-2">${product.price}</p>
+                                                <p className="text-gray-500 text-right text-sm">c/u</p>
+                                            </div>
                                             </div>
                                         </div>
+                                        <div className='grid grid-cols-1'>
+                                            <button
+                                                onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
+                                                className='bg-light text-white rounded-full m-1'>
+                                                Agregar
+                                            </button>
+                                            <button 
+                                                className='bg-red-500 text-white rounded-full m-1'
+                                                value={index} 
+                                                onClick={handleDelete} 
+                                                type="button">
+                                                Remover
+                                            </button>
+                                        </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
-                                            <p className="text-gray-500"></p>
+                                            <p className="text-gray-500">Cantidad: {product.cantidad}</p>
     
                                             <div className="flex">
                                             <button

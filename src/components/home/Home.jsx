@@ -58,6 +58,7 @@ const Home = () => {
               {products.map((element, index) => (
                 <Card
                   key={index}
+                  id={element.id}
                   title={element.title}
                   image={element.image}
                   price={element.price}
