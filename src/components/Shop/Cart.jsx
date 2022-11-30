@@ -11,10 +11,27 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 
 export default function Cart() {
+
+    const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
     const [products,setProducts] = React.useState([])
     const [cantidad,setCantidad] = React.useState(0)
-    const [total,setTotal] = React.useState()
+    const [total,setTotal] = React.useState();
+    const [loading,setLoading] = React.useState(false);
+
+    setInterval(()=>{
+        setLocalStorageState(localStorage.getItem('car'));
+    }, 500);
+
+    const handleDeleteProduct = (id) => {
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+
+        let temp = datos_existentes.filter((dato)=>dato.id !== id);
+        localStorage.setItem('car',JSON.stringify(temp))
+        setLoading(true)
+        setProducts(temp)
+    }
 
     const handleAddCant = (id,title,image,price) => {
         const newProduct = {
@@ -28,6 +45,7 @@ export default function Cart() {
 
         datos_existentes.push(newProduct);
         localStorage.setItem('car',JSON.stringify(datos_existentes))
+        setLoading(true)
         setProducts(datos_existentes)
     }
 
@@ -38,13 +56,13 @@ export default function Cart() {
             return item !== data[num]
         });
         localStorage.setItem('car',JSON.stringify(resultado))
+        setLoading(true)
         setProducts(resultado)
     }
 
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-        setCantidad(datos_existentes.length)
         const cantidad = findOcc(datos_existentes,"id")
         //console.log(cantidad)
         datos_existentes.forEach(function(i){
@@ -53,7 +71,7 @@ export default function Cart() {
                     i.cantidad = x.occurrence
                 }
             })
-        })
+        });
 
         let hash = {};
         datos_existentes = datos_existentes.filter(function(current) {
@@ -65,9 +83,14 @@ export default function Cart() {
         //console.log(datos_existentes)
 
         setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.cantidad ), 0))
-        setProducts(datos_existentes)
+        setProducts(datos_existentes);
+        setLoading(false)
 
-    },[localStorage.getItem('car')])
+    },[localStorageState]);
+
+    React.useEffect(()=>{
+        setCantidad(products.length);
+    }, [products]);
     
 
 
@@ -113,68 +136,66 @@ return (
                         <Dialog.Panel className="pointer-events-auto w-screen sm:w-[30rem]">
                         <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
-                            <div className="flex items-start justify-between">
-                                    <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
-                                <div className="ml-3 flex h-7 items-center">
-                                <button
-                                    type="button"
-                                    className="-m-2 p-2 hover:text-light"
-                                    onClick={() => setOpen(false)}
-                                >
-                                    <span className="sr-only">Close panel</span>
-                                    <IoMdClose className='h-6  w-6' aria-hidden="true"/>
-                                </button>
-                                </div>
-                            </div>
-
-                            
-    
-                            <div className="mt-8">
-                                <div className="flow-root">
-                                <ul role="list" className="-my-6 divide-y divide-gray-200">
-                                    {products.length > 0 && products.map((product, index) => (
-                                    <li key={index} className="flex py-6">
-                                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                        <img
-                                            src={product.image}
-                                            className="h-full w-full object-cover object-center"
-                                        />
-                                        </div>
-    
-                                        <div className="ml-3 flex flex-1 flex-col">
-                                        <div>
-                                            <div className="flex justify-between text-base font-medium text-gray-900">
-                                            
-                                                <a className='font-normal w-56' href={product.href}>{product.title}</a>
-                                            
-                                            <div className='grid grid-cols-1'>
-                                                <p className="ml-2">${product.price}</p>
-                                                <p className="text-gray-500 text-right text-sm">c/u</p>
-                                            </div>
-                                            </div>
-                                        </div>
+                            {(()=>{
+                                        if(!loading){
+                                            return(
+                                                <div>
+                                                    <div className="flex items-start justify-between">
+                                                        <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
+                                                        <div className="ml-3 flex h-7 items-center">
+                                                            <button
+                                                                type="button"
+                                                                className="-m-2 p-2 hover:text-light"
+                                                                onClick={() => setOpen(false)}
+                                                            >
+                                                                <span className="sr-only">Close panel</span>
+                                                                <IoMdClose className='h-6  w-6' aria-hidden="true"/>
+                                                            </button>
+                                                        </div>
+                                                </div>    
+                                                <div className="mt-8">
+                                                    <div className="flow-root">
+                                                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                                                            {products.length > 0 && products.map((product, index) => (
+                                                            <li key={index} className="flex py-6">
+                                                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                                <img
+                                                                    src={product.image}
+                                                                    className="h-full w-full object-cover object-center"
+                                                                />
+                                                                </div>    
+                                                                <div className="ml-3 flex flex-1 flex-col">
+                                                                    <div>
+                                                                        <div className="flex justify-between text-base font-medium text-gray-900">
+                                                                            <a className='font-normal w-56' href={product.href}>{product.title}</a>                                            
+                                                                            <div className='grid grid-cols-1'>
+                                                                                <p className="ml-2">${product.price}</p>
+                                                                                <p className="text-gray-500 text-right text-sm">c/u</p>
+                                                                            </div>
+                                                                            </div>
+                                                                        </div>
                                         
-                                        <div className="flex flex-1 items-end justify-between ">
-                                            <div className='flex  items-center justify-between w-20'>
-                                                <button 
-                                                    className='bg-red-500 hover:bg-red-700 text-white rounded-full w-6 h-6'
-                                                    value={index} 
-                                                    onClick={handleDelete} 
-                                                    type="button">
-                                                    -
-                                                </button>
-                                                <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.cantidad}</p>
-                                                <button
-                                                    onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
-                                                    className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
-                                                    +
-                                                </button>
-                                            </div>
+                                                                        <div className="flex flex-1 items-end justify-between ">
+                                                                            <div className='flex  items-center justify-between w-20'>
+                                                                                <button 
+                                                                                    className='bg-red-500 hover:bg-red-700 text-white rounded-full w-6 h-6'
+                                                                                    value={index} 
+                                                                                    onClick={handleDelete} 
+                                                                                    type="button">
+                                                                                    -
+                                                                                </button>
+                                                                                    <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.cantidad}</p>
+                                                                                <button
+                                                                                    onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
+                                                                                    className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
+                                                                                    +
+                                                                                </button>
+                                                                        </div>
     
                                             <div className="flex text-sm">
                                             <button
-                                                value={index}
-                                                // onClick={}
+                                                value={product.id}
+                                                onClick={()=>handleDeleteProduct(product.id)}
                                                 type="button"
                                                 className="font-medium text-dark hover:text-light"
                                             >
@@ -188,18 +209,23 @@ return (
                                     {(()=>{
                                         if(products.length == 0){
                                             return(                                            
-                                                <div className='mt-10 flex flex-col items-center justify-center content-center text-gray-300'>
+                                                <div className='mt-5 flex flex-col items-center justify-center content-center text-gray-300'>
                                                     <MdOutlineRemoveShoppingCart className='w-72 h-72 opacity-50'/>
                                                     <p className='mt-5 text-2xl'> 
                                                         No hay productos en el carrito
                                                     </p>
                                                 </div>
-                                            )
+                                                )
                                         }
                                     })()}
-                                </ul>
-                                </div>
-                            </div>
+                                    </ul>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    )
+                                    }
+                                    })()}
+                            
                             </div>
     
                             <div className="border-t border-gray-200 py-6 px-4 sm:px-6">

@@ -9,9 +9,11 @@ import ImageSlider from "./ImageSlider";
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
+import Swal from 'sweetalert2'
 
 
 const Card = ({ id,title, image, price }) => {
+  
   const handleAddProduct = () => {
     const newProduct = {
         id,
@@ -25,7 +27,24 @@ const Card = ({ id,title, image, price }) => {
 
     datos_existentes.push(newProduct);
     localStorage.setItem('car',JSON.stringify(datos_existentes))
-    const data = localStorage.getItem('car')
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Producto añadido al carrito'
+    })
+
   };
 
   let [isOpen, setIsOpen] = useState(false)
