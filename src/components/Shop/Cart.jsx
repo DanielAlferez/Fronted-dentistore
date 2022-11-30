@@ -3,18 +3,17 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
-import {GrAddCircle} from "react-icons/gr"
 import {AiOutlineMinusCircle} from "react-icons/ai"
 import findOcc from './contador';
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+
 //import products from "../../data/products";
-
-
 
 
 export default function Cart() {
     const [open, setOpen] = useState(false)
     const [products,setProducts] = React.useState([])
-    // const [cantidad,setCantidad] = React.useState([])
+    const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState()
 
     const handleAddCant = (id,title,image,price) => {
@@ -45,6 +44,7 @@ export default function Cart() {
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+        setCantidad(datos_existentes.length)
         const cantidad = findOcc(datos_existentes,"id")
         //console.log(cantidad)
         datos_existentes.forEach(function(i){
@@ -73,24 +73,29 @@ export default function Cart() {
 
 return (
     <>
-        <a href="#" 
-        onClick={() => setOpen(true)}
-        className="text-gray-700 hover:text-light">
+        <div className='relative cursor-pointer'>
+            <button href="#" 
+            onClick={() => setOpen(true)}
+            className="group text-gray-700 hover:text-light">
                 <HiOutlineShoppingCart className='w-8 h-8' />
-        </a>
+                <p className='absolute bg-light opacity-90 text-white rounded-full w-5 h-5 text-center -top-1 right-0 flex items-center justify-center text-xs'>
+                    {cantidad}
+                </p>
+            </button>
+        </div>
         {open ? (
             <Transition.Root show={open} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpen}>
                 <Transition.Child
                 as={Fragment}
-                enter="ease-in-out duration-500"
+                enter="ease-in-out duration-700"
                 enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in-out duration-500"
-                leaveFrom="opacity-100"
+                enterTo="opacity-80"
+                leave="ease-in-out duration-700"
+                leaveFrom="opacity-80"
                 leaveTo="opacity-0"
                 >
-                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-70 transition-opacity" />
                 </Transition.Child>
     
                 <div className="fixed inset-0 overflow-hidden">
@@ -140,7 +145,7 @@ return (
                                         <div>
                                             <div className="flex justify-between text-base font-medium text-gray-900">
                                             
-                                                <a className='font-normal w-40' href={product.href}>{product.title}</a>
+                                                <a className='font-normal w-56' href={product.href}>{product.title}</a>
                                             
                                             <div className='grid grid-cols-1'>
                                                 <p className="ml-2">${product.price}</p>
@@ -148,27 +153,28 @@ return (
                                             </div>
                                             </div>
                                         </div>
-                                        <div className='grid grid-cols-1'>
-                                            <button
-                                                onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
-                                                className='bg-light text-white rounded-full m-1'>
-                                                Agregar
-                                            </button>
-                                            <button 
-                                                className='bg-red-500 text-white rounded-full m-1'
-                                                value={index} 
-                                                onClick={handleDelete} 
-                                                type="button">
-                                                Remover
-                                            </button>
-                                        </div>
-                                        <div className="flex flex-1 items-end justify-between text-sm">
-                                            <p className="text-gray-500">Cantidad: {product.cantidad}</p>
+                                        
+                                        <div className="flex flex-1 items-end justify-between ">
+                                            <div className='flex  items-center justify-between w-20'>
+                                                <button 
+                                                    className='bg-red-500 hover:bg-red-700 text-white rounded-full w-6 h-6'
+                                                    value={index} 
+                                                    onClick={handleDelete} 
+                                                    type="button">
+                                                    -
+                                                </button>
+                                                <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.cantidad}</p>
+                                                <button
+                                                    onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
+                                                    className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
+                                                    +
+                                                </button>
+                                            </div>
     
-                                            <div className="flex">
+                                            <div className="flex text-sm">
                                             <button
                                                 value={index}
-                                                onClick={handleDelete}
+                                                // onClick={}
                                                 type="button"
                                                 className="font-medium text-dark hover:text-light"
                                             >
@@ -181,8 +187,13 @@ return (
                                     ))}
                                     {(()=>{
                                         if(products.length == 0){
-                                            return(
-                                                <p>No hay productos en el carrito</p>
+                                            return(                                            
+                                                <div className='mt-10 flex flex-col items-center justify-center content-center text-gray-300'>
+                                                    <MdOutlineRemoveShoppingCart className='w-72 h-72 opacity-50'/>
+                                                    <p className='mt-5 text-2xl'> 
+                                                        No hay productos en el carrito
+                                                    </p>
+                                                </div>
                                             )
                                         }
                                     })()}
@@ -202,12 +213,12 @@ return (
                                 href="#"
                                 className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-dark"
                                 >
-                                Continuar
+                                Ir a Pagar
                                 </a>
                             </div>
                             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                 <p>
-                                Ó {" "}
+                                O {" "}
                                 <button
                                     type="button"
                                     className="font-medium text-dark hover:text-light"

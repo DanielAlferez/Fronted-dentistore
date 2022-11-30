@@ -17,7 +17,7 @@ export default function CardHome() {
             <div className="cursor-pointer hover:opacity-90 w-80 bg-white border border-gray-200 rounded-lg shadow-md">
                     <img className="h-48 w-full rounded-t-lg" src={IMG1} alt="" />
                 <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-black">Dentistore</h5>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight dark:text-black">Denti Store</h5>
                     <p className="mb-3 font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet magnam ex ducimus similique exercitationem. Tempora consequatur quibusdam aperiam, temporibus beatae totam corrupti accusantium laborum saepe amet eius ad laudantium illum.</p>
                 </div>
             </div>

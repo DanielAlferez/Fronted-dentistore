@@ -150,13 +150,13 @@ export default function Modal() {
 
   return (
     <>
-      <a
+      <button
         onClick={() => setShowModal(true)}
         href="#"
         className="text-gray-600 hover:text-light"
       >
         <BiUser className="w-8 h-8" />
-      </a>
+      </button>
 
       {/* Open regular modal
       </button> */}

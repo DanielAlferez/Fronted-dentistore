@@ -79,7 +79,7 @@ export default function Navbar() {
             <form className="flex space-x-1 w-full" action="">
               <input
                 type="text"
-                className="w-full text-black bg-white border rounded-full focus:ring-light  focus:ring focus:ring-opacity-40"
+                className="w-full text-black bg-white border rounded-full focus:ring-light focus:ring focus:ring-opacity-40"
                 placeholder="Buscar..."
                 />
               <button className="px-4 text-white bg-light hover:bg-dark rounded-full ">
@@ -105,9 +105,9 @@ export default function Navbar() {
               })()}
           </div>
           <div className='w-10 '>
-            <a href="#" className="text-gray-700 hover:text-light ">
+            <button href="#" className="text-gray-700 hover:text-light ">
               <BiHeart className='w-8 h-8' />
-            </a> 
+            </button> 
           </div>
           <div className='w-10'>
             <Cart></Cart>
@@ -164,11 +164,11 @@ export default function Navbar() {
 
                       <Transition
                         as={Fragment}
-                        enter="transition ease-out duration-200"
+                        enter="transition ease-out duration-400"
                         enterFrom="opacity-0 -translate-y-1"
-                        enterTo="opacity-100 translate-y-0"
+                        enterTo="opacity-90 translate-y-0"
                         leave="transition ease-in duration-150"
-                        leaveFrom="opacity-100 translate-y-0"
+                        leaveFrom="opacity-90 translate-y-0"
                         leaveTo="opacity-0 -translate-y-1"
                       >
                         <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">
