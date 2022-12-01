@@ -122,16 +122,14 @@ const Card = ({ id,title, image, price }) => {
                   </div>
 
                   {/* content */}
-                  <div className="grid md:grid-cols-3 grid-cols-1 content-center md:p-5">
+                  <div className="grid md:grid-cols-5 grid-cols-1 content-center md:p-5">
                     {/* Image */}
-                    <div className="col-span-1">
-                      <div className="h-40 sm:h-44 lg:h-48 2xl:h-52 w-full rounded-xl flex justify-center">
-                        <img src={image} className="object-cover h-full" alt="" />
-                        {/* <ImageSlider image={image}/> */}
-                      </div>
+                    <div className="col-span-2">
+                      {/* <img src={image} className="object-cover h-full" alt="" /> */}
+                      <ImageSlider image={image} />
                     </div>
                     {/* product */}
-                    <div className="col-span-2  ml-5">
+                    <div className="col-span-3  ml-5">
                       {/* title */}
                       <Dialog.Title
                         as="h1"

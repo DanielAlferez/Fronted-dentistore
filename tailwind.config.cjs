@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+
     extend: {
       colors: {
         light: "#53B848",

@@ -60,7 +60,7 @@ export default function Navbar() {
   },[])
   if(!data.length) return
   return (
-    <div>
+    <div >
       {(()=>{
         if(localStorage.getItem('token')  !== null){
           return(
@@ -115,7 +115,7 @@ export default function Navbar() {
         </div>
       </Popover.Group>
 
-      <Popover className="relative bg-white">
+      <Popover className="relative ">
         <div className="absolute inset-0 shadow z-2 pointer-events-none" aria-hidden="true" />
         <div className="relative z-1 ">
           <div className=" max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start">

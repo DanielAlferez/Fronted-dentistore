@@ -1,55 +1,32 @@
 import React from 'react'
-import PropTypes from "prop-types";
-import { Navigation, Thumbs } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import products from "../data/products";
-import "./images.scss"
+// import SimpleImageSlider from "react-simple-image-slider";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+
 
 
 function ImageSlider({image}) {
-    const [activate, setActivate] = React.useState()
+
+  const images = [
+    {
+      original: image,
+      thumbnail: image,
+    },
+    {
+      original: image,
+      thumbnail: image,
+    },
+    {
+      original: image,
+      thumbnail: image,
+    },
+  ]
 
   return (
     <>
-        <Swiper
-            loop={true}
-            spaceBetween={20}
-            navigation={true}
-            modules={[Navigation, Thumbs]}
-            grabCursor={true}
-            thumbs={{swiper: activate}}
-            // touchRatio={1.5}
-            // pagination={{clickable: true}}
-            // slidesPerView={1}
-            // centeredSlides={true}
-            className="product-images-slider"
-
-        >
-            {products.map((element, index) => (
-                <SwiperSlide key={index} className="pt-1">
-                    <img src={element.image} alt="" />
-                </SwiperSlide>
-            ))}
-
-        </Swiper>
-        <Swiper
-            // onSwiper={setActivate}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            modules={[Navigation, Thumbs]}
-            className='product-images-slider-thumbs'
-
-        >
-            {products.map((element, index) => (
-                <SwiperSlide key={index} className="pt-1">
-                    <div className='product-images-slider-thumbs-wrapper'>
-                        <img src={element.image} alt="product images" />
-                    </div>
-                </SwiperSlide>
-            ))}
-
-        </Swiper>
+      <div className='relative w-full -mt-16 h-full '>
+        <ImageGallery items={images} showPlayButton={false} showBullets={true} />
+      </div>
     </>
   )
 }
