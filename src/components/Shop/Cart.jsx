@@ -136,23 +136,23 @@ return (
                         <Dialog.Panel className="pointer-events-auto w-screen sm:w-[30rem]">
                         <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                             <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                                <div>
+                                    <div className="flex items-start justify-between">
+                                        <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
+                                        <div className="ml-3 flex h-7 items-center">
+                                            <button
+                                                type="button"
+                                                className="-m-2 p-2 hover:text-light"
+                                                onClick={() => setOpen(false)}
+                                            >
+                                                <span className="sr-only">Close panel</span>
+                                                <IoMdClose className='h-6  w-6' aria-hidden="true"/>
+                                            </button>
+                                        </div>
+                                </div>    
                             {(()=>{
                                         if(!loading){
                                             return(
-                                                <div>
-                                                    <div className="flex items-start justify-between">
-                                                        <Dialog.Title className="text-lg font-medium text-gray-900">Tu lista de compras</Dialog.Title>
-                                                        <div className="ml-3 flex h-7 items-center">
-                                                            <button
-                                                                type="button"
-                                                                className="-m-2 p-2 hover:text-light"
-                                                                onClick={() => setOpen(false)}
-                                                            >
-                                                                <span className="sr-only">Close panel</span>
-                                                                <IoMdClose className='h-6  w-6' aria-hidden="true"/>
-                                                            </button>
-                                                        </div>
-                                                </div>    
                                                 <div className="mt-8">
                                                     <div className="flow-root">
                                                         <ul role="list" className="-my-6 divide-y divide-gray-200">
@@ -221,10 +221,10 @@ return (
                                     </ul>
                                     </div>
                                     </div>
-                                    </div>
                                     )
-                                    }
-                                    })()}
+                                }
+                            })()}
+                            </div>
                             
                             </div>
     
