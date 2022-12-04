@@ -24,8 +24,8 @@ function ImageSlider({image}) {
 
   return (
     <>
-      <div className='relative w-full -mt-16 h-full '>
-        <ImageGallery items={images} showPlayButton={false} showBullets={true} />
+      <div className='-mt-16'>
+        <ImageGallery showNav={true} items={images} showPlayButton={false} lazyLoad={true} useBrowserFullscreen={true}/>
       </div>
     </>
   )

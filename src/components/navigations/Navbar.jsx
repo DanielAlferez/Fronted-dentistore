@@ -166,9 +166,9 @@ export default function Navbar() {
                         as={Fragment}
                         enter="transition ease-out duration-400"
                         enterFrom="opacity-0 -translate-y-1"
-                        enterTo="opacity-90 translate-y-0"
+                        enterTo="opacity-100 translate-y-0"
                         leave="transition ease-in duration-150"
-                        leaveFrom="opacity-90 translate-y-0"
+                        leaveFrom="opacity-100 translate-y-0"
                         leaveTo="opacity-0 -translate-y-1"
                       >
                         <Popover.Panel className="hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-white">

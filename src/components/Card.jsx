@@ -109,7 +109,7 @@ const Card = ({ id,title, image, price }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-[24rem] sm:max-w-xl md:max-w-2xl lg:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative w-full max-w-[24rem]  md:max-w-3xl lg:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
 
 
                   {/* close button */}
@@ -122,18 +122,17 @@ const Card = ({ id,title, image, price }) => {
                   </div>
 
                   {/* content */}
-                  <div className="grid md:grid-cols-5 grid-cols-1 content-center md:p-5">
+                  <div className="grid md:grid-cols-7 grid-cols-1 content-center md:p-5">
                     {/* Image */}
-                    <div className="col-span-2">
-                      {/* <img src={image} className="object-cover h-full" alt="" /> */}
-                      <ImageSlider image={image} />
+                    <div className="col-span-3 pt-10 px-10 md:px-0 ">
+                      <ImageSlider image={image}/>
                     </div>
                     {/* product */}
-                    <div className="col-span-3  ml-5">
+                    <div className="col-span-4 mt-10 md:mt-0 px-4 md:p-10">
                       {/* title */}
                       <Dialog.Title
                         as="h1"
-                        className="text-lg font-medium leading-6 text-gray-900"
+                        className="text-xl text-center mb-10 font-medium leading-6 text-gray-900"
                       >
                         {title}
                       </Dialog.Title>
@@ -145,7 +144,7 @@ const Card = ({ id,title, image, price }) => {
                           Caracteristicas
                         </div>
                         {/* Precio */}
-                        <div className="bg-gray-50 p-3 my-3 rounded-sm flex flex-1 content-center">
+                        <div className="bg-gray-100 p-3 my-3 rounded-2xl flex flex-1 content-center">
                           <p className="text-gray-500 font-light">Precio  </p>
                           <p className="-mt-0.5 text-xl ml-7 text-dark font-semibold">$ {price}</p>
 
