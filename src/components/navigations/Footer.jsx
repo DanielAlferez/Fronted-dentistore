@@ -97,7 +97,7 @@ const navigation = {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div className="grid md:grid-cols-2 grid-cols-1 gap-y-8 xl:col-span-2">
             <div className="text-center md:grid md:grid-cols-1">
-              <h1 className="font-extrabold text-gray-500">DentiStore</h1>
+              <h1 className="font-extrabold text-gray-500">Denti Store</h1>
               <p className="font-light text-gray-500">Insumos, Materiales y Equipos <br /> para   Odontología y Mecanica Dental</p>
             </div>
             <div className="text-center md:grid md:grid-cols-1">

@@ -26,10 +26,10 @@ export default function CardSlideHome() {
                     id="slider"
                     className="w-full h-full inline-flex items-center justify-center mb-5 "
                     >
-                        <div className="bg-gray-300 rounded-full w-8 h-8 opacity-80 absolute z-50 mt-80 mr-80">
+                        <div className="absolute z-50 mt-80 mr-80">
                             <div >
                                 <button
-                                    className="text-2xl text-black"
+                                    className="text-2xl text-black bg-gray-300 hover:bg-gray-500 rounded-full w-8 h-8 opacity-80"
                                     onClick={checkNext}>{'<'}
                                 </button>
                             </div>
@@ -59,8 +59,8 @@ export default function CardSlideHome() {
                             <div className="cursor-pointer bg-white border border-gray-200 rounded-lg shadow-md">
                                 <img className="w-full rounded-t-lg" src={IMG2} alt="" />
                                 <div className="p-5">
-                                    <h5 className="text-xl font-bold tracking-tight dark:text-black">Calidad</h5>
-                                    <p className="text-sm ont-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quod, ullam ea doloribus unde deleniti, tenetur delectus eveniet aliquid exercitationem facere, ad nisi sit amet velit nostrum sequi sapiente? Consectetur.</p>
+                                    <h5 className="text-2xl font-bold tracking-tight dark:text-black">Calidad</h5>
+                                    <p className="text-md ont-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quod, ullam ea doloribus unde deleniti, tenetur delectus eveniet aliquid exercitationem facere, ad nisi sit amet velit nostrum sequi sapiente? Consectetur.</p>
                                 </div>
                             </div>
                         </label>
@@ -68,8 +68,8 @@ export default function CardSlideHome() {
                             <div className="cursor-pointer bg-white border border-gray-200 rounded-lg shadow-md">
                                 <img className="w-full rounded-t-lg" src={IMG1} alt="" />
                                 <div className="p-5">
-                                    <h5 className="text-xl  font-bold tracking-tight dark:text-black">Denti Store</h5>
-                                    <p className="text-sm font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet magnam ex ducimus similique exercitationem. Tempora consequatur quibusdam aperiam, temporibus beatae totam corrupti accusantium laborum saepe amet eius ad laudantium illum.</p>
+                                    <h5 className="text-2xl  font-bold tracking-tight dark:text-black">Denti Store</h5>
+                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet magnam ex ducimus similique exercitationem. Tempora consequatur quibusdam aperiam, temporibus beatae totam corrupti accusantium laborum saepe amet eius ad laudantium illum.</p>
                                 </div>
                             </div>
                         </label>
@@ -77,18 +77,16 @@ export default function CardSlideHome() {
                             <div className="cursor-pointer bg-white border border-gray-200 rounded-lg shadow-md">
                                 <img className="rounded-t-lg" src={IMG3} alt="" />
                                 <div className="p-5">
-                                    <h5 className="text-xl font-bold tracking-tight dark:text-black">Tecnología</h5>
-                                    <p className="text-sm font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, exercitationem deleniti nulla aliquam, sint fugit, beatae dignissimos similique maxime necessitatibus optio fugiat perspiciatis blanditiis quisquam culpa minima ex dolores maiores?</p>
+                                    <h5 className="text-2xl font-bold tracking-tight dark:text-black">Tecnología</h5>
+                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, exercitationem deleniti nulla aliquam, sint fugit, beatae dignissimos similique maxime necessitatibus optio fugiat perspiciatis blanditiis quisquam culpa minima ex dolores maiores?</p>
                                 </div>
                             </div>
                         </label>
-                        <div className="bg-gray-300 rounded-full w-8 h-8 opacity-80 absolute z-50 mt-80 ml-80" >
-                            <div>
-                                <button 
-                                    className="text-2xl  text-black"
-                                    onClick={checkNext}>{'>'}
-                                </button>
-                            </div>
+                        <div className=" absolute z-50 mt-80 ml-80" >
+                            <button 
+                                className="text-2xl text-black bg-gray-300 hover:bg-gray-500 rounded-full w-8 h-8 opacity-80"
+                                onClick={checkNext}>{'>'}
+                            </button>
                         </div>
                     </section>
                 </div>

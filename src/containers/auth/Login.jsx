@@ -205,13 +205,6 @@ export default function Modal() {
                   <div className={openTab === 1 ? "block" : "hidden"}>
                     {/*header*/}
                     <div className="items-start justify-between py-5 px-4 border-solid border-slate-200 rounded-t">
-                      {/* <div className="justify-center">
-                          <center><img width={'100px'} src={IMG}/></center>    
-                          <h1 className="text-2xl text-center font-extrabold">Ingresa en DentiStore</h1>
-                          <br />
-                          <hr /> 
-                          <br />
-                      </div> */}
                       <form  onSubmit={handleSubmitLogin}  className="gap-x-4 gap-y-3 grid grid-cols-2">
                         {messageLogin.message.length !== 0 && (<div className={`${messageLogin.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm `}>{messageLogin.message}</div>) }
                         <div className="col-span-2">
@@ -275,13 +268,6 @@ export default function Modal() {
                   <div className={openTab === 2 ? "block" : "hidden"}>
                     {/*header*/}
                     <div className="items-start justify-between py-5 px-4 border-solid border-slate-200 rounded-t">
-                      {/* <div className="justify-center">
-                          <center><img width={'100px'} src={IMG}/></center>    
-                          <h1 className="text-2xl text-center font-extrabold">Registrate en DentiStore</h1>
-                          <br />
-                          <hr /> 
-                          <br />
-                      </div> */}
                       <form  onSubmit={handleSubmit}  className="gap-x-4 gap-y-3 grid grid-cols-2">
                         {message.message.length !== 0 && (<div className={`${message.error ? 'bg-red-500 text-white' : 'bg-green-400 text-white' } p-3 w-full rounded-xl grid col-span-2 max-w-sm`}>{message.message}</div>) }
                         
