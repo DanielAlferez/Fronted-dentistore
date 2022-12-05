@@ -6,7 +6,9 @@ import CardHome from "../cardHome";
 import CardSlideHome from "../CardSlideHome";
 import Presentation from "./Presentation";
 import Categories from "./Categories";
-
+import { TbTruck, TbPackage } from "react-icons/tb";
+import { RiSecurePaymentLine } from "react-icons/ri";
+import Map from "./Map";
 
 const Home = () => {
   return (
@@ -15,6 +17,24 @@ const Home = () => {
         <main className={styles.section}>
           <section className={styles.container}>
             <Presentation/>
+          </section>
+
+          <div className="grid grid-cols-11 w-full justify-center items-center" />
+          <section className={styles.container}>
+            <div className="grid grid-cols-1 md:grid-cols-3 justify-center text-center gap-y-10 gap-x-14">
+              <div className="bg-gray-200 p-6 grid grid-cols-1 rounded-2xl ">
+                <center><TbTruck className="w-16 h-16 font-thin"/></center>
+                <h1 className="text-2xl font-medium text-black">Compra facil y enviamos rapido</h1>
+              </div>
+              <div className="bg-gray-200 p-6 grid grid-cols-1 rounded-2xl">
+                <center><TbPackage className="w-16 h-16 font-thin"/></center>
+                <h1 className="text-2xl font-medium text-black">Disponibilidad inmediata</h1>
+              </div>
+              <div className="bg-gray-200 p-6 grid grid-cols-1  rounded-2xl">
+                <center><RiSecurePaymentLine className="w-16 h-16 font-thin"/></center>
+                <h1 className="text-2xl font-medium text-black">Seguridad en tus compras</h1>
+              </div>
+            </div>
           </section>
 
           <div className="grid grid-cols-11 w-full justify-center items-center mb-6" >
@@ -53,24 +73,11 @@ const Home = () => {
 
           
           <div className="grid grid-cols-11 w-full justify-center items-center mb-6" >
-            <hr  className="col-span-4"/><h1 className="text-center col-span-3 xs:text-xs sm:text-xl text-gray-400 font-semibold">Todos Los Productos</h1><hr  className="col-span-4"/>
+            <hr  className="col-span-4"/><h1 className="text-center col-span-3 xs:text-xs sm:text-xl text-gray-400 font-semibold">Encuentranos</h1><hr  className="col-span-4"/>
           </div>
-
           <section className={styles.container}>
-            <div className={styles.layout}>
-              {products.map((element, index) => (
-                <Card
-                  key={index}
-                  id={element.id}
-                  title={element.title}
-                  image={element.image}
-                  price={element.price}
-                />
-              ))}
-            </div>          
+            <Map/>
           </section>
-
-          
 
         </main>
       </div>

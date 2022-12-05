@@ -1,6 +1,8 @@
 import React from 'react'
 import IMG1 from '../../../images/inicio1.png'
 import IMG2 from '../../../images/inicio2.png'
+import IMG3 from '../../../images/inicio6.png'
+import IMG4 from '../../../images/inicio5.png'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -36,17 +38,21 @@ function Categories() {
         autoplay={true}
         className="mx-5 hidden lg:block"
         >
-            <div className='bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className='bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className='bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
+            </div>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
             </div>
         </Slider>
 
@@ -56,21 +62,21 @@ function Categories() {
         autoplay={true}
         className="mx-5 hidden md:block lg:hidden"
         >
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
             </div>
         </Slider>
 
@@ -80,25 +86,25 @@ function Categories() {
         autoplay={true}
         className="mx-5 block md:hidden"
         >
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
             </div>
-            <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                <h1 className='text-white font-extrabold text-3xl'>Dientes Acrílicos</h1>
-                <center><img className='h-40 content-center' src={IMG1} alt="" /></center>
+            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+                <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
+                <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
             </div>
-            
         </Slider>
-        {data.map((item) => (
+        
+        {/* {data.map((item) => (
             <div key={item.category_id}>
                 <Slider
                 slidesToShow={1}
@@ -107,9 +113,9 @@ function Categories() {
                 className="mx-5 hidden lg:block"
                 > 
                     <div className='bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                        <h1 className='text-white font-extrabold text-3xl'>{item.category_name}</h1>
+                        <h1 className='text-white font-extrabold text-3xl'>{item.category_name}</h1> */}
                         {/* <center><img className='h-40 content-center' src={IMG1} alt="" /></center> */}
-                    </div>
+                    {/* </div>
                 </Slider>
 
                 <Slider
@@ -119,9 +125,9 @@ function Categories() {
                 className="mx-5 hidden md:block lg:hidden"
                 >
                     <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
-                        <h1 className='text-white font-extrabold text-3xl'>{item.category_name}</h1>
+                        <h1 className='text-white font-extrabold text-3xl'>{item.category_name}</h1> */}
                         {/* <center><img className='h-40 content-center' src={IMG1} alt="" /></center> */}
-                    </div>
+                    {/* </div>
 
                 </Slider>
 
@@ -134,11 +140,11 @@ function Categories() {
                     <div className=' bg-light hover:bg-dark cursor-pointer text-center p-2'>
                         <h1 className='text-white font-extrabold text-3xl'>{item.category_name}</h1>
                         {/* <center><img className='h-40 content-center' src={IMG1} alt="" /></center> */}
-                    </div>
+                    {/* </div>
 
-                </Slider>
-            </div>
-        ))}  
+                </Slider> */}
+            {/* </div>
+        ))}   */}
     </div>
   )
 }

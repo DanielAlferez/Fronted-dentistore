@@ -43,14 +43,15 @@ function Presentation() {
   return (
     <>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
-            <div>
-                <h1 className='text-4xl sm:text-5xl font-bold mb-10'>Denti Store</h1>
-                <p className="text-gray-600 text-lg sm:text-xl ">Insumos, Materiales y Equipos para Odonlogía y Mecanica Dental</p>
-                <div className='flex gap-2 lg:gap-5'>
+            <div className='text-center lg:text-left'>
+                <h1 className='text-4xl sm:text-5xl font-bold mb-5'>Denti Store</h1>
+                <p className="text-gray-600 text-lg sm:text-xl ">Insumos, Materiales y Equipos para Odontología y Mecanica Dental</p>
+                <p className="mt-14 text-gray-500 text-md sm:text-lg ">Encuentra todos los insumos que necesitas para tu consultorio o laboratorio dental con envío a todo Villavicencio</p>
+                <div className='flex gap-2 lg:gap-5 justify-center lg:justify-start'>
                     <button className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'> Productos Recientes</button>
                     <button className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'>Todos los Productos</button>
                 </div>
-                <p className="text-gray-400 text-md sm:text-lg mt-0 lg:mt-20">Nuestros Distribuidores</p>
+                <p className="text-gray-400 text-md sm:text-lg mt-0 lg:mt-10">Nuestros Distribuidores</p>
                 <div>
                     <ImageGallery items={images} autoPlay={true} showPlayButton={false} showBullets={false} showFullscreenButton={false} showNav={false} />
                 </div>
@@ -60,7 +61,7 @@ function Presentation() {
                     <div className='absolute -top-20 right-0 w-48' >
                         <img class="images" src={INI1} alt="" />
                     </div>
-                    <div className='absolute -top-20 left-0 w-48' >
+                    <div className='absolute -top-20 -left-7 w-48' >
                         <img class="images" src={INI2} alt="" />
                     </div>
                     <div className='absolute bottom-20 right-0 w-40' >

@@ -18,7 +18,7 @@ export default function CardSlideHome() {
 
     return (
     <>
-        <div className="relative mb-20 w-full px-20 h-96">
+        <div className="relative mb-20 w-full px-20 h-72">
             <div className="relative justify-center content-center absolue inset-x-0 top-0 ">
                 <div className=" mb-6 text-center items-center inset-0">
                     
@@ -60,7 +60,7 @@ export default function CardSlideHome() {
                                 <img className="w-full rounded-t-lg" src={IMG2} alt="" />
                                 <div className="p-5">
                                     <h5 className="text-2xl font-bold tracking-tight dark:text-black">Calidad</h5>
-                                    <p className="text-md ont-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quod, ullam ea doloribus unde deleniti, tenetur delectus eveniet aliquid exercitationem facere, ad nisi sit amet velit nostrum sequi sapiente? Consectetur.</p>
+                                    <p className="text-md ont-normal text-gray-700 dark:tex-dark-400">Conoce más sobre la calidad de los productos que tenemos en nuestra tienda Denti Store</p>
                                 </div>
                             </div>
                         </label>
@@ -69,7 +69,7 @@ export default function CardSlideHome() {
                                 <img className="w-full rounded-t-lg" src={IMG1} alt="" />
                                 <div className="p-5">
                                     <h5 className="text-2xl  font-bold tracking-tight dark:text-black">Denti Store</h5>
-                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet magnam ex ducimus similique exercitationem. Tempora consequatur quibusdam aperiam, temporibus beatae totam corrupti accusantium laborum saepe amet eius ad laudantium illum.</p>
+                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Conoce más sobre nuestra empresa y los productos que ofrecemos</p>
                                 </div>
                             </div>
                         </label>
@@ -78,7 +78,7 @@ export default function CardSlideHome() {
                                 <img className="rounded-t-lg" src={IMG3} alt="" />
                                 <div className="p-5">
                                     <h5 className="text-2xl font-bold tracking-tight dark:text-black">Tecnología</h5>
-                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, exercitationem deleniti nulla aliquam, sint fugit, beatae dignissimos similique maxime necessitatibus optio fugiat perspiciatis blanditiis quisquam culpa minima ex dolores maiores?</p>
+                                    <p className="text-md font-normal text-gray-700 dark:tex-dark-400">Conoce sobre la tecnología que usamos en nuestros productos</p>
                                 </div>
                             </div>
                         </label>
