@@ -20,19 +20,19 @@ const Home = () => {
           </section>
 
           <div className="grid grid-cols-11 w-full justify-center items-center" />
-          <section className={styles.container}>
-            <div className="grid grid-cols-1 md:grid-cols-3 justify-center text-center gap-y-10 gap-x-14">
-              <div className="bg-gray-200 p-6 grid grid-cols-1 rounded-2xl ">
-                <center><TbTruck className="w-16 h-16 font-thin"/></center>
-                <h1 className="text-2xl font-medium text-black">Compra facil y enviamos rapido</h1>
+          <section className="pb-20 flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 justify-center text-center gap-y-10 gap-x-4 max-w-[16rem] sm:max-w-4xl ">
+              <div className="bg-gray-200 p-4 grid grid-cols-1 rounded-2xl ">
+                <center><TbTruck className="w-14 h-14 font-thin"/></center>
+                <h1 className="text-xl font-medium text-black">Compra facil y enviamos rapido</h1>
               </div>
-              <div className="bg-gray-200 p-6 grid grid-cols-1 rounded-2xl">
-                <center><TbPackage className="w-16 h-16 font-thin"/></center>
-                <h1 className="text-2xl font-medium text-black">Disponibilidad inmediata</h1>
+              <div className="bg-gray-200 p-4 grid grid-cols-1 rounded-2xl">
+                <center><TbPackage className="w-14 h-14 font-thin"/></center>
+                <h1 className="text-xl font-medium text-black">Disponibilidad inmediata</h1>
               </div>
-              <div className="bg-gray-200 p-6 grid grid-cols-1  rounded-2xl">
-                <center><RiSecurePaymentLine className="w-16 h-16 font-thin"/></center>
-                <h1 className="text-2xl font-medium text-black">Seguridad en tus compras</h1>
+              <div className="bg-gray-200 p-4 grid grid-cols-1  rounded-2xl">
+                <center><RiSecurePaymentLine className="w-14 h-14 font-thin"/></center>
+                <h1 className="text-xl font-medium text-black">Seguridad en tus compras</h1>
               </div>
             </div>
           </section>

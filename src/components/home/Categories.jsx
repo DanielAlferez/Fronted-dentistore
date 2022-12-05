@@ -34,73 +34,112 @@ function Categories() {
     <div>
         <Slider
         slidesToShow={3}
-        slidesToScroll={1}
+        slidesToScroll={2}
         autoplay={true}
-        className="mx-5 hidden lg:block"
+        variableWidth={true}
+        className="mx-5 hidden lg:block "
         >
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl '>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
+            </div>
+            <div>
+                <div className='w-5'/>
             </div>
         </Slider>
 
         <Slider
         slidesToShow={2}
-        slidesToScroll={1}
+        slidesToScroll={2}
         autoplay={true}
+        variableWidth={true}
         className="mx-5 hidden md:block lg:hidden"
         >
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl '>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
+            </div>
+            <div>
+                <div className='w-5'/>
             </div>
         </Slider>
 
         <Slider
         slidesToShow={1}
-        slidesToScroll={1}
+        slidesToScroll={2}
         autoplay={true}
+        variableWidth={true}
         className="mx-5 block md:hidden"
         >
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG1} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl '>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG2} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG3} alt="" /></center>
             </div>
-            <div className='bg-green-400 hover:bg-green-600 cursor-pointer text-center p-2'>
+            <div>
+                <div className='w-5'/>
+            </div>
+            <div className='bg-dark hover:bg-light cursor-pointer text-center p-2 rounded-xl'>
                 <h1 className='text-white font-extrabold text-3xl mb-5'>Dientes Acrílicos</h1>
                 <center><img className='h-36 content-center' src={IMG4} alt="" /></center>
+            </div>
+            <div>
+                <div className='w-5'/>
             </div>
         </Slider>
         
