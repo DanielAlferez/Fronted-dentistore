@@ -59,19 +59,19 @@ function Presentation() {
             <div className='relative flex justify-center mt-10 lg:mt-0 lg:justify-end'>
                 <div class='gotas'>
                     <div className='absolute -top-20 right-0 w-48' >
-                        <img classImage="images" src={INI1} alt="" />
+                        <img className="images" src={INI1} alt="" />
                     </div>
                     <div className='absolute -top-20 -left-7 w-48' >
-                        <img classImage="images" src={INI2} alt="" />
+                        <img className="images" src={INI2} alt="" />
                     </div>
                     <div className='absolute bottom-20 right-0 w-40' >
-                        <img classImage="images" src={INI3} alt="" />
+                        <img className="images" src={INI3} alt="" />
                     </div>
                     <div className='absolute rotate-45 top-16 left-64 w-6' >
-                        <img classImage="images" src={INI4} alt="" />
+                        <img className="images" src={INI4} alt="" />
                         </div>
                     <div className='absolute bottom-20 left-0 w-36' >
-                        <img classImage="images" src={INI5} alt="" />
+                        <img className="images" src={INI5} alt="" />
                     </div>
                 </div>
             </div>

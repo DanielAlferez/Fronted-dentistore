@@ -20,6 +20,12 @@ export default function Cart() {
     const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState();
     const [loading,setLoading] = React.useState(false);
+    const [scroll, setScroll] = React.useState(0);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScroll(position);
+    }
 
     setInterval(()=>{
         setLocalStorageState(localStorage.getItem('car'));
@@ -63,9 +69,15 @@ export default function Cart() {
             })
         })
 
-        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.cantidad ), 0))
+        window.addEventListener('scroll', handleScroll, {passive: true});
+
+        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
         setProducts(datos_existentes);
         setLoading(false)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
 
     },[localStorageState]);
 
@@ -87,9 +99,22 @@ return (
                 </p>
             </button>
         </div>
+
+        <div className={`${scroll>800 ? 'block' : 'hidden' } fixed cursor-pointer top-20 right-5 md:right-10 z-20 transform-gpu  translate-y-0 hover:-translate-y-0.5 transition-all duration-200 ease-in-out`}>
+            <button href="#" 
+            onClick={() => setOpen(true)}
+            className="relative group text-gray-700 hover:text-light bg-gray-200 rounded-full p-4">
+                <HiOutlineShoppingCart className='w-8 h-8' />
+                <p className='absolute bg-light opacity-90 text-white rounded-full w-5 h-5 text-center top-3 right-2 flex items-center justify-center text-xs'>
+                    {cantidad}
+                </p>
+            </button>
+        </div>
+
+
         {open ? (
             <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setOpen}>
+            <Dialog as="div" className="relative z-20" onClose={setOpen}>
                 <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-700"
