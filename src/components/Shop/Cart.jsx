@@ -6,105 +6,74 @@ import { IoMdClose } from "react-icons/io";
 import {AiOutlineMinusCircle} from "react-icons/ai"
 import findOcc from './contador';
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-
+import ThingsContext from './ProductsContext';
+import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 //import products from "../../data/products";
 
 
 export default function Cart() {
 
+    const productos = React.useContext(ThingsContext)
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
     const [products,setProducts] = React.useState([])
     const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState();
     const [loading,setLoading] = React.useState(false);
-    const [scroll, setScroll] = React.useState(0);
-
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScroll(position);
-    }
 
     setInterval(()=>{
         setLocalStorageState(localStorage.getItem('car'));
     }, 500);
 
     const handleDeleteProduct = (id) => {
-        let datos_existentes = localStorage.getItem('car');
-        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-
-        let temp = datos_existentes.filter((dato)=>dato.id !== id);
-        localStorage.setItem('car',JSON.stringify(temp))
-        setLoading(true)
-        setProducts(temp)
+        deleteProduct(id)
     }
 
-    const handleAddCant = (id,title,image,price) => {
-        const newProduct = {
+    const handleAddCant = (id,count) => {
+        const data = {
             id,
-            title,
-            image,
-            price
+            count:count+1
         }
-        let datos_existentes = localStorage.getItem('car');
-        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-
-        datos_existentes.push(newProduct);
-        localStorage.setItem('car',JSON.stringify(datos_existentes))
-        setLoading(true)
-        setProducts(datos_existentes)
+        addProduct(data)
     }
 
-    const handleDelete = (e) => {
-        const num = e.target.value
-        const data = JSON.parse(localStorage.getItem('car'))
-        const resultado = data.filter(function(item){
-            return item !== data[num]
-        });
-        localStorage.setItem('car',JSON.stringify(resultado))
-        setLoading(true)
-        setProducts(resultado)
+    const handleDelete = (id,count) => {
+        const data = {
+            id,
+            count
+        }
+        reduceProduct(data)
+        //localStorage.setItem('car',JSON.stringify(resultado))
+        //console.log(resultado);
+        //setLoading(true)
+        //setProducts(resultado)
     }
 
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-        const cantidad = findOcc(datos_existentes,"id")
-        //console.log(cantidad)
+        
         datos_existentes.forEach(function(i){
-            cantidad.forEach(function(x){
-                if(i.id === x.id){
-                    i.cantidad = x.occurrence
+            productos.forEach(function(j){
+                if(i.id === j.id){
+                    i.title = j.title
+                    i.image = j.image
+                    i.price = j.price
                 }
             })
-        });
-
-        let hash = {};
-        datos_existentes = datos_existentes.filter(function(current) {
-            const exists = !hash[current.id];
-            hash[current.id] = true;
-            return exists;
-        });
-
-        //Scroll
-        window.addEventListener('scroll', handleScroll, {passive: true});
-
-        //console.log(datos_existentes)
+        })
 
         setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.cantidad ), 0))
         setProducts(datos_existentes);
         setLoading(false)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
 
     },[localStorageState]);
 
     React.useEffect(()=>{
         setCantidad(products.length);
     }, [products]);
-        
+    
+
 
 return (
     <>
@@ -118,22 +87,9 @@ return (
                 </p>
             </button>
         </div>
-        
-        <div className={`${scroll>800 ? 'block' : 'hidden' } fixed cursor-pointer top-20 right-5 md:right-10 z-20 transform-gpu  translate-y-0 hover:-translate-y-0.5 transition-all duration-200 ease-in-out`}>
-            <button href="#" 
-            onClick={() => setOpen(true)}
-            className="relative group text-gray-700 hover:text-light bg-gray-200 rounded-full p-4">
-                <HiOutlineShoppingCart className='w-8 h-8' />
-                <p className='absolute bg-light opacity-90 text-white rounded-full w-5 h-5 text-center top-3 right-2 flex items-center justify-center text-xs'>
-                    {cantidad}
-                </p>
-            </button>
-        </div>
-        
-
         {open ? (
             <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-20" onClose={setOpen}>
+            <Dialog as="div" className="relative z-10" onClose={setOpen}>
                 <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-700"
@@ -202,16 +158,16 @@ return (
                                         
                                                                         <div className="flex flex-1 items-end justify-between ">
                                                                             <div className='flex  items-center justify-between w-20'>
-                                                                                <button 
-                                                                                    className='bg-red-500 hover:bg-red-700 text-white rounded-full w-6 h-6'
-                                                                                    value={index} 
-                                                                                    onClick={handleDelete} 
+                                                                                <button
+                                                                                    disabled={product.count > 1 ? false : true}
+                                                                                    className={`${product.count > 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500'} text-white rounded-full w-6 h-6`}
+                                                                                    onClick={()=>handleDelete(product.id,product.count)} 
                                                                                     type="button">
                                                                                     -
                                                                                 </button>
-                                                                                    <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.cantidad}</p>
+                                                                                    <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.count}</p>
                                                                                 <button
-                                                                                    onClick={()=>handleAddCant(product.id,product.title,product.image,product.price)}
+                                                                                    onClick={()=>handleAddCant(product.id,product.count)}
                                                                                     className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
                                                                                     +
                                                                                 </button>

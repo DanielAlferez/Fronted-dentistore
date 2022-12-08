@@ -10,23 +10,22 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import Swal from 'sweetalert2'
-
+import { addProduct } from "./Shop/CartFunctions";
 
 const Card = ({ id,title, image, price }) => {
   
   const handleAddProduct = () => {
     const newProduct = {
         id,
-        title,
-        image,
-        price
+        count:1
     }
+    addProduct(newProduct)
     //esta parte me copie de aqui https://es.stackoverflow.com/questions/393157/almacenar-varios-array-en-localstorage-javascript
-    let datos_existentes = localStorage.getItem('car');
-    datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+    // let datos_existentes = localStorage.getItem('car');
+    // datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
 
-    datos_existentes.push(newProduct);
-    localStorage.setItem('car',JSON.stringify(datos_existentes))
+    // datos_existentes.push(newProduct);
+    // localStorage.setItem('car',JSON.stringify(datos_existentes))
 
     const Toast = Swal.mixin({
       toast: true,

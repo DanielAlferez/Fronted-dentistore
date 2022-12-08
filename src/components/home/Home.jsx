@@ -9,8 +9,11 @@ import Categories from "./Categories";
 import { TbTruck, TbPackage } from "react-icons/tb";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import Map from "./Map";
+import { useContext } from "react";
+import ThingsContext from "../Shop/ProductsContext";
 
 const Home = () => {
+  const productos = useContext(ThingsContext)
   return (
     <Layout>
       <div className="relative py-8 lg:pt-14 2xl:px-44 xl:px-20 lg:px-10 md:px-8 sm:px-7 px-6">
@@ -50,7 +53,7 @@ const Home = () => {
 
           <section className={styles.container}>
             <div className={styles.layout}>
-              {products.map((element, index) => (
+              {productos.map((element, index) => (
                 <Card
                   key={index}
                   id={element.id}
