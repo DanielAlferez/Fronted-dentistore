@@ -6,17 +6,18 @@ import { IoMdClose } from "react-icons/io";
 import {AiOutlineMinusCircle} from "react-icons/ai"
 import findOcc from './contador';
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import ThingsContext from './ProductsContext';
+import ThingsContext from '../../context/ProductsContext';
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
+import useProductsContext from '../../hooks/useProducts';
 //import products from "../../data/products";
 
 
 export default function Cart() {
 
-    const productos = React.useContext(ThingsContext)
+    const {products} = useProductsContext();
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
-    const [products,setProducts] = React.useState([])
+    const [productos,setProductos] = React.useState([])
     const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState();
     const [loading,setLoading] = React.useState(false);
@@ -60,7 +61,7 @@ export default function Cart() {
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
         
         datos_existentes.forEach(function(i){
-            productos.forEach(function(j){
+            products.forEach(function(j){
                 if(i.id === j.id){
                     i.title = j.title
                     i.image = j.image
@@ -72,7 +73,7 @@ export default function Cart() {
         window.addEventListener('scroll', handleScroll, {passive: true});
 
         setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
-        setProducts(datos_existentes);
+        setProductos(datos_existentes);
         setLoading(false)
 
         return () => {
@@ -82,8 +83,8 @@ export default function Cart() {
     },[localStorageState]);
 
     React.useEffect(()=>{
-        setCantidad(products.length);
-    }, [products]);
+        setCantidad(productos.length);
+    }, [productos]);
     
 
 
@@ -156,13 +157,10 @@ return (
                                             </button>
                                         </div>
                                 </div>    
-                            {(()=>{
-                                        if(!loading){
-                                            return(
                                                 <div className="mt-8">
                                                     <div className="flow-root">
                                                         <ul role="list" className="-my-6 divide-y divide-gray-200">
-                                                            {products.length > 0 && products.map((product, index) => (
+                                                            {productos.length > 0 && productos.map((product, index) => (
                                                             <li key={index} className="flex py-6">
                                                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                                 <img
@@ -213,7 +211,7 @@ return (
                                     </li>
                                     ))}
                                     {(()=>{
-                                        if(products.length == 0){
+                                        if(productos.length == 0){
                                             return(                                            
                                                 <div className='mt-5 flex flex-col items-center justify-center content-center text-gray-300'>
                                                     <MdOutlineRemoveShoppingCart className='w-72 h-72 opacity-50'/>
@@ -227,9 +225,7 @@ return (
                                     </ul>
                                     </div>
                                     </div>
-                                    )
-                                }
-                            })()}
+                                    
                             </div>
                             
                             </div>

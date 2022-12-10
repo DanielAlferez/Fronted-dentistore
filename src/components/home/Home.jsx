@@ -1,7 +1,7 @@
 import Layout from "../../hocs/Layout";
 import styles from "./Home.module.css";
 import Card from "../Card";
-import products from "../../data/products";
+//import products from "../../data/products";
 import CardHome from "../cardHome";
 import CardSlideHome from "../CardSlideHome";
 import Presentation from "./Presentation";
@@ -10,10 +10,10 @@ import { TbTruck, TbPackage } from "react-icons/tb";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import Map from "./Map";
 import { useContext } from "react";
-import ThingsContext from "../Shop/ProductsContext";
+import  useProductsContext from '../../hooks/useProducts'
 
 const Home = () => {
-  const productos = useContext(ThingsContext)
+  const {products} = useProductsContext();
   return (
     <Layout>
       <div className="relative py-8 lg:pt-14 2xl:px-44 xl:px-20 lg:px-10 md:px-8 sm:px-7 px-6">
@@ -53,7 +53,7 @@ const Home = () => {
 
           <section className={styles.container}>
             <div className={styles.layout}>
-              {productos.map((element, index) => (
+              {products.map((element, index) => (
                 <Card
                   key={index}
                   id={element.id}

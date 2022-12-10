@@ -57,7 +57,7 @@ function Presentation() {
                 </div>
             </div>
             <div className='relative flex justify-center mt-10 lg:mt-0 lg:justify-end'>
-                <div class='gotas'>
+                <div className='gotas'>
                     <div className='absolute -top-20 right-0 w-48' >
                         <img className="images" src={INI1} alt="" />
                     </div>

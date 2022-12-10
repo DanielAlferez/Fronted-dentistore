@@ -29,7 +29,7 @@ const Card = ({ id,title, image, price }) => {
 
     const Toast = Swal.mixin({
       toast: true,
-      position: 'bottom',
+      position: 'top',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
