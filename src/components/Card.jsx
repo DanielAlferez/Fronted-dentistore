@@ -11,8 +11,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import Swal from 'sweetalert2'
 import { addProduct } from "./Shop/CartFunctions";
+import { CgEye } from "react-icons/cg";
+import { AiOutlineBgColors } from "react-icons/ai";
+import { IoMdPricetags } from "react-icons/io";
 
-const Card = ({ id,title, image, price }) => {
+const Card = ({ id, title, image, price, color }) => {
   
   const handleAddProduct = () => {
     const newProduct = {
@@ -70,8 +73,8 @@ const Card = ({ id,title, image, price }) => {
         </div>
         <div className="opacity-90 invisible group-hover:visible ">
           <button  className="py-2 -mt-14 mb-3 flex text-center text-white w-36 bg-dark items-center justify-center font-medium hover:text-white rounded-3xl hover:shadow-xl">
-              <MdOutlineAddShoppingCart className=" text-center ml-2 "/>
-              <p className="text-center font-normal mx-2">Agregar</p>
+              <CgEye className=" text-center ml-2 "/>
+              <p className="text-center font-normal mx-2">Ver mas...</p>
           </button>
         </div>
         <div className="mx-1 px-4 h-full justify-center content-center">
@@ -108,7 +111,7 @@ const Card = ({ id,title, image, price }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-[24rem]  md:max-w-3xl lg:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative w-full max-w-[24rem]  md:max-w-3xl lg:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-4 md:p-0 text-left align-middle shadow-xl transition-all">
 
 
                   {/* close button */}
@@ -138,24 +141,47 @@ const Card = ({ id,title, image, price }) => {
 
                       {/* Characteristics */}
                       <div>
-                        {/* Caracteristicas */}
-                        <div className="my-2">
-                          Caracteristicas
-                        </div>
                         {/* Precio */}
-                        <div className="bg-gray-100 p-3 my-3 rounded-2xl flex flex-1 content-center">
-                          <p className="text-gray-500 font-light">Precio  </p>
-                          <p className="-mt-0.5 text-xl ml-7 text-dark font-semibold">$ {price}</p>
+                        <div className="bg-gray-100 p-3 my-3 rounded-2xl flex flex-1 content-center items-center">
+                          <div className="text-gray-300 font-light mr-2">
+                            <IoMdPricetags className="w-6 h-6"/>
+                          </div>
+                          <p className="text-gray-600 font-normal -mt-1">Precio:</p>
+                          <p className="-mt-0.5 text-xl ml-5 text-dark font-semibold">$ {price}</p>
 
                         </div>
+
+                        {/* Caracteristicas */}
+                        <div className="my-5">
+                        <p className="font-semibold text-lg">Caracteristicas</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum neque quis aspernatur quo eos ea?</p>
+                        </div>
+                        
                         {/* Color */}
-                        <div className="my-2">
-                          Colores
-                        </div>
-                        {/* Cantidad */}
-                        <div className="my-2">
-                          Cantidad
-                        </div>
+                        {!color ? <div></div> : 
+                          <div className="my-5">
+                            <p className="font-semibold text-lg">Elije un color</p>
+                            <div className="flex flex-wrap mt-2">
+                              {color.map((color, index) => (
+                              <div key={index} className={`rounded-xl hover:border-dark hover:text-light cursor-pointer border border-gray-700 hover:bg-gray-50 text-gray-700 px-2 py-1.5 mr-1`}>
+                                <p className="text-xs">{color}</p>
+                              </div>
+                              ))}
+                            </div>
+                            <div className="mt-2 text-dark hover:text-light cursor-pointer flex">
+                              <div className="mr-1">
+                                  <AiOutlineBgColors className="w-6 h-6"/>
+                              </div>
+                              <div>
+                                <a>Ver catalogo de colores</a>
+                              </div>
+                            </div>
+                          </div>
+                        }
+                        {/* Cantidad
+                        <div className="my-3">
+                        <p className="font-semibold text-lg">Cantidad</p>
+                        </div> */}
                       </div>
 
                       {/* Add button */}

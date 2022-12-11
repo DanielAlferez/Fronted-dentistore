@@ -60,6 +60,7 @@ const Home = () => {
                   title={element.title}
                   image={element.image}
                   price={element.price}
+                  color={element.color}
                 />
               ))}
             </div>          

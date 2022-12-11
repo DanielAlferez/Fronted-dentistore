@@ -11,6 +11,7 @@ export default [
       title: "Duratone-n®",
       image: IMG1,
       price: 20000,
+      color: ["A1", "A2", "A3"],
       mount:1
     },
     {
@@ -18,6 +19,7 @@ export default [
       title: "Tiziano® ",
       image: IMG2,
       price: 300000,
+      color: ["C1", "C2", "C3"],
       mount:1
     },
     {
@@ -25,6 +27,7 @@ export default [
       title: "Veracril® / Opti-Cryl® Termopolimerizable Monómero",
       image: IMG3,
       price: 900000,
+      color: ["B1", "B2", "B3"],
       mount:1
     },
     {
@@ -32,6 +35,7 @@ export default [
       title: "O-cryl® Autopolimerizable",
       image: IMG4,
       price: 20000,
+      color: ["A3", "B3", "D3"],
       mount:1
     },
     {
@@ -46,6 +50,7 @@ export default [
       title: "Veracril® / Opti-Cryl® Acrílico Alto Impacto",
       image: IMG6,
       price: 20.000,
+      color: ["59", "62", "67"],
       mount:1
     },
     

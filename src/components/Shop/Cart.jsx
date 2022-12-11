@@ -101,7 +101,7 @@ return (
             </button>
         </div>
 
-        <div className={`${scroll>800 ? 'block' : 'hidden' } fixed cursor-pointer top-20 right-5 md:right-10 z-20 transform-gpu  translate-y-0 hover:-translate-y-0.5 transition-all duration-200 ease-in-out`}>
+        <div className={`${scroll>800 ? 'block animate-appear-cart' : 'animate-disappear-cart' }   fixed cursor-pointer top-20 right-5 md:right-10 z-20`}>
             <button href="#" 
             onClick={() => setOpen(true)}
             className="relative group text-gray-700 hover:text-light bg-gray-200 rounded-full p-4">
