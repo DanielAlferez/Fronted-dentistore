@@ -157,58 +157,63 @@ return (
                                             </button>
                                         </div>
                                 </div>    
-                                                <div className="mt-8">
-                                                    <div className="flow-root">
-                                                        <ul role="list" className="-my-6 divide-y divide-gray-200">
-                                                            {productos.length > 0 && productos.map((product, index) => (
-                                                            <li key={index} className="flex py-6">
-                                                            <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                                                <img
-                                                                    src={product.image}
-                                                                    className="h-full w-full object-cover object-center"
-                                                                />
-                                                                </div>    
-                                                                <div className="ml-3 flex flex-1 flex-col">
-                                                                    <div>
-                                                                        <div className="flex justify-between text-base font-medium text-gray-900">
-                                                                            <a className='font-normal w-56' href={product.href}>{product.title}</a>                                            
-                                                                            <div className='grid grid-cols-1'>
-                                                                                <p className="ml-2">${product.price}</p>
-                                                                                <p className="text-gray-500 text-right text-sm">c/u</p>
-                                                                            </div>
-                                                                            </div>
-                                                                        </div>
-                                        
-                                                                        <div className="flex flex-1 items-end justify-between ">
-                                                                            <div className='flex  items-center justify-between w-20'>
-                                                                                <button
-                                                                                    disabled={product.count > 1 ? false : true}
-                                                                                    className={`${product.count > 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500'} text-white rounded-full w-6 h-6`}
-                                                                                    onClick={()=>handleDelete(product.id,product.count)} 
-                                                                                    type="button">
-                                                                                    -
-                                                                                </button>
-                                                                                    <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.count}</p>
-                                                                                <button
-                                                                                    onClick={()=>handleAddCant(product.id,product.count)}
-                                                                                    className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
-                                                                                    +
-                                                                                </button>
-                                                                        </div>
-    
-                                            <div className="flex text-sm">
-                                            <button
-                                                value={product.id}
-                                                onClick={()=>handleDeleteProduct(product.id)}
-                                                type="button"
-                                                className="font-medium text-dark hover:text-light"
-                                            >
-                                                Eliminar
-                                            </button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </li>
+                                <div className="mt-8">
+                                    <div className="flow-root">
+                                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                                            {productos.length > 0 && productos.map((product, index) => (
+                                            <li key={index} className="flex py-6">
+                                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                    <img
+                                                        src={product.image}
+                                                        className="h-full w-full object-cover object-center"
+                                                    />
+                                                </div>    
+                                                <div className="ml-3 flex flex-1 flex-col">
+                                                    <div>
+                                                        <div className="flex justify-between text-base font-medium text-gray-900">
+                                                            <a className='font-normal w-56' href={product.href}>{product.title}</a>
+                                                            <div className='grid grid-cols-1'>
+                                                                <p className="ml-2">${product.price}</p>
+                                                                <p className="text-gray-500 text-right text-sm">c/u</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='flex my-1 text-gray-500 text-sm'>
+                                                        <h3 className='mr-1 font-medium'>Color:</h3>
+                                                        <p>Rojo</p>
+                                                    </div>
+
+                                                    <div className="flex flex-1 items-end justify-between ">
+                                                        <div className='flex  items-center justify-between w-20'>
+                                                            <button
+                                                                disabled={product.count > 1 ? false : true}
+                                                                className={`${product.count > 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500'} text-white rounded-full w-6 h-6`}
+                                                                onClick={()=>handleDelete(product.id,product.count)} 
+                                                                type="button">
+                                                                -
+                                                            </button>
+                                                                <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.count}</p>
+                                                            <button
+                                                                onClick={()=>handleAddCant(product.id,product.count)}
+                                                                className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
+                                                                +
+                                                            </button>
+                                                        </div>
+
+                                                        <div className="flex text-sm">
+                                                            <button
+                                                                value={product.id}
+                                                                onClick={()=>handleDeleteProduct(product.id)}
+                                                                type="button"
+                                                                className="font-medium text-dark hover:text-light"
+                                                            >
+                                                                Eliminar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
                                     ))}
                                     {(()=>{
                                         if(productos.length == 0){

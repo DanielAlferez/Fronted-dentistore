@@ -27,7 +27,7 @@ export default function CardSlideHome() {
                     id="slider"
                     className="w-full h-full inline-flex items-center justify-center mb-5 "
                     >
-                        <div className="absolute z-50 mt-80 mr-96">
+                        <div className="absolute z-50 mt-80 mr-80 md:mr-96">
                             <div >
                                 <button
                                     className="text-2xl text-black bg-gray-300 hover:bg-gray-500 rounded-full w-8 h-8 opacity-80 flex justify-center items-center"
@@ -84,7 +84,7 @@ export default function CardSlideHome() {
                                 </div>
                             </div>
                         </label>
-                        <div className=" absolute z-50 mt-80 ml-96" >
+                        <div className=" absolute z-50 mt-80 ml-80 md:ml-96" >
                             <button 
                                 className="text-2xl text-black bg-gray-300 hover:bg-gray-500 rounded-full w-8 h-8 opacity-80 flex justify-center items-center"
                                 onClick={checkNext}>

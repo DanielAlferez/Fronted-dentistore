@@ -9,11 +9,11 @@ import Categories from "./Categories";
 import { TbTruck, TbPackage } from "react-icons/tb";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import Map from "./Map";
-import { useContext } from "react";
 import  useProductsContext from '../../hooks/useProducts'
 
 const Home = () => {
   const {products} = useProductsContext();
+
   return (
     <Layout>
       <div className="relative py-8 lg:pt-14 2xl:px-44 xl:px-20 lg:px-10 md:px-8 sm:px-7 px-6">
@@ -24,7 +24,7 @@ const Home = () => {
 
           <div className="grid grid-cols-11 w-full justify-center items-center" />
           <section className="pb-20 flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-3 justify-center text-center gap-y-10 gap-x-4 max-w-[16rem] sm:max-w-4xl ">
+            <div className="grid grid-cols-1 sm:grid-cols-3 justify-center text-center gap-4 max-w-[16rem] sm:max-w-4xl ">
               <div className="bg-gray-200 p-4 grid grid-cols-1 rounded-2xl ">
                 <center><TbTruck className="w-14 h-14 font-thin"/></center>
                 <h1 className="text-xl font-medium text-black">Compra facil y enviamos rapido</h1>

@@ -70,7 +70,7 @@ export default function Navbar() {
       })()}
       <Popover.Group as="nav" className="grid grid-cols-3 py-2">        
         <div className='grid justify-center'>
-          <a href="#" className=" text-gray-500 hover:text-gray-900">
+          <a href="/" className=" text-gray-500 hover:text-gray-900">
             <img width={'230px'} src={IMG}/>
           </a>
         </div>
@@ -93,7 +93,7 @@ export default function Navbar() {
               {(()=>{
                 if(localStorage.getItem('token')  !== null){
                   return(
-                    <a href="#" className="text-gray-700 hover:text-light">
+                    <a href="/" className="text-gray-700 hover:text-light">
                       <CgProfile className='w-8 h-8'></CgProfile>
                     </a> 
                   )
@@ -105,7 +105,7 @@ export default function Navbar() {
               })()}
           </div>
           <div className='w-10 '>
-            <button href="#" className="text-gray-700 hover:text-light ">
+            <button href="/" className="text-gray-700 hover:text-light ">
               <BiHeart className='w-8 h-8' />
             </button> 
           </div>
@@ -192,16 +192,16 @@ export default function Navbar() {
                     </>
                   )}
                 </Popover>
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Inicio
                 </a>
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Nosotros
                 </a>
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Contactanos
                 </a> 
-                <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Medios de Pago
                 </a> 
                       
@@ -256,19 +256,19 @@ export default function Navbar() {
               </div>
               <div className="py-6 px-5">
                 <div className="grid grid-cols-2 gap-4">
-                  <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Inicio
                   </a>
 
-                  <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Nosotros
                   </a>
 
-                  <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Contactanos
                   </a> 
 
-                  <a href="#" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Medios de Pago
                   </a> 
 

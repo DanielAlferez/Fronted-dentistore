@@ -11,9 +11,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import Swal from 'sweetalert2'
 import { addProduct } from "./Shop/CartFunctions";
-import { CgEye } from "react-icons/cg";
+import { CgEye, CgMoreO } from "react-icons/cg";
 import { AiOutlineBgColors } from "react-icons/ai";
-import { IoMdPricetags } from "react-icons/io";
+import {  IoMdPricetags } from "react-icons/io";
+import { Link, Route, Router } from "react-router-dom";
+import Products from "./Shop/Products";
 
 const Card = ({ id, title, image, price, color }) => {
   
@@ -34,7 +36,7 @@ const Card = ({ id, title, image, price, color }) => {
       toast: true,
       position: 'top',
       showConfirmButton: false,
-      timer: 3000,
+      timer: 2000,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -124,17 +126,17 @@ const Card = ({ id, title, image, price, color }) => {
                   </div>
 
                   {/* content */}
-                  <div className="grid md:grid-cols-7 grid-cols-1 content-center md:p-5">
+                  <div className="grid md:grid-cols-7 grid-cols-1 content-center md:p-5 items-center ">
                     {/* Image */}
-                    <div className="col-span-3 pt-10 px-10 md:px-0 ">
+                    <div className="col-span-3 px-10 md:px-0">
                       <ImageSlider image={image}/>
                     </div>
                     {/* product */}
-                    <div className="col-span-4 mt-10 md:mt-0 px-4 md:p-10">
+                    <div className="col-span-4 mt-5 md:mt-0 pb-2 px-4 md:p-10">
                       {/* title */}
                       <Dialog.Title
                         as="h1"
-                        className="text-xl text-center mb-10 font-medium leading-6 text-gray-900"
+                        className="text-xl text-center mb-5 font-medium leading-6 text-gray-900"
                       >
                         {title}
                       </Dialog.Title>
@@ -147,16 +149,22 @@ const Card = ({ id, title, image, price, color }) => {
                             <IoMdPricetags className="w-6 h-6"/>
                           </div>
                           <p className="text-gray-600 font-normal -mt-1">Precio:</p>
-                          <p className="-mt-0.5 text-xl ml-5 text-dark font-semibold">$ {price}</p>
+                          <p className="-mt-0.5 text-xl ml-3 text-black font-semibold">${price}</p>
 
                         </div>
 
                         {/* Caracteristicas */}
-                        <div className="my-5">
-                        <p className="font-semibold text-lg">Caracteristicas</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum neque quis aspernatur quo eos ea?</p>
+                        <div className="my-5 ">
+                          <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum neque quis aspernatur quo eos ea?</p>
+                          <div className="flex items-center my-2"> 
+                            <CgMoreO className="text-dark h-5 w-5 text-center mr-1 "/>
+                            <Link className="text-dark hover:text-light" to={`/productos/${id}`}>
+                              Ver todos los detalles
+                            </Link>
+                          </div>
                         </div>
-                        
+
+                                                
                         {/* Color */}
                         {!color ? <div></div> : 
                           <div className="my-5">
@@ -168,13 +176,9 @@ const Card = ({ id, title, image, price, color }) => {
                               </div>
                               ))}
                             </div>
-                            <div className="mt-2 text-dark hover:text-light cursor-pointer flex">
-                              <div className="mr-1">
-                                  <AiOutlineBgColors className="w-6 h-6"/>
-                              </div>
-                              <div>
-                                <a>Ver catalogo de colores</a>
-                              </div>
+                            <div className="mt-2 flex">
+                              <AiOutlineBgColors className="w-6 h-6 mr-1 text-dark"/>
+                              <a href="#" className="text-dark hover:text-light">Ver catalogo de colores</a>
                             </div>
                           </div>
                         }
@@ -183,15 +187,25 @@ const Card = ({ id, title, image, price, color }) => {
                         <p className="font-semibold text-lg">Cantidad</p>
                         </div> */}
                       </div>
-
+                      
                       {/* Add button */}
                       <div className="mt-4 flex justify-center">
                         <button
-                          className="py-2 mb-3 flex text-center text-white w-64 bg-dark items-center justify-center font-medium hover:text-white rounded-3xl hover:shadow-xl"
+                          className="rounded-3xl py-2 mb-3 flex text-center text-white w-64 hover:bg-light bg-dark items-center justify-center font-medium hover:text-white l hover:shadow-xl"
                           onClick={handleAddProduct}
                         >
-                          <MdOutlineAddShoppingCart className="text-xl text-center ml-2 "/>
-                          <p className="text-lg text-center font-normal mx-2">Agregar al Carrito</p>
+                          <MdOutlineAddShoppingCart className="text-lg text-center mr-2 "/>
+                          <p>Agregar al Carrito</p>
+                        </button>
+                      </div>
+
+                      {/* Close Modal */}
+                      <div className="mt-2 flex justify-center">
+                        <button
+                          onClick={closeModal}
+                        >
+                          <p className="text-gray-500 hover:text-gray-700 font-semibold">Seguir comprando <span aria-hidden="true"> &rarr;</span> </p>
+                          
                         </button>
                       </div>
                     </div>

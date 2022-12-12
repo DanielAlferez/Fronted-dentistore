@@ -24,7 +24,7 @@ function ImageSlider({image}) {
 
   return (
     <>
-      <div className='-mt-16'>
+      <div>
         <ImageGallery showNav={true} items={images} showPlayButton={false} lazyLoad={true} showFullscreenButton={false}/>
       </div>
     </>
