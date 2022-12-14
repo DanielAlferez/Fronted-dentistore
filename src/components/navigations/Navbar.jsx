@@ -195,13 +195,13 @@ export default function Navbar() {
                 <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Inicio
                 </a>
-                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/nosotros" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Nosotros
                 </a>
-                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Contactanos
                 </a> 
-                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <a href="/medios-pago" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Medios de Pago
                 </a> 
                       
@@ -260,15 +260,15 @@ export default function Navbar() {
                     Inicio
                   </a>
 
-                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/nosotros" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Nosotros
                   </a>
 
-                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/contacto" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Contactanos
                   </a> 
 
-                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <a href="/medios-pago" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Medios de Pago
                   </a> 
 
