@@ -17,10 +17,15 @@ module.exports = {
           '0%' : { transform: 'translateX(0px)' },
           '100%' : { transform: 'translateX(200px)' },
         },
+        up: {
+          '0%' : { transform: 'translateY(0px)' },
+          '100%' : { transform: 'translateY(-10px)' },
+        }
       },
       animation: {
         'appear-cart' : 'appear 300ms linear both',
-        'disappear-cart' : 'disappear 300ms linear both'
+        'disappear-cart' : 'disappear 300ms linear both',
+        'up-box' : 'up 100ms linear both'
       },
     },
   },

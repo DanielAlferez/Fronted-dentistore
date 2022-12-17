@@ -8,6 +8,7 @@ import Presentation from "./Presentation";
 import Categories from "./Categories";
 import { TbTruck, TbPackage } from "react-icons/tb";
 import { RiSecurePaymentLine } from "react-icons/ri";
+import { MdOutlinePayments } from "react-icons/md";
 import Map from "./Map";
 import  useProductsContext from '../../hooks/useProducts'
 
@@ -15,7 +16,7 @@ const Home = () => {
   const {products} = useProductsContext();
 
   return (
-    <Layout>
+    <Layout cartStatus={true}>
       <div className="relative py-8 lg:pt-14 2xl:px-44 xl:px-20 lg:px-10 md:px-8 sm:px-7 px-6">
         <main className={styles.section}>
           <section className={styles.container}>
@@ -23,19 +24,23 @@ const Home = () => {
           </section>
 
           <div className="grid grid-cols-11 w-full justify-center items-center" />
-          <section className="pb-20 flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-3 justify-center text-center gap-4 max-w-[16rem] sm:max-w-4xl ">
-              <div className="bg-gray-200 p-4 grid grid-cols-1 rounded-2xl ">
-                <center><TbTruck className="w-14 h-14 font-thin"/></center>
-                <h1 className="text-xl font-medium text-black">Compra facil y enviamos rapido</h1>
+          <section className="pb-10 flex justify-center">
+            <div className="grid grid-cols-2  sm:grid-cols-4 justify-center text-center gap-y-4 max-w-sm sm:max-w-3xl ">
+              <div className="p-4 grid grid-cols-1">
+                <center><MdOutlinePayments className="w-16 h-16 font-thin text-dark"/></center>
+                <h1 className="text-lg font-bold text-black">Compra Facil</h1>
               </div>
-              <div className="bg-gray-200 p-4 grid grid-cols-1 rounded-2xl">
-                <center><TbPackage className="w-14 h-14 font-thin"/></center>
-                <h1 className="text-xl font-medium text-black">Disponibilidad inmediata</h1>
+              <div className="p-4 grid grid-cols-1">
+                <center><TbTruck className="w-16 h-16 font-thin text-dark"/></center>
+                <h1 className="text-lg font-bold text-black">Enviamos Rapido</h1>
               </div>
-              <div className="bg-gray-200 p-4 grid grid-cols-1  rounded-2xl">
-                <center><RiSecurePaymentLine className="w-14 h-14 font-thin"/></center>
-                <h1 className="text-xl font-medium text-black">Seguridad en tus compras</h1>
+              <div className="p-4 grid grid-cols-1">
+                <center><TbPackage className="w-16 h-16 font-thin text-dark"/></center>
+                <h1 className="text-lg font-bold text-black">Disponibilidad Inmediata</h1>
+              </div>
+              <div className="p-4 grid grid-cols-1">
+                <center><RiSecurePaymentLine className="w-16 h-16 font-thin text-dark"/></center>
+                <h1 className="text-lg font-bold text-black">Seguridad en tus Compras</h1>
               </div>
             </div>
           </section>

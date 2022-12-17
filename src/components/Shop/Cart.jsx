@@ -12,7 +12,7 @@ import useProductsContext from '../../hooks/useProducts';
 //import products from "../../data/products";
 
 
-export default function Cart() {
+export default function Cart({cartStatus}) {
 
     const {products} = useProductsContext();
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
@@ -101,16 +101,19 @@ return (
             </button>
         </div>
 
+        {cartStatus ? 
         <div className={`${scroll>800 ? 'block animate-appear-cart' : 'animate-disappear-cart' }   fixed cursor-pointer top-20 right-5 md:right-10 z-20`}>
-            <button href="#" 
-            onClick={() => setOpen(true)}
-            className="relative group text-gray-700 hover:text-light bg-gray-200 rounded-full p-4">
-                <HiOutlineShoppingCart className='w-8 h-8' />
-                <p className='absolute bg-light opacity-90 text-white rounded-full w-5 h-5 text-center top-3 right-2 flex items-center justify-center text-xs'>
-                    {cantidad}
-                </p>
-            </button>
+        <button href="#" 
+        onClick={() => setOpen(true)}
+        className="relative group text-gray-700 hover:text-light bg-gray-200 rounded-full p-4">
+            <HiOutlineShoppingCart className='w-8 h-8' />
+            <p className='absolute bg-light opacity-90 text-white rounded-full w-5 h-5 text-center top-3 right-2 flex items-center justify-center text-xs'>
+                {cantidad}
+            </p>
+        </button>
         </div>
+        : <div></div>}
+        
 
 
         {open ? (

@@ -34,7 +34,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar({cartStatus}) {
 
   const URL = "http://127.0.0.1:8000/api/categories"
   const [data,setData] = React.useState([]);
@@ -110,7 +110,7 @@ export default function Navbar() {
             </button> 
           </div>
           <div className='w-10'>
-            <Cart></Cart>
+            <Cart cartStatus={cartStatus}></Cart>
           </div>
         </div>
       </Popover.Group>

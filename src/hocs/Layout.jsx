@@ -7,7 +7,7 @@ import Footer from "../components/navigations/Footer";
 const Layout = (props) => {
   return (
     <div>
-      <Navbar />
+      <Navbar cartStatus={props.cartStatus}/>
       <ToastContainer autoClose={5000} />
       {props.children}
       <Footer />
