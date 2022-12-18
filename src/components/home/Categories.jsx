@@ -33,146 +33,146 @@ function Categories() {
   return (  
     <div >
         <Slider
-        slidesToShow={5}
+        slidesToShow={6}
         slidesToScroll={2}
         autoplay={true}
-        className="mx-5 hidden lg:block rounded-3xl  py-3"
+        className="mx-5 hidden lg:block rounded-3xl border border-gray-200 shadow-md py-3 "
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
         </Slider>
 
         <Slider
-        slidesToShow={3}
+        slidesToShow={4}
         slidesToScroll={1}
         autoplay={true}
-        className="mx-5 hidden md:block lg:hidden"
+        className="mx-5 hidden md:block lg:hidden rounded-3xl border border-gray-200 shadow-md py-3"
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
         </Slider>
 
@@ -181,71 +181,71 @@ function Categories() {
         slidesToScroll={1}
         autoplay={true}
         variableWidth={true}
-        className="mx-5 block md:hidden"
+        className="mx-5 block md:hidden rounded-3xl border border-gray-200 shadow-md py-3"
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
             </div>
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
-                <div className='flex items-center rounded-full h-44 w-44 bg-gray-900 group-hover:bg-black'>
-                    <img className='w-full content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                <div className='flex items-center justify-center rounded-full h-32 w-32 '>
+                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
-                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg my-3'>Dientes Acrílicos</h1>
+                <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
             </div>
         </Slider>
         

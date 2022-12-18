@@ -25,7 +25,7 @@ module.exports = {
       animation: {
         'appear-cart' : 'appear 300ms linear both',
         'disappear-cart' : 'disappear 300ms linear both',
-        'up-box' : 'up 100ms linear both'
+        'up-box' : 'up 200ms linear both'
       },
     },
   },
