@@ -70,7 +70,7 @@ const Card = ({ id, title, image, price, color }) => {
         </div>
         <div className="relative">
           <div className="h-40 sm:h-44 lg:h-48 2xl:h-52 w-full rounded-xl overflow-hidden flex">
-            <img src={image} className="transition-all duration-500 ease-in-out object-cover w-full h-full" alt="" />
+            <img src={image} className="group-hover:animate-scale-up-center object-cover w-full h-full" alt="" />
           </div>
         </div>
         <div className="opacity-90 invisible group-hover:visible ">
@@ -126,7 +126,7 @@ const Card = ({ id, title, image, price, color }) => {
                   </div>
 
                   {/* content */}
-                  <div className="grid md:grid-cols-7 grid-cols-1 content-center md:p-5 items-center ">
+                  <div className="grid md:grid-cols-7 grid-cols-1 content-center md:px-3 md:pb-3 items-center ">
                     {/* Image */}
                     <div className="col-span-3 px-10 md:px-0">
                       <ImageSlider image={image}/>
@@ -136,7 +136,7 @@ const Card = ({ id, title, image, price, color }) => {
                       {/* title */}
                       <Dialog.Title
                         as="h1"
-                        className="text-xl text-center mb-5 font-medium leading-6 text-gray-900"
+                        className="md:text-ellipsis text-xl text-center mb-5 font-medium leading-6 text-gray-900"
                       >
                         {title}
                       </Dialog.Title>

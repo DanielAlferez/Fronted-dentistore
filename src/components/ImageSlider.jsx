@@ -22,10 +22,20 @@ function ImageSlider({image}) {
     },
   ]
 
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWidth(window.innerWidth)
+  }
+
+  React.useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  }, [])
+
   return (
     <>
       <div>
-        <ImageGallery showNav={true} items={images} showPlayButton={false} lazyLoad={true} showFullscreenButton={false}/>
+        <ImageGallery showThumbnails={width < 768 ? false : true } showNav={true} items={images} showPlayButton={false} lazyLoad={true} showFullscreenButton={false}/>
       </div>
     </>
   )

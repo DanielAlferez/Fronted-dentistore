@@ -41,7 +41,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
+                    <img className='w-32 group-hover:animate-up-box group-hover:opacity-80 content-center' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -49,7 +49,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -57,7 +57,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -65,7 +65,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -73,7 +73,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -81,7 +81,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -89,7 +89,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80  content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -97,7 +97,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -113,7 +113,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
+                    <img className='w-32  group-hover:opacity-80 group-hover:animate-up-box content-center' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -121,7 +121,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -129,7 +129,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -137,7 +137,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -145,7 +145,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -153,7 +153,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -161,7 +161,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -169,7 +169,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -186,7 +186,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32 group-hover:animate-up-box content-center' src={IMG1} alt="" />
+                    <img className='w-32 group-hover:opacity-80 group-hover:animate-up-box content-center' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -194,7 +194,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -202,7 +202,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -210,7 +210,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>
@@ -218,7 +218,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG1} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG1} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -226,7 +226,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG2} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG2} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -234,7 +234,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG3} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG3} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg '>Dientes Acrílicos</h1>
@@ -242,7 +242,7 @@ function Categories() {
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
                 <div className='flex items-center justify-center rounded-full h-32 w-32 '>
-                    <img className='w-32  content-center group-hover:animate-up-box' src={IMG4} alt="" />
+                    <img className='w-32 group-hover:opacity-80 content-center group-hover:animate-up-box' src={IMG4} alt="" />
                 </div>
                 </center>
                 <h1 className='text-gray-700 group-hover:text-black font-bold text-lg'>Dientes Acrílicos</h1>

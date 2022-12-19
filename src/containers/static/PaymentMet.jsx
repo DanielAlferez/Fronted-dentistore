@@ -58,9 +58,9 @@ export default function PaymentMet() {
             </div>
             <div className='flex col-span-2 ml-5'>
               <div className='border border-light rounded-2xl flex flex-wrap items-center p-1'>
-                <img src={EFECTY} alt="" className='h-6 sm:h-10 mx-3 my-1'/>
-                <img src={SURED} alt="" className='h-6 sm:h-10 mx-3 my-1'/>
-                <img src={BALOTO} alt="" className='h-10 sm:h-16 mx-3 my-1'/>
+                <img src={EFECTY} alt="" className='h-6 sm:h-10 mx-2 my-1'/>
+                <img src={SURED} alt="" className='h-6 sm:h-10 mx-2 my-1'/>
+                <img src={BALOTO} alt="" className='h-10 sm:h-16 mx-2 my-1'/>
               </div>
             </div>
           </div>

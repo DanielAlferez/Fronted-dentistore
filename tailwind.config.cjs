@@ -20,12 +20,17 @@ module.exports = {
         up: {
           '0%' : { transform: 'translateY(0px)' },
           '100%' : { transform: 'translateY(-10px)' },
-        }
+        },
+        upCenter: {
+          '0%' : { transform: 'scale(1)'},
+          '100%' : {transform: 'scale(1.1)'},
+        },
       },
       animation: {
         'appear-cart' : 'appear 300ms linear both',
         'disappear-cart' : 'disappear 300ms linear both',
-        'up-box' : 'up 200ms linear both'
+        'up-box' : 'up 200ms linear both',
+        'scale-up-center' : 'upCenter 300ms linear both'
       },
     },
   },
