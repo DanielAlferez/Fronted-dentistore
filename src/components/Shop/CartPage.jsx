@@ -255,7 +255,7 @@ export default function CartPage() {
                                                 <p className='text-gray-900 font-medium text-2xl'>Total</p>
                                             </div>
                                             <div className='flex justify-end'>
-                                                <p className='text-dark text-2xl font-bold'>${total + 15000}</p>
+                                                <p className='text-dark text-2xl font-bold'>${total}</p>
                                             </div>
                                         </div>
                                         {(()=>{
