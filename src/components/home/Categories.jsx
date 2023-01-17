@@ -36,7 +36,7 @@ function Categories() {
         slidesToShow={6}
         slidesToScroll={2}
         autoplay={true}
-        className="mx-5 hidden lg:block rounded-3xl border border-gray-200 shadow-md py-3 "
+        className="mx-5 hidden lg:block rounded-3xl shadow-sm py-3"
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
@@ -108,7 +108,7 @@ function Categories() {
         slidesToShow={4}
         slidesToScroll={1}
         autoplay={true}
-        className="mx-5 hidden md:block lg:hidden rounded-3xl border border-gray-200 shadow-md py-3"
+        className="mx-5 hidden md:block lg:hidden rounded-3xl shadow-sm py-3"
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>
@@ -181,7 +181,7 @@ function Categories() {
         slidesToScroll={1}
         autoplay={true}
         variableWidth={true}
-        className="mx-5 block md:hidden rounded-3xl border border-gray-200 shadow-md py-3"
+        className="mx-5 block md:hidden rounded-3xl shadow-sm py-3"
         >
             <div className='group cursor-pointer text-center p-2 rounded-xl'>
                 <center>

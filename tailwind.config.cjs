@@ -23,7 +23,7 @@ module.exports = {
         },
         upCenter: {
           '0%' : { transform: 'scale(1)'},
-          '100%' : {transform: 'scale(1.1)'},
+          '100%' : {transform: 'scale(1.075)'},
         },
       },
       animation: {

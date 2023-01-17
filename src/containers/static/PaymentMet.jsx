@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from "../../hocs/Layout";
 import { BsCreditCard, BsCashCoin, BsBank2 } from "react-icons/bs";
 import { CgArrowsExchange } from "react-icons/cg";
 import VISA from "../../../images/visa.png";
@@ -12,11 +11,9 @@ import BANCOBOGOTA from "../../../images/bancobogota.png";
 import BANCOLOMBIA from "../../../images/bancolombia.png";
 import PSE from "../../../images/PSE.png";
 
-
-
 export default function PaymentMet() {
   return (
-    <Layout>
+    <>
       <div className='flex justify-center mt-10'>
         <h1 className='text-dark font-bold text-3xl'>CANALES DE PAGO&nbsp;</h1>
       </div>
@@ -95,6 +92,6 @@ export default function PaymentMet() {
       </div>
     </center>
   
-    </Layout>
+    </>
   )
 }

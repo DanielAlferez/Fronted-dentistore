@@ -1,30 +1,10 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import {
-  BookmarkAltIcon,
-  BriefcaseIcon,
-  ChartBarIcon,
-  CheckCircleIcon,
-  CursorClickIcon,
-  DesktopComputerIcon,
-  GlobeAltIcon,
-  InformationCircleIcon,
-  MenuIcon,
-  NewspaperIcon,
-  OfficeBuildingIcon,
-  PhoneIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  UserGroupIcon,
-  ViewGridIcon,
-  XIcon,
-} from '@heroicons/react/outline'
+import { MenuIcon, XIcon} from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
-import { BiUser, BiHeart, BiSearch } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
 import {CgProfile} from "react-icons/cg"
-import axios from "axios";
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Modal from "../../containers/auth/Login"
 import IMG from '../../../images/logo.png'
 import Logout from '../../containers/auth/logout';
@@ -103,11 +83,6 @@ export default function Navbar({cartStatus}) {
                   )
                 }
               })()}
-          </div>
-          <div className='w-10 '>
-            <button href="/" className="text-gray-700 hover:text-light ">
-              <BiHeart className='w-8 h-8' />
-            </button> 
           </div>
           <div className='w-10'>
             <Cart cartStatus={cartStatus}></Cart>

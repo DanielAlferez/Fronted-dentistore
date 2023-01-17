@@ -11,7 +11,6 @@ import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import useProductsContext from '../../hooks/useProducts';
 //import products from "../../data/products";
 
-
 export default function Cart({cartStatus}) {
 
     const {products} = useProductsContext();
@@ -114,7 +113,7 @@ return (
         </div>
         : <div></div>}
         
-
+            
 
         {open ? (
             <Transition.Root show={open} as={Fragment}>
@@ -238,21 +237,21 @@ return (
                             
                             </div>
     
-                            <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+                            <div className="border-t border-gray-200 py-4 px-4 sm:px-6">
                             <div className="flex justify-between text-base font-medium text-gray-900">
                                 <p>Subtotal</p>
                                 <p>${total}</p>
                             </div>
                             <p className="mt-0.5 text-sm text-gray-500">Pedido mínimo: $20.000</p>
-                            <div className="mt-6">
+                            <div className="mt-3">
                                 <a
-                                href="#"
-                                className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-dark"
+                                href="/carrito"
+                                className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-dark"
                                 >
                                 Ir a Pagar
                                 </a>
                             </div>
-                            <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+                            <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
                                 <p>
                                 O {" "}
                                 <button

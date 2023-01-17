@@ -7,8 +7,9 @@ import Dashboard from "./components/Admin/Dasboard";
 import Products from "./components/Shop/Products"
 import AboutUs from "./containers/static/AboutUs";
 import Contact from "./containers/static/Contact";
-import PaymentMet from "./containers/static/PaymentMet";
-
+import PaymentMet from "./containers/static/PatmentMetPrin";
+import CartPage from "./components/Shop/CartPage";
+import Payment from "./components/Shop/Payment";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
             <Route exact path='/nosotros' element={<AboutUs/>}/>
             <Route exact path='/contacto' element={<Contact/>}/>
             <Route exact path='/medios-pago' element={<PaymentMet/>}/>
+            <Route exact path='/carrito' element={<CartPage/>}/>
+            <Route exact path='/pagos' element={<Payment/>}/>
             {/* <Route exact path='/productos/:id' element={<Product/>}/> */}
           </Routes>
       </Router> 

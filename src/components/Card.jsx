@@ -65,9 +65,6 @@ const Card = ({ id, title, image, price, color }) => {
     <>
       {/* onClick={}  */}
       <div onClick={openModal}  className="group relative border border-gray-300 bg-white hover:border-light hover:shadow-2xl hover:shadow-gray-400 shadow-none cursor-pointer w-full rounded-lg flex flex-col items-center justify-center">
-        <div className="z-10 mt-2 mr-2 top-0 right-0 absolute h-8 w-8  flex items-center justify-center text-xl hover:text-red-600 text-gray-900 rounded-3xl transform-gpu shadow  translate-y-0 hover:-translate-y-0.5 transition-all duration-200 ease-in-out">
-          <BiHeart />
-        </div>
         <div className="relative">
           <div className="h-40 sm:h-44 lg:h-48 2xl:h-52 w-full rounded-xl overflow-hidden flex">
             <img src={image} className="group-hover:animate-scale-up-center object-cover w-full h-full" alt="" />
@@ -89,7 +86,7 @@ const Card = ({ id, title, image, price, color }) => {
 
       {/* Modal */}
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50 " onClose={closeModal}>
         <Transition.Child
             as={Fragment}
             enter="ease-out duration-100"
@@ -100,18 +97,18 @@ const Card = ({ id, title, image, price, color }) => {
             leaveTo="opacity-0"
           >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
+        </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
-                enter="ease-out duration-100"
-                enterFrom="opacity-0 scale-95"
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-0"
                 enterTo="opacity-100 scale-100"
-                leave="ease-in duration-100"
+                leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
+                leaveTo="opacity-0 scale-0"
               >
                 <Dialog.Panel className="relative w-full max-w-[24rem]  md:max-w-3xl lg:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-4 md:p-0 text-left align-middle shadow-xl transition-all">
 
