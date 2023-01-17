@@ -107,10 +107,10 @@ export default function Payment() {
                         <input className='h-10' type="text" />
                     </form>
                 </div>  
-                <div className='grid  grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
+                <div className='  grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
                     <h1 className='justify-items-start flex col-span-2 font-semibold text-2xl mb-7'>Tu pedido</h1>
                     {productos.map((product, index) => (
-                        <div key={index} className="grid grid-cols-3 col-span-2">
+                        <div key={index} className="grid grid-cols-3 col-span-2 ">
                             <div className='font-semibold grid grid-cols-4 col-span-2'>
                                 <div className="h-8 w-8 flex-shrink-0 overflow-hidden">
                                     <img
