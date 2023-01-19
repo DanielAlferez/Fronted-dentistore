@@ -101,7 +101,7 @@ export default function Payment() {
                             <div className='col-span-3 my-40 flex flex-col items-center justify-center content-center text-gray-300'>
                                 <MdOutlineRemoveShoppingCart className='w-48 h-48 opacity-50'/>
                                 <p className='mt-5 text-2xl'> 
-                                    El producto que desea comprar es menos del valor minimo permitido
+                                    El producto que desea comprar tiene un valor menor al minimo permitido
                                 </p>
                                 <a
                                 href="/"
