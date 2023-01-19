@@ -56,9 +56,9 @@ export default function Modal() {
       })
       return
     }
-
+//${import.meta.env.VITE_API_URL}
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/register/`,{method: 'POST', body: JSON.stringify({...form, userrole: 'usuario'}), headers: {
+      const response = await fetch(`http://0.0.0.0:8000/api/register/`,{method: 'POST', body: JSON.stringify({...form, userrole: 'usuario'}), headers: {
         "Content-Type": 'application/json'
       }})
       const data = await response.json()
@@ -90,7 +90,7 @@ export default function Modal() {
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try{
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/login/`,{method: 'POST', body: JSON.stringify({...formLogin}), headers: {
+      const response = await fetch(`http://0.0.0.0:8000/api/login/`,{method: 'POST', body: JSON.stringify({...formLogin}), headers: {
         "Content-Type": 'application/json'
       }})
       const data = await response.json()

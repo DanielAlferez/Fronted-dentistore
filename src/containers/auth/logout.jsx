@@ -6,8 +6,7 @@ export default function Logout() {
     const logoutRequest = async (e) => {
         const token = localStorage.getItem('token')
         try{
-            const response = await fetch(`${
-                import.meta.env.VITE_API_URL}/logout/`,{
+            const response = await fetch(`http://0.0.0.0:8000/api/logout/`,{
                 method: 'POST',  
                 headers: {
                 "Authorization" :  `Bearer ${token}`,
