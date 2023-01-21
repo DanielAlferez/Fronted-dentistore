@@ -7,6 +7,7 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import PaymentMet from "../../containers/static/PaymentMet";
 import { Radio } from "@material-tailwind/react";
+import md5 from 'md5';
 
 //CartStatus, es necesario?
 export default function Payment() {
@@ -20,9 +21,7 @@ export default function Payment() {
     
     const [subTotal,setSubtotal] = React.useState(0);
 
-    const randomNumber = Math.floor(Math.random() * 1000000);
-    const [referenceCode, setReferenceCode] = useState("dentistore" + randomNumber);
-    const [signature,setSignature] = useState();
+    const [formData,setFormData] = useState();
 
     const handleRadioChange = (event) => {
         if (event.target.value === "add") {
@@ -31,6 +30,7 @@ export default function Payment() {
             setTotal(subTotal);
         }
     }
+      
 
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
@@ -47,15 +47,33 @@ export default function Payment() {
         })
 
         const subtotal = datos_existentes.reduce((acummulator, currentvalue) => ( acummulator + currentvalue.price * currentvalue.count ), 0); 
-
+        
         setTotal(subtotal + 16000)
         setSubtotal(subtotal);
         setProductos(datos_existentes);
+
+        
     },[]);
 
     React.useEffect(()=>{
         setCantidad(productos.length);
     }, [productos]);
+
+    React.useEffect(() => {
+
+        const data = {
+            referenceCode: "",
+            signature: "",
+        };
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (let i = 0; i < 16; i++) {
+          data.referenceCode += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        
+        const signatureDescrypt = "4Vj8eK4rloUd272L48hsrarnUA" + "~" + "508029" + "~" + data.referenceCode + "~" + total + "~" +  "COP";
+        data.signature = md5(signatureDescrypt);
+        setFormData(data);
+    },[total]);
 
   return (
     <div>
@@ -116,17 +134,18 @@ export default function Payment() {
                             <div className='md:max-w-6xl max-w-lg grid min-[1100px]:grid-cols-3 grid-cols-1 my-16 min-[1100px]:gap-x-16 gap-x-0 gap-y-10'>
                                 <form className='h-4/5 col-span-1 min-[1100px]:col-span-2 min-[1100px]:grid-cols-2 text-left min-[1100px]:mx-0 md:mx-3 mx-5 px-3 grid grid-cols-1 gap-x-10 gap-y-5' method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
                                     <h1 className='col-span-2 font-semibold text-2xl mb-5'>Detalles de facturación</h1>
+                                    <h3 className='col-span-2 font-semibold text-1xl mb-5 text-red-600'>Esta es una pasarela de pagos de prueba, la pagina web sigue en desarrollo y este apartado no ha sido terminado.</h3>
                                     <input name="merchantId"      type="hidden"  value="508029"   />
                                     <input name="ApiKey"          type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA"   />
                                     <input name="accountId"       type="hidden"  value="512321" />
                                     <input name="description"     type="hidden"  value="Test PAYU"  />
-                                    <input name="referenceCode"   type="hidden"  value="dentistore1" />
-                                    <input name="amount"          type="hidden"  value="20000"   />
-                                    <input name="tax"             type="hidden"  value="3193"  />
-                                    <input name="taxReturnBase"   type="hidden"  value="16806" />
+                                    <input name="referenceCode"   type="hidden"  value={formData.referenceCode} />
+                                    <input name="amount"          type="hidden"  value={total}   />
+                                    <input name="tax"             type="hidden"  value="0"  />
+                                    <input name="taxReturnBase"   type="hidden"  value="0" />
                                     <input name="currency"        type="hidden"  value="COP" />
-                                    <input name="signature"       type="hidden"  value="0b083ea864c153217a811984ed5eb2d2"  />
-                                    <input name="test"            type="hidden"  value="0" />
+                                    <input name="signature"       type="hidden"  value={formData.signature}  />
+                                    <input name="test"            type="hidden"  value="1" />
                                     <div className='flex flex-col col-span-2'>
                                         <label className='font-semibold mb-2' for="name">Nombre completo</label>
                                         <input name="buyerFullName" className='rounded-md'  type="text" id="name" required/>
@@ -150,7 +169,7 @@ export default function Payment() {
                                     </div>
                                     <div className='flex flex-col col-span-2 '>
                                         <label  className='font-semibold mb-2' for="city">Notas del pedido (Opcional)</label>
-                                        <textarea name="notes" className='rounded-md h-32' type="text"  id="note"/>
+                                        <textarea name="extra1" className='rounded-md h-32' type="text"  id="note"/>
                                     </div>
                                     <input name="shippingCountry" type="hidden"  value="CO"  />
                                     <input name="Submit" className='mt-5 rounded-md border col-span-2 cursor-pointer text-white font-semibold text-md bg-light h-12 hover:bg-dark' type="submit"  value="Enviar" />
@@ -200,6 +219,9 @@ export default function Payment() {
                                         </div>
                                         <div className='justify-end flex font-semibold text-lg'>
                                             <p>${total}</p>
+                                        </div>
+                                        <div className='flex text-sm'>
+                                            <p>*IVA incluido</p>
                                         </div>
                                     </div>
                                     <div className="col-span-3 mt-10 border p-2 rounded-md ">
