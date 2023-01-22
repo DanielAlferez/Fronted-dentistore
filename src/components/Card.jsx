@@ -17,8 +17,15 @@ import {  IoMdPricetags } from "react-icons/io";
 import { Link, Route, Router } from "react-router-dom";
 import Products from "./Shop/Products";
 
-const Card = ({ id, title, image, price, color }) => {
+const Card = ({ id, title, image, price, color, description }) => {
   
+  let shortDescription = description;
+  if (description.length > 100) {
+    shortDescription = description.substring(0, 100) + "...";
+  }else{
+    shortDescription = description.substring(0, 100);
+  }
+
   const handleAddProduct = () => {
     const newProduct = {
         id,
@@ -31,6 +38,8 @@ const Card = ({ id, title, image, price, color }) => {
 
     // datos_existentes.push(newProduct);
     // localStorage.setItem('car',JSON.stringify(datos_existentes))
+
+
 
     const Toast = Swal.mixin({
       toast: true,
@@ -60,6 +69,7 @@ const Card = ({ id, title, image, price, color }) => {
   function openModal() {
     setIsOpen(true)
   }
+  
 
   return (
     <>
@@ -152,7 +162,7 @@ const Card = ({ id, title, image, price, color }) => {
 
                         {/* Caracteristicas */}
                         <div className="my-5 ">
-                          <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum neque quis aspernatur quo eos ea?</p>
+                          <p>{shortDescription}</p>
                           <div className="flex items-center my-2"> 
                             <CgMoreO className="text-dark h-5 w-5 text-center mr-1 "/>
                             <Link className="text-dark hover:text-light" to={`/productos/${id}`}>
