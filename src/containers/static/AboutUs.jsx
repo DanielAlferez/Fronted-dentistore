@@ -9,7 +9,7 @@ export default function AboutUs() {
         <div className='flex flex-col justify-start content-start items-start mx-10 xl:ml-40 2xl:ml-80'> 
           <p className='text-gray-500'>Nosotros</p>
           <p className='text-3xl font-semibold text-gray-800'>Empresa lider en venta de insumos dentales</p>
-          <p className='text-gray-700 mt-3'>Denti Store es una empresa... Lorem ipsum dolor sit amet consectetur adipisicing elit. Id non rem quibusdam doloribus corporis necessitatibus iste praesentium suscipit, nostrum quis iusto aliquam eos. Ratione quaerat pariatur omnis nulla quo quis nam eos asperiores tempore hic dolore accusantium officia fugit expedita quibusdam corrupti aspernatur facere nisi, neque cupiditate harum nobis eum.</p>
+          <p className='text-gray-700 mt-3'>Denti Store es una empresa líder en la venta de insumos dentales y mecánica dental en la ciudad de Villavicencio. Ofrecemos una amplia variedad de productos de la mejor calidad para satisfacer las necesidades de nuestros clientes. Nuestra empresa se caracteriza por su experiencia y profesionalismo, lo que nos permite ofrecer un servicio excepcional y garantizar la satisfacción de nuestros clientes. En Denti Store encontrará una amplia selección de productos de alta calidad a precios competitivos. Si está buscando una empresa confiable y de confianza para satisfacer sus necesidades de insumos dentales, Denti Store es la opción perfecta.</p>
         </div>
         <div className='flex flex-col justify-center content-center items-center mx-10 xl:mr-40 2xl:mr-80'>
           <img className='rounded-full' src={IMG} alt="" />
@@ -26,11 +26,11 @@ export default function AboutUs() {
         <div className='grid grid-cols-1 mx-10 md:mx-20 xl:mx-28 md:grid-cols-2 gap-28 max-w-7xl'>
           <div>
             <h1 className='font-semibold text-2xl text-gray-700 mb-5'>Nuestra Misión</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nobis magni omnis, sint vitae recusandae neque exercitationem, voluptate iste porro, consequuntur quidem. Aliquid perferendis sequi perspiciatis corporis quidem laborum? Blanditiis repudiandae exercitationem iusto officiis expedita cum totam, quisquam laboriosam voluptates obcaecati explicabo quibusdam veniam deserunt omnis. Eos odit adipisci est quis earum asperiores voluptates vel quas ipsum consequuntur inventore, molestiae, dolorum tempore incidunt. Dolorem vitae omnis nulla inventore quibusdam et, beatae, doloremque, corporis tempora consequatur saepe a asperiores. Porro ex cum omnis facere ipsum nisi, repudiandae accusamus minima optio eligendi ad, vero voluptatem doloremque reiciendis dicta voluptates amet perferendis magni.</p>
+            <p>En Denti Store, nuestra misión es brindar a nuestros clientes una amplia variedad de insumos dentales y mecánica dental de alta calidad, ofreciendo un servicio excepcional y garantizando la satisfacción de nuestros clientes. Trabajamos incansablemente para proporcionar productos innovadores, y estamos comprometidos en mantenernos a la vanguardia en nuestra industria.</p>
           </div>
           <div>
           <h1 className='font-semibold text-2xl text-gray-700 mb-5'>Nuestra Visión</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos nobis magni omnis, sint vitae recusandae neque exercitationem, voluptate iste porro, consequuntur quidem. Aliquid perferendis sequi perspiciatis corporis quidem laborum? Blanditiis repudiandae exercitationem iusto officiis expedita cum totam, quisquam laboriosam voluptates obcaecati explicabo quibusdam veniam deserunt omnis. Eos odit adipisci est quis earum asperiores voluptates vel quas ipsum consequuntur inventore, molestiae, dolorum tempore incidunt. Dolorem vitae omnis nulla inventore quibusdam et, beatae, doloremque, corporis tempora consequatur saepe a asperiores. Porro ex cum omnis facere ipsum nisi, repudiandae accusamus minima optio eligendi ad, vero voluptatem doloremque reiciendis dicta voluptates amet perferendis magni.</p>
+            <p>Nuestra visión es ser reconocidos como la empresa líder en venta de insumos dentales y mecánica dental en la ciudad de Villavicencio, y ser el proveedor de confianza para odontólogos y mecánicos dentales en la región. Trabajaremos constantemente para mejorar nuestros productos y servicios, y establecer relaciones a largo plazo con nuestros clientes.</p>
           </div>
         </div>
       </center>

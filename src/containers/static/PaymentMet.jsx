@@ -18,17 +18,17 @@ export default function PaymentMet() {
         <h1 className='text-dark font-bold text-3xl'>CANALES DE PAGO&nbsp;</h1>
       </div>
       <center>
-        <p className=' text-black  font-semibold text-xl'>
+        {/* <p className=' text-black  font-semibold text-xl'>
           RUC. 0943745711
           <br />
           NIT. 0137423432
-        </p>
+        </p> */}
       </center>
 
     <center>
       <div className='max-w-3xl mx-10 md:mx-0 flex flex-col my-10 justify-center'>
-        <h1 className='font-bold text-lg mb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, nisi?</h1>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate sed sit tempora nihil accusamus aliquam quidem fuga? Fugit nihil voluptatem, animi nulla id ullam voluptate ipsum eos dolores error, autem quo officia, magni possimus quaerat quidem culpa consequuntur rem esse qui aspernatur? Doloribus sed aut consequuntur odio provident dolor quibusdam.</p>
+        <h1 className='font-bold text-lg mb-3'>Aquí puedes conocer los medios de pagos que puedes usar para comprar tus productos</h1>
+        <p>Ofrecemos la opción de pago mediante la pasarela de pagos de PayU, una plataforma segura y confiable para realizar pagos con tarjeta de crédito y débito de manera rápida y sencilla. PayU cuenta con la certificación PCI-DSS para garantizar la seguridad de sus datos personales y financieros.</p>
       </div>
     </center>
 

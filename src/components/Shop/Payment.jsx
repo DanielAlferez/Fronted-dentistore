@@ -78,7 +78,7 @@ export default function Payment() {
   return (
     <div>
         <center>
-            <div className='grid grid-cols-5 max-w-3xl my-10'>
+            <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
                 <div>
                     <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
                     <p className='text-dark'>Carrito de compras</p>
@@ -131,50 +131,49 @@ export default function Payment() {
                         )
                     }else{
                         return(
-                            <div className='md:max-w-6xl max-w-lg grid min-[1100px]:grid-cols-3 grid-cols-1 my-16 min-[1100px]:gap-x-16 gap-x-0 gap-y-10'>
-                                <form className='h-4/5 col-span-1 min-[1100px]:col-span-2 min-[1100px]:grid-cols-2 text-left min-[1100px]:mx-0 md:mx-3 mx-5 px-3 grid grid-cols-1 gap-x-10 gap-y-5' method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
-                                    <h1 className='col-span-2 font-semibold text-2xl mb-5'>Detalles de facturación</h1>
-                                    <h3 className='col-span-2 font-semibold text-1xl mb-5 text-red-600'>Esta es una pasarela de pagos de prueba, la pagina web sigue en desarrollo y este apartado no ha sido terminado.</h3>
-                                    <input name="merchantId"      type="hidden"  value="508029"   />
-                                    <input name="ApiKey"          type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA"   />
-                                    <input name="accountId"       type="hidden"  value="512321" />
-                                    <input name="description"     type="hidden"  value="Test PAYU"  />
-                                    <input name="referenceCode"   type="hidden"  value={formData.referenceCode} />
-                                    <input name="amount"          type="hidden"  value={total}   />
-                                    <input name="tax"             type="hidden"  value="0"  />
-                                    <input name="taxReturnBase"   type="hidden"  value="0" />
-                                    <input name="currency"        type="hidden"  value="COP" />
-                                    <input name="signature"       type="hidden"  value={formData.signature}  />
-                                    <input name="test"            type="hidden"  value="1" />
-                                    <div className='flex flex-col col-span-2'>
-                                        <label className='font-semibold mb-2' for="name">Nombre completo</label>
-                                        <input name="buyerFullName" className='rounded-md'  type="text" id="name" required/>
+                            <form  method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
+                                <div className='md:max-w-6xl max-w-lg grid min-[1100px]:grid-cols-3 grid-cols-1 my-16 min-[1100px]:gap-x-16 gap-x-0 gap-y-10'>
+                                    <div className='h-4/5 col-span-1 min-[1100px]:col-span-2 min-[1100px]:grid-cols-2 text-left min-[1100px]:mx-0 md:mx-3 mx-5 px-3 grid grid-cols-1 gap-x-10 gap-y-5'>
+                                        <h1 className='col-span-2 font-semibold text-2xl mb-5'>Detalles de facturación</h1>
+                                        <h3 className='col-span-2 font-semibold text-1xl mb-5 text-red-600'>Esta es una pasarela de pagos de prueba, la pagina web sigue en desarrollo y este apartado no ha sido terminado.</h3>
+                                        <input name="merchantId"      type="hidden"  value="508029"   />
+                                        <input name="ApiKey"          type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA"   />
+                                        <input name="accountId"       type="hidden"  value="512321" />
+                                        <input name="description"     type="hidden"  value="Test PAYU"  />
+                                        <input name="referenceCode"   type="hidden"  value={formData.referenceCode} />
+                                        <input name="amount"          type="hidden"  value={total}   />
+                                        <input name="tax"             type="hidden"  value="0"  />
+                                        <input name="taxReturnBase"   type="hidden"  value="0" />
+                                        <input name="currency"        type="hidden"  value="COP" />
+                                        <input name="signature"       type="hidden"  value={formData.signature}  />
+                                        <input name="test"            type="hidden"  value="1" />
+                                        <div className='flex flex-col col-span-2'>
+                                            <label className='font-semibold mb-2' for="name">Nombre completo</label>
+                                            <input name="buyerFullName" className='rounded-md'  type="text" id="name" required/>
+                                        </div>
+                                        <div className='flex flex-col col-span-2'>
+                                            <label className='font-semibold mb-2' for="address">Direccion</label>
+                                            <input name="shippingAddress" type="text" className='rounded-md' value="calle 93 n 47 - 65" id="address" required/>
+                                        </div>
+                                        {/* <label for="email">Correo electronico</label>
+                                        <input name="buyerEmail"      type="text"   className='h-10' id="email" required/> */}
+                                        <input name="buyerEmail"      type="hidden"  value="test@test.com" ></input>
+                                        <input name="responseUrl"     type="hidden"  value="http://www.test.com/response" />
+                                        <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" />
+                                        <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
+                                            <label  className='font-semibold mb-2' for="phone">Telefono</label>
+                                            <input name="mobilePhone" className='rounded-md' type="text" id="phone" required/>
+                                        </div>
+                                        <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
+                                            <label  className='font-semibold mb-2' for="city">Ciudad</label>
+                                            <input name="shippingCity" className='rounded-md' type="text"  value="Bogotá" id="city" required/>
+                                        </div>
+                                        <div className='flex flex-col col-span-2 '>
+                                            <label  className='font-semibold mb-2' for="city">Notas del pedido (Opcional)</label>
+                                            <textarea name="extra1" className='rounded-md h-32' type="text"  id="note"/>
+                                        </div>
+                                        <input name="shippingCountry" type="hidden"  value="CO"  />
                                     </div>
-                                    <div className='flex flex-col col-span-2'>
-                                        <label className='font-semibold mb-2' for="address">Direccion</label>
-                                        <input name="shippingAddress" type="text" className='rounded-md' value="calle 93 n 47 - 65" id="address" required/>
-                                    </div>
-                                    {/* <label for="email">Correo electronico</label>
-                                    <input name="buyerEmail"      type="text"   className='h-10' id="email" required/> */}
-                                    <input name="buyerEmail"      type="hidden"  value="test@test.com" ></input>
-                                    <input name="responseUrl"     type="hidden"  value="http://www.test.com/response" />
-                                    <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" />
-                                    <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
-                                        <label  className='font-semibold mb-2' for="phone">Telefono</label>
-                                        <input name="mobilePhone" className='rounded-md' type="text" id="phone" required/>
-                                    </div>
-                                    <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
-                                        <label  className='font-semibold mb-2' for="city">Ciudad</label>
-                                        <input name="shippingCity" className='rounded-md' type="text"  value="Bogotá" id="city" required/>
-                                    </div>
-                                    <div className='flex flex-col col-span-2 '>
-                                        <label  className='font-semibold mb-2' for="city">Notas del pedido (Opcional)</label>
-                                        <textarea name="extra1" className='rounded-md h-32' type="text"  id="note"/>
-                                    </div>
-                                    <input name="shippingCountry" type="hidden"  value="CO"  />
-                                    <input name="Submit" className='mt-5 rounded-md border col-span-2 cursor-pointer text-white font-semibold text-md bg-light h-12 hover:bg-dark' type="submit"  value="Enviar" />
-
-                                </form>
                                 <div className='grid grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
                                     <h1 className='justify-items-start flex col-span-2 font-semibold text-2xl mb-7'>Tu pedido</h1>
                                     {productos.map((product, index) => (
@@ -232,19 +231,12 @@ export default function Payment() {
                                             <img src="https://chile.payu.com/wp-content/uploads/sites/4/2020/05/PAYU_LOGO_LIME.png"/>
                                         </div>
                                     </div>
-                                    <a
-                                        href="/"
-                                        className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-blue-50 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-blue-100"
-                                        >
-                                        Volver y seguir comprando
-                                    </a>
-
+                                    <input name="Submit" className='mt-5 rounded-md border col-span-2 cursor-pointer text-white font-semibold text-md bg-light h-12 hover:bg-dark' type="submit"  value="Comprar" />
                                 </div>     
                             </div>
+                        </form>
                         );
                     }})()}
-
-            
         </center>
         <PaymentMet/>
         </div>

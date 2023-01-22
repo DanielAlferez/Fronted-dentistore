@@ -18,7 +18,7 @@ export default [
       id:2,
       title: "Tiziano® ",
       image: IMG2,
-      price: 300000,
+      price: 30000,
       color: ["C1", "C2", "C3"],
       mount:1
     },
@@ -26,7 +26,7 @@ export default [
       id:3,
       title: "Veracril® / Opti-Cryl® Termopolimerizable Monómero",
       image: IMG3,
-      price: 900000,
+      price: 90000,
       color: ["B1", "B2", "B3"],
       mount:1
     },
@@ -34,7 +34,7 @@ export default [
       id:4,
       title: "O-cryl® Autopolimerizable",
       image: IMG4,
-      price: 20000,
+      price: 25000,
       color: ["A3", "B3", "D3"],
       mount:1
     },
@@ -42,14 +42,14 @@ export default [
       id:5,
       title: "Adesivo Zafira Bond",
       image: IMG5,
-      price: 20000,
+      price: 28000,
       mount:1
     },
     {
       id:6,
       title: "Veracril® / Opti-Cryl® Acrílico Alto Impacto",
       image: IMG6,
-      price: 20.000,
+      price: 42000,
       color: ["59", "62", "67"],
       mount:1
     },

@@ -72,7 +72,7 @@ export default function CartPage() {
   return (
     <Layout>
       <center>
-            <div className='grid grid-cols-5 max-w-3xl my-10'>
+            <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
                 <div>
                     <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
                     <p className='text-dark'>Carrito de compras</p>
@@ -116,7 +116,7 @@ export default function CartPage() {
                     }else{
                         return(
                             <>
-                                <div className='col-span-2 border p-10 rounded-md min-[1100px]:mx-0 md:mx-5 mx-10'>
+                                <div className='col-span-2 border px-2 py-5 rounded-md min-[1100px]:mx-0 md:mx-2 mx-3'>
                                     <p className='text-dark font-semibold text-2xl mb-5'>CARRITO DE COMPRAS</p>
                                     <p className='bg-gray-50 p-2 rounded-lg font-semibold text-gray-600 mb-10'>Verifica atentamente tu pedido. Revisa cantidades y precios antes de finalizar tu cuenta</p>
                                     <hr className='md:block hidden'/>
@@ -129,7 +129,7 @@ export default function CartPage() {
                                     </div>
                                     <hr className='md:block hidden mb-5'/>
                                     {productos.map((product, index) => (
-                                        <li key={index} className="grid md:grid-cols-7 grid-cols-1 justify-center items-center">
+                                        <li key={index} className="grid md:grid-cols-7 grid-cols-1 justify-center items-center md:mb-2 mb-10">
                                             <div className='grid grid-cols-2 md:col-span-3 col-span-1'>
                                                 <div className='flex'>
                                                     <div className="flex justify-center items-center text-sm m-3">
@@ -183,12 +183,12 @@ export default function CartPage() {
                                                 </div >
                                             </div>
     
-                                            <div className='md:block hidden items-center justify-center font-semibold'>
+                                            <div className='md:block hidden items-center justify-center font-semibol'>
                                                 <p>${product.price*product.count}</p>
                                             </div>
 
                                             <div className='grid grid-cols-2 m-3'>
-                                                <div className='md:hidden block justify-start items-center font-normal'>
+                                                <div className='md:hidden block justify-start items-center font-normal text-gray-500'>
                                                     <p>Precio: ${product.price}</p>
                                                 </div>
                                                 <div className='md:hidden block justify-center items-center'>
@@ -211,8 +211,8 @@ export default function CartPage() {
                                             </div>
 
                                             <div className='md:hidden block items-center justify-end font-semibold'>
-                                                    <p>Total: ${product.price*product.count}</p>
-                                                </div>
+                                                <p>Total: ${product.price*product.count}</p>
+                                            </div>
                                         </li>
                                     ))}
                                     <div className=" flex justify-center text-center text-md">
