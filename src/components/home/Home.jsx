@@ -39,7 +39,7 @@ const Home = () => {
                   <h1 className="text-lg font-bold text-black">Disponibilidad Inmediata</h1>
                 </div>
                 <div className="p-4 grid grid-cols-1">
-                  <center><RiSecurePaymentLine className="w-16 h-16 font-thin text-dark"/></center>
+                  <center><RiSecurePaymentLine className="w-16 h-16  font-thin text-dark"/></center>
                   <h1 className="text-lg font-bold text-black">Seguridad en tus Compras</h1>
                 </div>
               </div>
