@@ -1,0 +1,6 @@
+Host dokku@dentistore.online:fronted-dentistore
+	HostName dokku@dentistore.online:fronted-dentistore
+	User dokku
+	IdentityFile /home/daniel/.ssh/id_rsa
+	IdentitiesOnly yes
+	
