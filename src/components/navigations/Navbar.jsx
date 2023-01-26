@@ -17,7 +17,7 @@ function classNames(...classes) {
 export default function Navbar({cartStatus}) {
 
   //const URL = "http://127.0.0.1:8000/api/categories"
-  const URL = "http://0.0.0.0:5000/api/categories"
+  const URL = "https://0.0.0.0:5000/api/categories" 
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
