@@ -29,7 +29,7 @@ function App() {
           <Routes>
             {/* Error Display */}
             <Route path='*' element={<Error404/>}/>
-            {/* Home */}
+            {/* Home  */}
             <Route exact path='/' element={<Home/>}/>
             <Route exact path='/admin' element={
             <RequireAdmin>
