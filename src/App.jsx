@@ -10,6 +10,7 @@ import Contact from "./containers/static/Contact";
 import PaymentMet from "./containers/static/PatmentMetPrin";
 import CartPage from "./components/Shop/CartPage";
 import Payment from "./components/Shop/Payment";
+import Product from "./components/Product";
 
 
 function RequireAdmin({children}){
@@ -42,7 +43,7 @@ function App() {
             <Route exact path='/medios-pago' element={<PaymentMet/>}/>
             <Route exact path='/carrito' element={<CartPage/>}/>
             <Route exact path='/pagos' element={<Payment/>}/>
-            {/* <Route exact path='/productos/:id' element={<Product/>}/> */}
+            <Route exact path='/productos/:id' element={<Product/>}/>
           </Routes>
       </Router> 
     </ProductsProvider>

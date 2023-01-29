@@ -1,6 +1,7 @@
 import Layout from "../../hocs/Layout";
 import styles from "./Home.module.css";
 import Card from "../Card";
+import React from "react";
 //import products from "../../data/products";
 import CardHome from "../cardHome";
 import Presentation from "./Presentation";
@@ -13,6 +14,12 @@ import  useProductsContext from '../../hooks/useProducts'
 
 const Home = () => {
   const {products} = useProductsContext();
+  const sectionRef = React.useRef(null);
+
+  const handleClick = () => {
+    const y = sectionRef.current.offsetTop;
+    sectionRef.current.scrollIntoView({behavior: "smooth"});
+  }
 
   return (
     <Layout cartStatus={true}>
@@ -20,7 +27,7 @@ const Home = () => {
         <div className="relative py-8 lg:pt-14 2xl:px-0 xl:px-10 lg:px-10 md:px-8 sm:px-7 px-6 max-w-7xl ">
           <main className={styles.section}>
             <section className={styles.container}>
-              <Presentation/>
+              <Presentation onClick={handleClick} />
             </section>
 
             <div className="grid grid-cols-11 w-full justify-center items-center" />
@@ -48,15 +55,19 @@ const Home = () => {
             <div className="grid grid-cols-11 w-full justify-center items-center mb-6" >
               <hr  className="col-span-4"/><h1 className="text-center col-span-3 xs:text-xs sm:text-xl text-gray-400 font-semibold">Categorias</h1><hr  className="col-span-4"/>
             </div>
-            <section className={styles.container}>
+            <section className='pb-14' >
               <Categories/>
             </section>
+
+            <div ref={sectionRef} id="section">
+              <br />
+            </div>
 
             <div className="grid grid-cols-11 w-full justify-center items-center mb-6" >
               <hr  className="col-span-4"/><h1 className="text-center col-span-3 xs:text-xs sm:text-xl text-gray-400 font-semibold">Productos Más Recientes</h1><hr  className="col-span-4"/>
             </div>
 
-            <section className={styles.container}>
+            <section className={styles.container} >
               <div className={styles.layout}>
                 {products.map((element, index) => (
                   <Card

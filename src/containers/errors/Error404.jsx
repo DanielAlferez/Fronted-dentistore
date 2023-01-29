@@ -1,7 +1,11 @@
 import Layout from "../../hocs/Layout";
 import { FaTeethOpen } from "react-icons/fa";
+import React from "react";
 
 const Error404 = () => {
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [])
     return(
         <Layout>
             <div className="w-full h-full py-36 flex flex-col justify-center items-center content-center">
