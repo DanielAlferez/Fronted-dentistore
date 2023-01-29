@@ -33,7 +33,7 @@ export default function Navbar({cartStatus}) {
         const dataf = [
           {"category_id":0,"category_name":"No hay categorias disponibles"}
         ]
-        setData(dataf)
+        setData(dataf);
       }
       else{
         setData(data);
