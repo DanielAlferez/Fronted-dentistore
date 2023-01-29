@@ -16,8 +16,8 @@ function classNames(...classes) {
 
 export default function Navbar({cartStatus}) {
 
-  //const URL = "http://127.0.0.1:8000/api/categories"
-  const URL = "https://0.0.0.0:5000/api/categories" 
+  const URL = "https://dentistore.online:5000/api/categories"
+  //const URL = "https://0.0.0.0:5000/api/categories"  
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
     async function loadCategories() {
@@ -29,15 +29,17 @@ export default function Navbar({cartStatus}) {
       //   }
       // });
       const data = await res.json();
-      setData(data);
+      if(!data.length){
+        const dataf = [
+          {"category_id":0,"category_name":"No hay categorias disponibles"}
+        ]
+        setData(dataf)
+      }
+      else{
+        setData(data);
+      }
     }
     loadCategories()
-    if(!data.length){
-      const data = [
-        {"category_id":0,"category_name":"No hay categorias disponibles"}
-      ]
-      setData(data)
-    }
   },[])
   if(!data.length) return
   return (

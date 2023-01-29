@@ -6,7 +6,7 @@ export default function Logout() {
     const logoutRequest = async (e) => {
         const token = localStorage.getItem('token')
         try{
-            const response = await fetch(`https://0.0.0.0:5000/api/logout/`,{
+            const response = await fetch(`https://dentistore.online:5000/api/logout/`,{
                 method: 'POST',  
                 headers: {
                 "Authorization" :  `Bearer ${token}`,

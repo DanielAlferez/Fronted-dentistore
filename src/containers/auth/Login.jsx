@@ -13,8 +13,8 @@ export default function Modal() {
     error: false
   })
 
-  const URL = "https://0.0.0.0:5000/api/register/"
-  const URL2 = "https://0.0.0.0:5000/api/login/"
+  const URL = "https://dentistore.online:5000/api/register/"
+  const URL2 = "https://dentistore.online:5000/api/login/"
 
   
   const [messageLogin,setMessageLogin] = React.useState({
