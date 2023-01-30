@@ -12,14 +12,18 @@ export default function Confirm() {
         const body = document.body;
         const originalOverflow = body.style.overflow;
         body.style.overflow = "hidden";
-        html2canvas(body, {scrollX: 0, scrollY: 0}).then(canvas => {
+        const width = body.scrollWidth+ 100;
+        const height = body.scrollHeight;  // aumentar altura máxima aquí
+        html2canvas(body, {width, height, scrollX: 0, scrollY: 0}).then(canvas => {
             const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF('l', 'mm', [canvas.width, canvas.height]);
-            pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+            const pdf = new jsPDF('l', 'mm', [width, height]);
+            pdf.addImage(imgData, 'PNG', 0, 0, width, height);
             pdf.save("pago_" + params.reference_pol + ".pdf");
             body.style.overflow = originalOverflow;
         });
-        };
+};
+
+
       
 
     React.useEffect(() => {
