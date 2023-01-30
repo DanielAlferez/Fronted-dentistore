@@ -8,19 +8,18 @@ export default function Confirm() {
     const [params, setParams] = React.useState({});
     const [productos,setProducts] = React.useState([]);
 
-
-    const contentRef = useRef(null);
-
     const handleSavePDF = () => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        html2canvas(document.body, {width, height}).then(canvas => {
-          const imgData = canvas.toDataURL("image/png");
-          const pdf = new jsPDF('l', 'mm',[width,height]);
-          pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-          pdf.save("pago_"+params.reference_pol+".pdf");
+        const body = document.body;
+        const originalOverflow = body.style.overflow;
+        body.style.overflow = "hidden";
+        html2canvas(body, {scrollX: 0, scrollY: 0}).then(canvas => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF('l', 'mm', [canvas.width, canvas.height]);
+            pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+            pdf.save("pago_" + params.reference_pol + ".pdf");
+            body.style.overflow = originalOverflow;
         });
-      };
+        };
       
 
     React.useEffect(() => {
@@ -30,11 +29,11 @@ export default function Confirm() {
         params[key] = value;
     }
     setParams(params);
-    setProducts(JSON.parse(params.description))
+    setProducts(JSON.parse(params.extra3))
     }, []);
     
     return(
-        <div ref={contentRef}>
+        <div>
             <center>
                 <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
                     <div>

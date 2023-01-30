@@ -142,7 +142,7 @@ export default function Payment() {
                                         <input name="merchantId"      type="hidden"  value="508029"   />
                                         <input name="ApiKey"          type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA"   />
                                         <input name="accountId"       type="hidden"  value="512321" />
-                                        <input name="description"     type="hidden"  value={JSON.stringify(productos)}  />
+                                        <input name="description"     type="hidden"  value="Compra en dentistore.online"  />
                                         <input name="referenceCode"   type="hidden"  value={formData.referenceCode} />
                                         <input name="amount"          type="hidden"  value={total}   />
                                         <input name="tax"             type="hidden"  value="0"  />
@@ -177,6 +177,7 @@ export default function Payment() {
                                         </div>
                                         <input name="shippingCountry" type="hidden"  value="CO"  />
                                         <input name="extra2" type="hidden"  value={envio}  />
+                                        <input name="extra3" type="hidden" value={JSON.stringify(productos)}/>
 
                                     </div>
                                 <div className='grid grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
