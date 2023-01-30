@@ -21,8 +21,8 @@ export default function CartPage() {
         setLocalStorageState(localStorage.getItem('car'));
     }, 500);
 
-    const handleDeleteProduct = (id) => {
-        deleteProduct(id)
+    const handleDeleteProduct = (id,color) => {
+        deleteProduct(id,color)
     }
 
     const handleAddCant = (id,count) => {
@@ -135,7 +135,7 @@ export default function CartPage() {
                                                     <div className="flex justify-center items-center text-sm m-3">
                                                         <button
                                                             value={product.id}
-                                                            onClick={()=>handleDeleteProduct(product.id)}
+                                                            onClick={()=>handleDeleteProduct(product.id,product.color)}
                                                             type="button"
                                                             className="text-xl text-gray-400 hover:text-gray-800"
                                                         >
@@ -158,7 +158,7 @@ export default function CartPage() {
                                             </div>
 
                                             <div className='md:block hidden justify-center col-span-1 items-center my-1 text-black text-md'>
-                                                <p>Rojo</p>
+                                                <p>{product.color}</p>
                                             </div>
 
                                             <div className='md:block hidden justify-center items-center font-normal'>

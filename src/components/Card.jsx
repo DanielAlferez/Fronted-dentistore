@@ -17,8 +17,14 @@ import {  IoMdPricetags } from "react-icons/io";
 import { Link, Route, Router } from "react-router-dom";
 import Products from "./Shop/Products";
 
+
 const Card = ({ id, title, image, price, color, description }) => {
   
+  
+  //const [colorS,setColor] = React.useState()
+  var colorS = color[0]
+
+
   let shortDescription = description;
   if (description.length > 100) {
     shortDescription = description.substring(0, 100) + "...";
@@ -26,19 +32,18 @@ const Card = ({ id, title, image, price, color, description }) => {
     shortDescription = description.substring(0, 100);
   }
 
+  const handleSetColor = (color) => {
+    colorS = color
+  }
+
   const handleAddProduct = () => {
+
     const newProduct = {
         id,
-        count:1
+        count:1,
+        color:colorS
     }
     addProduct(newProduct)
-    //esta parte me copie de aqui https://es.stackoverflow.com/questions/393157/almacenar-varios-array-en-localstorage-javascript
-    // let datos_existentes = localStorage.getItem('car');
-    // datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-
-    // datos_existentes.push(newProduct);
-    // localStorage.setItem('car',JSON.stringify(datos_existentes))
-
 
 
     const Toast = Swal.mixin({
@@ -59,6 +64,11 @@ const Card = ({ id, title, image, price, color, description }) => {
     })
 
   };
+
+  // React.useEffect(()=>{
+    
+  //   console.log(title + colorS)
+  // },[]);
 
   let [isOpen, setIsOpen] = useState(false)
 
@@ -173,13 +183,13 @@ const Card = ({ id, title, image, price, color, description }) => {
 
                                                 
                         {/* Color */}
-                        {!color ? <div></div> : 
+                        {color[0] === "No aplica" ? <div></div> : 
                           <div className="my-5">
                             <p className="font-semibold text-lg">Elije un color</p>
                             <div className="flex flex-wrap mt-2">
                               {color.map((color, index) => (
                               <div key={index} className={`rounded-xl hover:border-dark hover:text-light cursor-pointer border border-gray-700 hover:bg-gray-50 text-gray-700 px-2 py-1.5 mr-1`}>
-                                <p className="text-xs">{color}</p>
+                                <button onClick={()=>{handleSetColor(color)}}>{color}</button>
                               </div>
                               ))}
                             </div>

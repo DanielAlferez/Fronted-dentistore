@@ -50,6 +50,7 @@ export default [
       title: "Adesivo Zafira Bond",
       image: IMG5,
       price: 169000,
+      color: ["No aplica"],
       mount:1,
       description: "Zafira Bond es un adhesivo dental fotopolimerizable de última generación que combina agente grabador, primer y adhesivo en un solo frasco. Es un producto de uso profesional odontológico indicado para restauraciones directas e indirectas con materiales fotopolimerizables y para el tratamiento de sensibilidad cervical."
     },
@@ -58,7 +59,7 @@ export default [
       title: "Veracril® / Opti-Cryl® Acrílico Alto Impacto",
       image: IMG6,
       price: 60928,
-      color: ["59", "62", "67"],
+      color: ["No aplica"],
       mount:1,
       description: "Resina acrílica autopolimerizable (polímero), indicada para la elaboración de aparatos de ortodoncia y ortopedia en diferentes colores."
     },
@@ -67,6 +68,7 @@ export default [
       title: "Discos PMMA Base de Dentadura",
       image: IMG7,
       price: 31000,
+      color: ["No aplica"],
       mount:1,
       description: "Base de dentadura de alto impacto. Son discos de PMMA para la elaboración de bases para prótesis. La mimetización cromática y los pigmentos ideales para su fabricación, referencian al producto para hacer una opción ideal para tener prótesis dentales con mayor naturalidad. Satisfaciendo las necesidades de los pacientes."
     },
@@ -75,6 +77,7 @@ export default [
       title: "Mufla Para Microondas",
       image: IMG8,
       price: 366282,
+      color: ["No aplica"],
       mount:1,
       description: "Las muflas se utilizan para la polimerización de acrílicos de uso odontológico por el método del microondas. Esta mufla esta elaborada en un plástico de ingenieria reforzado, lo que permite que la mufla tenga excelentes propiedades físicas y mecánicas."
     },
@@ -83,6 +86,7 @@ export default [
       title: "High Alloy®",
       image: IMG9,
       price: 52300,
+      color: ["No aplica"],
       mount:1,
       description: "High Alloy es una aleación de fase dispersa y alto contenido de plata, cuyas características físicas y químicas, unidas a un correcto procedimiento clínico por parte del profesional, garantizan una excelente restauración."
     },
