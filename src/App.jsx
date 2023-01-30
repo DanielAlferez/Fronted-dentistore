@@ -11,6 +11,8 @@ import PaymentMet from "./containers/static/PatmentMetPrin";
 import CartPage from "./components/Shop/CartPage";
 import Payment from "./components/Shop/Payment";
 import Product from "./components/Product";
+import Confirm from "./components/Shop/Confirm";
+
 
 
 function RequireAdmin({children}){
@@ -44,6 +46,7 @@ function App() {
             <Route exact path='/carrito' element={<CartPage/>}/>
             <Route exact path='/pagos' element={<Payment/>}/>
             <Route exact path='/productos/:id' element={<Product/>}/>
+            <Route exact path='/confirmar-pago' element={<Confirm/>}/>
           </Routes>
       </Router> 
     </ProductsProvider>

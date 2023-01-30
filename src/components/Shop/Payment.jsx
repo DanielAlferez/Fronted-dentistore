@@ -22,12 +22,15 @@ export default function Payment() {
     const [subTotal,setSubtotal] = React.useState(0);
 
     const [formData,setFormData] = useState();
+    const [envio,setEnvio] = useState(true);
 
     const handleRadioChange = (event) => {
         if (event.target.value === "add") {
             setTotal(subTotal + 16000);
+            setEnvio(true);
         } else if (event.target.value === "default") {
             setTotal(subTotal);
+            setEnvio(false);
         }
     }
       
@@ -139,7 +142,7 @@ export default function Payment() {
                                         <input name="merchantId"      type="hidden"  value="508029"   />
                                         <input name="ApiKey"          type="hidden"  value="4Vj8eK4rloUd272L48hsrarnUA"   />
                                         <input name="accountId"       type="hidden"  value="512321" />
-                                        <input name="description"     type="hidden"  value="Test PAYU"  />
+                                        <input name="description"     type="hidden"  value={JSON.stringify(productos)}  />
                                         <input name="referenceCode"   type="hidden"  value={formData.referenceCode} />
                                         <input name="amount"          type="hidden"  value={total}   />
                                         <input name="tax"             type="hidden"  value="0"  />
@@ -158,8 +161,8 @@ export default function Payment() {
                                         {/* <label for="email">Correo electronico</label>
                                         <input name="buyerEmail"      type="text"   className='h-10' id="email" required/> */}
                                         <input name="buyerEmail"      type="hidden"  value="test@test.com" ></input>
-                                        <input name="responseUrl"     type="hidden"  value="http://www.test.com/response" />
-                                        <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" />
+                                        <input name="responseUrl"     type="hidden"  value="http://localhost:5173/confirmar-pago" />
+                                        {/* <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" /> */}
                                         <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
                                             <label  className='font-semibold mb-2' for="phone">Telefono</label>
                                             <input name="mobilePhone" className='rounded-md' type="text" id="phone" required/>
@@ -173,6 +176,8 @@ export default function Payment() {
                                             <textarea name="extra1" className='rounded-md h-32' type="text"  id="note"/>
                                         </div>
                                         <input name="shippingCountry" type="hidden"  value="CO"  />
+                                        <input name="extra2" type="hidden"  value={envio}  />
+
                                     </div>
                                 <div className='grid grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
                                     <h1 className='justify-items-start flex col-span-2 font-semibold text-2xl mb-7'>Tu pedido</h1>

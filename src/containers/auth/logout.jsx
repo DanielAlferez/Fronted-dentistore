@@ -3,10 +3,14 @@ import {VscSignOut} from 'react-icons/vsc'
 
 
 export default function Logout() {
+
+    const URL = "https://dentistore.online:5000/api/logout/"
+    //const URL = "http://localhost:5000/api/logout/"
+
     const logoutRequest = async (e) => {
         const token = localStorage.getItem('token')
         try{
-            const response = await fetch(`https://dentistore.online:5000/api/logout/`,{
+            const response = await fetch(URL,{
                 method: 'POST',  
                 headers: {
                 "Authorization" :  `Bearer ${token}`,
