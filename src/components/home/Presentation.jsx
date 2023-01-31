@@ -11,6 +11,7 @@ import INI2 from '../../../images/inicio2.png'
 import INI3 from '../../../images/inicio3.png'
 import INI4 from '../../../images/inicio4.png'
 import INI5 from '../../../images/inicio5.png'
+import { Link } from "react-scroll"
 
 const images = [
     {
@@ -39,7 +40,7 @@ const images = [
     },
   ]
 
-function Presentation({ onClick }) {
+function Presentation({ sectionRef }) {
   return (
     <>
         <div className='grid grid-cols-1 lg:grid-cols-2'>
@@ -48,7 +49,9 @@ function Presentation({ onClick }) {
                 <p className="text-gray-600 text-lg sm:text-xl ">Insumos, Materiales y Equipos para Odontología y Mecanica Dental</p>
                 <p className="mt-14 text-gray-500 text-md sm:text-lg ">Encuentra todos los insumos que necesitas para tu consultorio o laboratorio dental con envío a todo Villavicencio</p>
                 <div className='flex gap-2 lg:gap-5 justify-center lg:justify-start'>
-                    <button onClick={onClick} href='/' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'> Productos Recientes</button>
+                    <Link to={sectionRef} smooth={true} duration={1000}>
+                        <button href='/' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'> Productos Recientes</button>
+                    </Link>
                     <a href='/productos' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'>Todos los Productos</a>
                 </div>
                 <p className="text-gray-400 text-md sm:text-lg mt-0 lg:mt-10">Nuestros Distribuidores</p>

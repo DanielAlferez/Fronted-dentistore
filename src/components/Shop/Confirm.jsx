@@ -1,7 +1,10 @@
 import React,{useRef} from 'react'
 import {MdKeyboardArrowRight, MdClose} from "react-icons/md";
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas'
+import { BsCartCheckFill } from "react-icons/bs";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineNotes } from "react-icons/md";
 
 export default function Confirm() {
 
@@ -23,9 +26,6 @@ export default function Confirm() {
         });
 };
 
-
-      
-
     React.useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const params = {};
@@ -38,105 +38,139 @@ export default function Confirm() {
     
     return(
         <div>
-            <center>
-                <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
-                    <div>
-                        <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
-                        <p className='text-dark'>Carrito de compras</p>
+            <center >
+                <div className='max-w-7xl'>
+                    <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
+                        <div>
+                            <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
+                            <p className='text-dark'>Carrito de compras</p>
+                        </div>
+                        <div className='flex justify-center items-center'>
+                            <MdKeyboardArrowRight className='w-8 h-8 text-gray-400'/>
+                        </div>
+                        <div>
+                            <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>2</p>
+                            <p className='text-dark'>Envío y pago</p>
+                        </div>
+                        <div className='flex justify-center items-center'>
+                            <MdKeyboardArrowRight className='w-8 h-8 text-gray-400'/>
+                        </div>
+                        <div>
+                            <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>3</p>
+                            <p className='text-dark'>Confirmar compra</p>
+                        </div>
                     </div>
-                    <div className='flex justify-center items-center'>
-                        <MdKeyboardArrowRight className='w-8 h-8 text-gray-400'/>
+                    
+                    <div className='my-20'>
+                        <BsCartCheckFill className='text-green-600 mb-5 w-16 h-16'/>
+                        <h1 className='font-bold text-4xl'>Gracias por tu compra</h1>
                     </div>
-                    <div>
-                        <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>2</p>
-                        <p className='text-dark'>Envío y pago</p>
-                    </div>
-                    <div className='flex justify-center items-center'>
-                        <MdKeyboardArrowRight className='w-8 h-8 text-gray-400'/>
-                    </div>
-                    <div>
-                        <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>3</p>
-                        <p className='text-dark'>Confirmar compra</p>
-                    </div>
-                </div>
-                <div>
 
-                </div>
-                <div className='grid grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>
-                    <h1 className='justify-items-start flex col-span-2 font-semibold text-2xl mb-7'>Detalles de tu compra</h1>
-                    {productos.map((product, index) => (
-                        <div key={index} className="grid grid-cols-3 col-span-2 ">
-                            <div className='font-semibold grid grid-cols-4 col-span-2'>
-                                <div className="h-8 w-8 flex-shrink-0 overflow-hidden">
-                                    <img
-                                        src={product.image}
-                                    />
-                                </div>     
-                                <div className="text-left grid justify-items-start font-normal text-gray-600 text-xs col-span-3">
-                                    {product.title} x{product.count}
+                    <div className='grid md:grid-cols-2'>
+                        <div>
+                            <h1 className='font-semibold text-2xl'>Detalles de tu compra</h1>
+                            <div className='flex flex-wrap justify-center'>
+                                {productos.map((product, index) => (
+                                    <div className='m-5 text-left ' key={index} >
+                                        <div>
+                                            <div>
+                                                <img
+                                                    className='w-32 h-32'
+                                                    src={product.image}
+                                                />
+                                            </div>     
+                                            <div className='w-40'>
+                                                <p className='font-semibold text-sm'>{product.title} x{product.count}</p>
+                                                <p className='font-medium text-xs text-gray-500'>Color: {product.color}</p>
+                                            </div>
+                                        </div>
+
+                                        <div >
+                                            <p className='text-dark text-sm font-semibold'>${product.price*product.count}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        
+                            <div className='grid md:grid-cols-2 mt-10 mx-10 gap-y-8'>
+                                <div >
+                                    <h1 className='font-medium text-2xl mb-3'>Envio:</h1>
+                                        {(()=>{
+                                            if(params.extra2 == "true"){
+                                                return(
+                                                    <p className='text-dark font-medium text-xl'>Sí (+16000 al subtotal)</p>
+                                                )
+                                            }
+                                            else{
+                                                return(
+                                                    <p className='text-red-700 font-medium text-xl'>No (Recoger en tienda)</p>
+                                                )
+                                            }
+                                        })()}
+                                    <TbTruckDelivery className='text-gray-500 w-14 h-14 mr-3 mt-2'/>
+                                </div>
+
+                                <div className='mx-5'>
+                                    <h2 className='font-medium text-2xl mb-2'>Notas del pedido: </h2>
+                                    <div className='flex justify-center items-center'>
+                                        <p className='border p-3 rounded-lg bg-gray-100 border-gray-200'>{params.extra1}</p>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div className='justify-end flex text-xs'>
-                                <p>${product.price*product.count}</p>
-                            </div>
-                            <hr className='col-span-3 my-2'/>
                         </div>
-                    ))}
+
+                        <div className='border mx-5 bg-gray-50 rounded-lg h-80 mt-20 md:mt-0'>
+                            <h1 className='font-semibold text-2xl my-3'>Detalles del pago</h1>
+                            <hr />
+                            <div className='p-1 m-3 flex justify-center items-center'>
+                                <h2 className='mr-2'>Total pagado:</h2>
+                                <p className='text-2xl font-semibold'>${params.TX_VALUE}</p>
+                            </div>
+                            
+                            {/* <h2 className='mb-3 text-lg font-medium'>Estado de la transacción:</h2> */}
+                            {(()=>{
+                                if(params.transactionState === "4"){
+                                    return(
+                                    <p className='bg-green-400 w-44 p-1 rounded-lg text-white text-lg font-medium mb-3'>APROBADA</p>
+                                    )
+                                }
+                                else if(params.transactionState === "6"){
+                                    return(
+                                        <p className='bg-red-400 w-44 rounded-lg text-white text-lg font-medium mb-3'>RECHAZADA</p>
+                                    )
+                                }
+                                else if(params.transactionState === "7"){
+                                    return(
+                                        <p className='bg-orange-400 w-44 rounded-lg text-white text-lg font-medium mb-3'>PENDIENTE</p>
+                                    )
+                                }
+                            })()}
+                            <div className='p-1 m-3 flex justify-center items-center'>
+                                <h2 className='mr-2'>Referencia de compra:</h2>
+                                <p className='font-medium'>{params.referenceCode}</p>
+                            </div>
+                            <div className='p-1 m-3 flex justify-center items-center'>
+                                <h2 className='mr-2'>Referencia de pago:</h2>
+                                <p className='font-medium'>{params.reference_pol}</p>
+                            </div>
+                            <div className='p-1 m-3 flex justify-center items-center'>
+                                <h2 className='mr-2'>Metodo de pago:</h2>
+                                <p className='font-medium'>{params.lapPaymentMethod}</p>
+                            </div>                            
+                        </div>
+                    </div>
+                    
+
+                    <div className='mt-10 mb-20 flex justify-center'>
+                        <button className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-blue-50 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-blue-100" onClick={handleSavePDF}>Guardar en PDF</button>
+                        <a
+                            href="/"
+                            className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-green-400 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-green-300"
+                            >
+                            Finalizar compra
+                        </a>
+                    </div>
                 </div>
-                <h2>Envio: </h2>
-                {(()=>{
-                    if(params.extra2 == "true"){
-                        return(
-                            <p>Sí (+16000 al subtotal)</p>
-                        )
-                    }
-                    else{
-                        return(
-                            <p>No (Recoger en tienda)</p>
-                        )
-                    }
-                })()}
-                <h2>Notas del pedido: </h2><p>{params.extra1}</p> 
-                <div>
-                    <h1 className='justify-items-start flex col-span-2 font-semibold text-2xl mb-7'>Detalles del pago</h1>
-                    <h2>Estado de la transacción:</h2>
-                    {(()=>{
-                        if(params.transactionState === "4"){
-                            return(
-                            <p className='text-green-500'>APROBADA</p>
-                            )
-                        }
-                        else if(params.transactionState === "6"){
-                            return(
-                                <p className='text-red-500'>RECHAZADA</p>
-                            )
-                        }
-                        else if(params.transactionState === "7"){
-                            return(
-                                <p className='text-orange-300'>PENDIENTE</p>
-                            )
-                        }
-                    })()}
-                    <h2>Referencia de compra: </h2><p>{params.referenceCode}</p>
-                    <h2>Referencia de pago: </h2><p>{params.reference_pol}</p>
-                    <h2>Metodo de pago: </h2><p>{params.lapPaymentMethod}</p>
-                    <h2>Total pagado: </h2><p>{params.TX_VALUE}</p>
-
-                    <hr className='col-span-3 my-2'/>
-
-
-
-                </div>
-                <button className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-blue-50 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-blue-100" onClick={handleSavePDF}>Guardar en PDF</button>
-                <a
-                    href="/"
-                    className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-green-400 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-green-300"
-                    >
-                    Finalizar compra
-                </a>
-                
-
             </center>
         </div>
     )

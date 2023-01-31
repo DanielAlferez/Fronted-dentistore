@@ -161,7 +161,7 @@ export default function Payment() {
                                         {/* <label for="email">Correo electronico</label>
                                         <input name="buyerEmail"      type="text"   className='h-10' id="email" required/> */}
                                         <input name="buyerEmail"      type="hidden"  value="test@test.com" ></input>
-                                        <input name="responseUrl"     type="hidden"  value="http://localhost:5173/confirmar-pago" />
+                                        <input name="responseUrl"     type="hidden"  value="http://192.168.56.105:5173/confirmar-pago" />
                                         {/* <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" /> */}
                                         <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
                                             <label  className='font-semibold mb-2' for="phone">Telefono</label>

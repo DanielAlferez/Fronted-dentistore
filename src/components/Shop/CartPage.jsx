@@ -25,18 +25,20 @@ export default function CartPage() {
         deleteProduct(id,color)
     }
 
-    const handleAddCant = (id,count) => {
+    const handleAddCant = (id,count,color) => {
         const data = {
             id,
-            count:count+1
+            count:count+1,
+            color
         }
         addProduct(data)
     }
 
-    const handleDelete = (id,count) => {
+    const handleDelete = (id,count,color) => {
         const data = {
             id,
-            count
+            count,
+            color
         }
         reduceProduct(data)
         //localStorage.setItem('car',JSON.stringify(resultado))
@@ -170,13 +172,13 @@ export default function CartPage() {
                                                     <button
                                                         disabled={product.count > 1 ? false : true}
                                                         className={`${product.count > 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500'} text-white rounded-full w-6 h-6`}
-                                                        onClick={()=>handleDelete(product.id,product.count)} 
+                                                        onClick={()=>handleDelete(product.id,product.count, product.color)} 
                                                         type="button">
                                                         -
                                                     </button>
                                                         <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.count}</p>
                                                     <button
-                                                        onClick={()=>handleAddCant(product.id,product.count)}
+                                                        onClick={()=>handleAddCant(product.id,product.count, product.color)}
                                                         className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
                                                         +
                                                     </button>
@@ -196,13 +198,13 @@ export default function CartPage() {
                                                         <button
                                                             disabled={product.count > 1 ? false : true}
                                                             className={`${product.count > 1 ? 'bg-red-500 hover:bg-red-700' : 'bg-gray-500'} text-white rounded-full w-6 h-6`}
-                                                            onClick={()=>handleDelete(product.id,product.count)} 
+                                                            onClick={()=>handleDelete(product.id,product.count, product.color)} 
                                                             type="button">
                                                             -
                                                         </button>
                                                             <p className='flex items-center justify-center bg-gray-200 text-sm rounded-lg h-6 w-6 text-center px-0.5'>{product.count}</p>
                                                         <button
-                                                            onClick={()=>handleAddCant(product.id,product.count)}
+                                                            onClick={()=>handleAddCant(product.id,product.count, product.color)}
                                                             className='bg-light hover:bg-dark text-white rounded-full w-6 h-6'>
                                                             +
                                                         </button>

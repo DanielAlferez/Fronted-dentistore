@@ -11,15 +11,11 @@ import { RiSecurePaymentLine } from "react-icons/ri";
 import { MdOutlinePayments } from "react-icons/md";
 import Map from "./Map";
 import  useProductsContext from '../../hooks/useProducts'
+import { Link, Element } from "react-scroll"
 
 const Home = () => {
   const {products} = useProductsContext();
-  const sectionRef = React.useRef(null);
-
-  const handleClick = () => {
-    const y = sectionRef.current.offsetTop;
-    sectionRef.current.scrollIntoView({behavior: "smooth"});
-  }
+  const sectionRef = React.useRef("test1");
 
   return (
     <Layout cartStatus={true}>
@@ -27,7 +23,7 @@ const Home = () => {
         <div className="relative py-8 lg:pt-14 2xl:px-0 xl:px-10 lg:px-10 md:px-8 sm:px-7 px-6 max-w-7xl ">
           <main className={styles.section}>
             <section className={styles.container}>
-              <Presentation onClick={handleClick} />
+              <Presentation sectionRef={sectionRef} />
             </section>
 
             <div className="grid grid-cols-11 w-full justify-center items-center" />
@@ -59,9 +55,9 @@ const Home = () => {
               <Categories/>
             </section>
 
-            <div ref={sectionRef} id="section">
+            <Element name={sectionRef}>
               <br />
-            </div>
+            </Element>
 
             <div className="grid grid-cols-11 w-full justify-center items-center mb-6" >
               <hr  className="col-span-4"/><h1 className="text-center col-span-3 xs:text-xs sm:text-xl text-gray-400 font-semibold">Productos Más Recientes</h1><hr  className="col-span-4"/>
