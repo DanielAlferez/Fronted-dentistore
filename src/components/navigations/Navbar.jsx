@@ -20,25 +20,16 @@ export default function Navbar({cartStatus}) {
   //const URL = "http://localhost:5000/api/categories"  
   const [data,setData] = React.useState([]);
   React.useEffect(() =>{
+    const dataf = [
+      {"category_id":0,"category_name":"No hay categorias disponibles"}
+    ]
+    setData(dataf);
     async function loadCategories() {
-      try{
         const res = await fetch(URL);
         const data = await res.json();
-        if(!data.length){
-          const dataf = [
-            {"category_id":0,"category_name":"No hay categorias disponibles"}
-          ]
-          setData(dataf);
-        }
-        else{
+        if(data.length){
           setData(data);
         }
-      }catch(error){
-        const dataf = [
-          {"category_id":0,"category_name":"No hay categorias disponibles"}
-        ]
-        setData(dataf);
-      }
       //{
       //   'mode':'cors',
       //   'headers':{

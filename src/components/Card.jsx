@@ -22,9 +22,9 @@ const Card = ({ id, title, image, price, color, description }) => {
   
   
   //const [colorS,setColor] = React.useState()
-  var colorS = color[0]
+  //var colorS = color[0]
 
-  const [selectColor, setSelectColor] = useState(null);
+  const [selectColor, setSelectColor] = useState(color[0]);
 
   let shortDescription = description;
   if (description.length > 100) {
@@ -34,16 +34,17 @@ const Card = ({ id, title, image, price, color, description }) => {
   }
 
   const handleSetColor = (color) => {
-    colorS = color
-    setSelectColor(color);
-  }
+    setSelectColor(prevState => {
+        return color;
+      });
+  };
 
   const handleAddProduct = () => {
 
     const newProduct = {
         id,
         count:1,
-        color:colorS
+        color:selectColor
     }
     addProduct(newProduct)
 
@@ -190,7 +191,7 @@ const Card = ({ id, title, image, price, color, description }) => {
                             <p className="font-semibold text-lg">Elije un color</p>
                             <div className="flex flex-wrap mt-2">
                               {color.map((color, index) => (
-                              <div key={index} className={`${selectColor === color ? 'border-dark text-light bg-light' : 'border-gray-700 text-gray-700' } rounded-xl cursor-pointer border px-2 py-1.5 mr-1`}>
+                              <div key={index} className={`${selectColor === color ? 'border-dark text-black bg-light' : 'border-gray-700 text-gray-700' } rounded-xl cursor-pointer border px-2 py-1.5 mr-1`}>
                                 <button onClick={()=>{handleSetColor(color)}}>{color}</button>
                               </div>
                               ))}

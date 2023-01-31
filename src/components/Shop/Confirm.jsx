@@ -5,11 +5,15 @@ import html2canvas from 'html2canvas'
 import { BsCartCheckFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineNotes } from "react-icons/md";
+import useProductsContext from '../../hooks/useProducts';
+
 
 export default function Confirm() {
 
     const [params, setParams] = React.useState({});
     const [productos,setProducts] = React.useState([]);
+    const {products} = useProductsContext();
+
 
     const handleSavePDF = () => {
         const body = document.body;
@@ -27,13 +31,27 @@ export default function Confirm() {
 };
 
     React.useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const params = {};
-    for (const [key, value] of searchParams.entries()) {
-        params[key] = value;
-    }
-    setParams(params);
-    setProducts(JSON.parse(params.extra3))
+        const searchParams = new URLSearchParams(window.location.search);
+        const params = {};
+        for (const [key, value] of searchParams.entries()) {
+            params[key] = value;
+        }
+        setParams(params);
+
+        const datos_existentes = JSON.parse(params.extra3)
+        datos_existentes.forEach(function(i){
+            products.forEach(function(j){
+                if(i.id === j.id){
+                    i.title = j.title
+                    i.image = j.image
+                    i.price = j.price
+                }
+            })
+        })
+
+
+        setProducts(datos_existentes)
+        localStorage.removeItem('car');
     }, []);
     
     return(
