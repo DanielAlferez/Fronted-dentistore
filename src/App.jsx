@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/Home'
 import Error404 from "./containers/errors/Error404";
 import {ProductsProvider} from './context/ProductsContext';
-import Dashboard from "./components/Admin/Dasboard";
+import Dashboard from "./components/Admin/DashBoard";
 import Products from "./components/Shop/Products"
 import AboutUs from "./containers/static/AboutUs";
 import Contact from "./containers/static/Contact";
@@ -12,8 +12,6 @@ import CartPage from "./components/Shop/CartPage";
 import Payment from "./components/Shop/Payment";
 import Product from "./components/Product";
 import Confirm from "./components/Shop/Confirm";
-
-
 
 function RequireAdmin({children}){
 
@@ -47,6 +45,7 @@ function App() {
             <Route exact path='/pagos' element={<Payment/>}/>
             <Route exact path='/productos/:id' element={<Product/>}/>
             <Route exact path='/confirmar-pago' element={<Confirm/>}/>
+            <Route exact path='/dashboard' element={<Dashboard/>}/>
           </Routes>
       </Router> 
     </ProductsProvider>

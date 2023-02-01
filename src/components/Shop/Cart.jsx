@@ -9,7 +9,6 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import ThingsContext from '../../context/ProductsContext';
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import useProductsContext from '../../hooks/useProducts';
-//import products from "../../data/products";
 
 export default function Cart({cartStatus}) {
 
