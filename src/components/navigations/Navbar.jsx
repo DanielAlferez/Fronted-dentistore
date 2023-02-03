@@ -9,6 +9,7 @@ import Modal from "../../containers/auth/Login"
 import IMG from '../../../images/logo.png'
 import Logout from '../../containers/auth/logout';
 import Cart from '../Shop/Cart'
+import jwt_decode from 'jwt-decode';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -16,9 +17,10 @@ function classNames(...classes) {
 
 export default function Navbar({cartStatus}) {
 
-  const URL = "https://dentistore.online:5000/api/categories"
-  //const URL = "http://localhost:5000/api/categories"  
+  //const URL = "https://dentistore.online:5000/api/categories"
+  const URL = "http://localhost:5000/api/categories"  
   const [data,setData] = React.useState([]);
+  const [userData,setUser] = React.useState(null);
   React.useEffect(() =>{
     const dataf = [
       {"category_id":0,"category_name":"No hay categorias disponibles"}
@@ -30,20 +32,21 @@ export default function Navbar({cartStatus}) {
         if(data.length){
           setData(data);
         }
-      //{
-      //   'mode':'cors',
-      //   'headers':{
-      //     'Access-Control-Allow-Origin':'*',
-      //   }
-      // });
     }
     loadCategories()
+
+    const token = localStorage.getItem('token')
+    if(token !== null){
+      const decodedToken = jwt_decode(token);
+      setUser(decodedToken)
+    }
+
   },[])
   if(!data.length) return
   return (
     <div >
       {(()=>{
-        if(localStorage.getItem('token')  !== null){
+        if(userData  !== null){
           return(
             <Logout/>
           )
@@ -72,9 +75,9 @@ export default function Navbar({cartStatus}) {
         <div className="flex items-center justify-center">
           <div className='w-10'>
               {(()=>{
-                if(localStorage.getItem('token')  !== null){
+                if(userData  !== null){
                   return(
-                    <a href="/" className="text-gray-700 hover:text-light">
+                    <a href={`${userData.role === 'admin' ? '/dashboard' : '/' }`} className="text-gray-700 hover:text-light">
                       <CgProfile className='w-8 h-8'></CgProfile>
                     </a> 
                   )

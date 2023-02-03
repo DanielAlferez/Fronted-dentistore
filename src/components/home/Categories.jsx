@@ -12,8 +12,8 @@ import "./stylesCarousel.css"
 
 function Categories() {
 
-  const URL = "https://dentistore.online:5000/api/categories"
-  //const URL = "http://localhost:5000/api/categories"  
+  //const URL = "https://dentistore.online:5000/api/categories"
+  const URL = "http://localhost:5000/api/categories"  
   const [data,setData] = React.useState([]);
 
   React.useEffect(() =>{

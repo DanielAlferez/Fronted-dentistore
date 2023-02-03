@@ -33,9 +33,9 @@ function App() {
             {/* Home  */}
             <Route exact path='/' element={<Home/>}/>
             <Route exact path='/admin' element={
-            <RequireAdmin>
+            // <RequireAdmin>
               <Dashboard/>
-            </RequireAdmin>
+            // </RequireAdmin>
             }/>
             <Route exact path='/productos' element={<Products/>}/>
             <Route exact path='/nosotros' element={<AboutUs/>}/>

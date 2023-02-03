@@ -4,8 +4,8 @@ import {VscSignOut} from 'react-icons/vsc'
 
 export default function Logout() {
 
-    const URL = "https://dentistore.online:5000/api/logout/"
-    //const URL = "http://localhost:5000/api/logout/"
+    //const URL = "https://dentistore.online:5000/api/logout/"
+    const URL = "http://localhost:5000/api/logout/"
 
     const logoutRequest = async (e) => {
         const token = localStorage.getItem('token')

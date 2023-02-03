@@ -3,7 +3,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHeart,AiOutlineRollback } from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import IMG from '../../../images/logo.png'
@@ -18,6 +18,7 @@ const Home = () => {
     { name: "Productos", link: "/", icon: FiShoppingCart },
     { name: "Colores", link: "/", icon: AiOutlineHeart},
     { name: "Tamaños", link: "/", icon: AiOutlineHeart},
+    { name: "Regresar",link: "/", icon: AiOutlineRollback},
   ];
 
   const [open, setOpen] = useState(false);

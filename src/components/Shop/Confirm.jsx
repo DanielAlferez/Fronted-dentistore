@@ -19,7 +19,7 @@ export default function Confirm() {
         const body = document.body;
         const originalOverflow = body.style.overflow;
         body.style.overflow = "hidden";
-        const width = body.scrollWidth-100;
+        const width = body.scrollWidth;
         const height = body.scrollHeight;  // aumentar altura máxima aquí
         html2canvas(body, {width, height, scrollX: 0, scrollY: 0}).then(canvas => {
             const imgData = canvas.toDataURL("image/png");

@@ -4,6 +4,7 @@ import IMG from '../../../images/diente1.png'
 import validator from 'validator'
 import {IoIosCloseCircleOutline} from 'react-icons/io'
 import jwt from 'jwt-decode'
+import SpinnerWhite from "../../components/spinner/spinnerWhite";
 
 export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
@@ -13,11 +14,11 @@ export default function Modal() {
     error: false
   })
 
-  const URL = "https://dentistore.online:5000/api/register/"
-  const URL2 = "https://dentistore.online:5000/api/login/"
+  //const URL = "https://dentistore.online:5000/api/register/"
+  //const URL2 = "https://dentistore.online:5000/api/login/"
 
-  //const URL = "http://localhost5000/api/register/"
-  //const URL2 = "http://localhost:5000/api/login/"
+  const URL = "http://localhost5000/api/register/"
+  const URL2 = "http://localhost:5000/api/login/"
   
   const [messageLogin,setMessageLogin] = React.useState({
     message: '',
@@ -25,6 +26,7 @@ export default function Modal() {
   })
 
   const [openTab, setOpenTab] = React.useState(1);
+  const [loading,setLoading] = React.useState(false)
 
   const [form, setForm] = React.useState({
     username: '',
@@ -62,12 +64,15 @@ export default function Modal() {
       return
     }
 //${import.meta.env.VITE_API_URL}
+    setLoading(true)
+
     try {
       const response = await fetch(URL,{method: 'POST', body: JSON.stringify({...form, userrole: 'usuario'}), headers: {
         "Content-Type": 'application/json'
       }})
       const data = await response.json()
-      console.log(data)
+      
+      setLoading(false)
       if(response.status !== 200) throw new Error(data.usermail)
       setMessage({
         message: 'Registro Exitoso',
@@ -75,6 +80,7 @@ export default function Modal() {
       })
       setTimeout(()=>window.location.reload(false),1500)
     } catch (error) {
+      setLoading(false)
       if(error.message === 'Ya existe usuario con este usermail.'){
         setMessage({
             message: error.message,
@@ -95,22 +101,23 @@ export default function Modal() {
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try{
+      setLoading(true)
       const response = await fetch(URL2,{method: 'POST', body: JSON.stringify({...formLogin}), headers: {
         "Content-Type": 'application/json'
       }})
       const data = await response.json()
       if(response.status !== 200) throw new Error(data.detail)
-      console.log(data)
+      setLoading(false)
       setMessageLogin({
         message: 'Ingreso exitoso!',
         error: false
       })
       const user = jwt(data.jwt)
-      console.log(user)
       localStorage.setItem('token',data.jwt)
       setTimeout(()=>window.location.reload(false),1500)
     }
     catch(error){
+      setLoading(false)
       setMessageLogin({
         message: error.message,
         error:true
@@ -221,7 +228,7 @@ export default function Modal() {
                               required
                               id="floatingInput1_login"
                               placeholder=" "
-                              autoComplete="off"
+                              autoComplete="on"
                               className={`${messageLogin.error  ? 'border-red-600' : 'focus:border-blue-600'} block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer`}
                             />
                           <label
@@ -260,7 +267,7 @@ export default function Modal() {
                             type="submit"
                             className="w-full rounded-3xl justify-center py-3 px-4 my-3 border border-transparent  shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
-                            INGRESAR
+                          {loading ? (<center><SpinnerWhite/></center>) : (<>INGRESAR</>)}  
                           </button>
                         </div>
                       </form>
@@ -393,7 +400,8 @@ export default function Modal() {
                             type="submit"
                             className="w-full rounded-3xl justify-center py-3 px-4 my-3 border border-transparent shadow-sm text-sm font-medium text-white bg-light hover:bg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600"
                           >
-                            CREAR CUENTA
+                            {loading ? (<center><SpinnerWhite/></center>) : (<>CREAR CUENTA</>)}  
+
                           </button>
                         </div>
                       </form>
