@@ -38,7 +38,9 @@ export default function Confirm() {
         }
         setParams(params);
 
-        const datos_existentes = JSON.parse(params.extra3)
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+
         datos_existentes.forEach(function(i){
             products.forEach(function(j){
                 if(i.id === j.id){
@@ -51,8 +53,13 @@ export default function Confirm() {
 
 
         setProducts(datos_existentes)
-        localStorage.removeItem('car');
+        
     }, []);
+
+    const handleExit = () =>{
+        localStorage.removeItem('car');
+        window.location.replace('/')
+    }
     
     return(
         <div>
@@ -182,8 +189,9 @@ export default function Confirm() {
                     <div className='mt-10 mb-20 flex justify-center'>
                         <button className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-blue-50 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-blue-100" onClick={handleSavePDF}>Guardar en PDF</button>
                         <a
-                            href="/"
-                            className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-green-400 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-green-300"
+                            // href="/"
+                            onClick={()=>{handleExit()}}
+                            className="w-72 mt-8 items-center justify-center rounded-lg border border-transparent bg-green-400 px-6 py-3 text-base font-medium text-gray-600 shadow-sm hover:bg-green-300 cursor-pointer"
                             >
                             Finalizar compra
                         </a>

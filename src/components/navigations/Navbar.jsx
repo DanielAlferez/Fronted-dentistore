@@ -18,7 +18,7 @@ function classNames(...classes) {
 export default function Navbar({cartStatus}) {
 
   //const URL = "https://dentistore.online:5000/api/categories"
-  const URL = "http://localhost:5000/api/categories"  
+  const URL = import.meta.env.VITE_HOST +"categories"
   const [data,setData] = React.useState([]);
   const [userData,setUser] = React.useState(null);
   React.useEffect(() =>{

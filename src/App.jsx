@@ -46,6 +46,7 @@ function App() {
             <Route exact path='/productos/:id' element={<Product/>}/>
             <Route exact path='/confirmar-pago' element={<Confirm/>}/>
             <Route exact path='/dashboard' element={<Dashboard/>}/>
+
           </Routes>
       </Router> 
     </ProductsProvider>

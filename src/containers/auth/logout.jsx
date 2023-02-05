@@ -5,7 +5,7 @@ import {VscSignOut} from 'react-icons/vsc'
 export default function Logout() {
 
     //const URL = "https://dentistore.online:5000/api/logout/"
-    const URL = "http://localhost:5000/api/logout/"
+    const URL = import.meta.env.VITE_HOST +"logout/"
 
     const logoutRequest = async (e) => {
         const token = localStorage.getItem('token')
@@ -19,11 +19,11 @@ export default function Logout() {
             const data = await response.json()
             if(response.status !== 200) throw new Error(data.detail)
             localStorage.removeItem('token')
-            setTimeout(()=>window.location.reload(false),100)
+            setTimeout(()=>window.location.replace('/'),100)
             
         }catch(error){
             localStorage.removeItem('token')
-            setTimeout(()=>window.location.reload(false),1500)
+            setTimeout(()=>window.location.replace('/'),1500)
             alert('Su sesión ha expirado!')
         }
     }

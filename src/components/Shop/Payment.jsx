@@ -12,6 +12,9 @@ import md5 from 'md5';
 //CartStatus, es necesario?
 export default function Payment() {
 
+    const URLC = import.meta.env.VITE_HOST + "user/"
+    const URLConfirm = import.meta.env.VITE_CONFIRM_PAGE
+
     const {products} = useProductsContext();
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
@@ -42,7 +45,6 @@ export default function Payment() {
         
         const data = JSON.parse(localStorage.getItem('car'));
         setVenta(data)
-
         datos_existentes.forEach(function(i){
             products.forEach(function(j){
                 if(i.id === j.id){
@@ -81,6 +83,34 @@ export default function Payment() {
         data.signature = md5(signatureDescrypt);
         setFormData(data);
     },[total]);
+
+    React.useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(token === null){
+            alert('Debes estar logeado para comprar')
+            window.location.replace('/')
+            return;
+        }
+        let status
+        fetch(URLC,{
+            method: 'POST',
+            headers: {
+                "Authorization" :  `Bearer ${token}`
+            }
+            }).then(function(res){
+            status = res.status
+            return res.json();
+        }).then(function(data){
+            if(status !== 200)throw new Error()
+            localStorage.setItem('token',data.token)
+        }).catch(function(error){
+            alert('Usuario no valido')
+            console.log(error)
+            localStorage.removeItem('token')
+            window.location.replace('/')
+            return;
+        })
+    },[])
 
   return (
     <div>
@@ -165,7 +195,7 @@ export default function Payment() {
                                         {/* <label for="email">Correo electronico</label>
                                         <input name="buyerEmail"      type="text"   className='h-10' id="email" required/> */}
                                         <input name="buyerEmail"      type="hidden"  value="test@test.com" ></input>
-                                        <input name="responseUrl"     type="hidden"  value="https://dentistore.online/confirmar-pago" />
+                                        <input name="responseUrl"     type="hidden"  value={URLConfirm } />
                                         {/* <input name="confirmationUrl" type="hidden"  value="http://www.test.com/confirmation" /> */}
                                         <div className='flex flex-col col-span-2 min-[1100px]:col-span-1'>
                                             <label  className='font-semibold mb-2' for="phone">Telefono</label>
@@ -181,7 +211,7 @@ export default function Payment() {
                                         </div>
                                         <input name="shippingCountry" type="hidden"  value="CO"  />
                                         <input name="extra2" type="hidden"  value={envio}  />
-                                        <input name="extra3" type="hidden" value={JSON.stringify(venta)}/>
+                                        {/* <input name="extra3" type="hidden" value={JSON.stringify(venta)}/> */}
 
                                     </div>
                                 <div className='grid grid-cols-2 min-[1100px]:mx-0 md:mx-3 mx-5 px-3'>

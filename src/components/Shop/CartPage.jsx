@@ -5,6 +5,8 @@ import {MdKeyboardArrowRight, MdClose} from "react-icons/md";
 import useProductsContext from '../../hooks/useProducts';
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
+import Spinner from '../spinner/spinner';
+import Swal from 'sweetalert2'
 
 //CartStatus, es necesario?
 export default function CartPage() {
@@ -15,11 +17,9 @@ export default function CartPage() {
     const [productos,setProductos] = React.useState([])
     const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState();
-    const [loading,setLoading] = React.useState(false);
+    const [loading,setLoading] = React.useState(true);
 
-    setInterval(()=>{
-        setLocalStorageState(localStorage.getItem('car'));
-    }, 500);
+    const URLC = import.meta.env.VITE_HOST + "user/"
 
     const handleDeleteProduct = (id,color) => {
         deleteProduct(id,color)
@@ -71,10 +71,43 @@ export default function CartPage() {
         setCantidad(productos.length);
     }, [productos]);
 
+    React.useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(token === null){
+            alert('Debes estar logeado para comprar')
+            window.location.replace('/')
+            return;
+        }
+        let status
+        fetch(URLC,{
+            method: 'POST',
+            headers: {
+                "Authorization" :  `Bearer ${token}`
+            }
+            }).then(function(res){
+            status = res.status
+            return res.json();
+        }).then(function(data){
+            if(status !== 200)throw new Error()
+            localStorage.setItem('token',data.token)
+        }).catch(function(error){
+            alert('Usuario no valido')
+            console.log(error)
+            localStorage.removeItem('token')
+            window.location.replace('/')
+            return;
+        })
+        setLoading(false)
+    },[])
+
   return (
-    <Layout>
+    
       <center>
-            <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
+        {(()=>{
+            if(!loading){
+                return(
+                    <>
+                    <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
                 <div>
                     <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
                     <p className='text-dark'>Carrito de compras</p>
@@ -291,7 +324,22 @@ export default function CartPage() {
                     }
                 })()}
             </div>
+                    </>
+                )
+            }
+            else{
+                return(
+                    <>
+                    <center>
+                        <Spinner/>
+                        <h1 className='font-semibold text-2xl'>Espera</h1>
+                        </center>
+                    </>
+                )
+            }
+        })()}
+            
       </center>
-    </Layout>
+    
   )
 }

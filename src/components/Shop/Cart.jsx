@@ -10,7 +10,11 @@ import ThingsContext from '../../context/ProductsContext';
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import useProductsContext from '../../hooks/useProducts';
 
+import Swal from 'sweetalert2'
+
 export default function Cart({cartStatus}) {
+
+    const URLC = import.meta.env.VITE_HOST + "user/"
 
     const {products} = useProductsContext();
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
@@ -86,6 +90,32 @@ export default function Cart({cartStatus}) {
         setCantidad(productos.length);
     }, [productos]);
     
+    const handlePay = () =>{
+        const token = localStorage.getItem('token')
+        if(token === null){
+            alert('Debes estar logeado para comprar')
+        }
+        else{
+            let status
+            fetch(URLC,{
+                method: 'POST',
+                headers: {
+                    "Authorization" :  `Bearer ${token}`
+                }
+                }).then(function(res){
+                status = res.status
+                return res.json();
+            }).then(function(data){
+                if(status !== 200)throw new Error()
+                localStorage.setItem('token',data.token)
+                window.location.replace('/carrito')
+    
+            }).catch(function(error){
+                alert("El usuario no es valido")
+                console.log(error)
+            })
+        }
+    }
 
 
 return (
@@ -246,8 +276,9 @@ return (
                             <p className="mt-0.5 text-sm text-gray-500">Pedido mínimo: $20.000</p>
                             <div className="mt-3">
                                 <a
-                                href="/carrito"
-                                className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-dark"
+                                onClick={()=>{handlePay()}}
+                                // href="/carrito"
+                                className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-dark cursor-pointer"
                                 >
                                 Ir a Pagar
                                 </a>

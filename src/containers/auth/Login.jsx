@@ -17,8 +17,10 @@ export default function Modal() {
   //const URL = "https://dentistore.online:5000/api/register/"
   //const URL2 = "https://dentistore.online:5000/api/login/"
 
-  const URL = "http://localhost5000/api/register/"
-  const URL2 = "http://localhost:5000/api/login/"
+
+  const URL = import.meta.env.VITE_HOST +"register/"
+  const URL2 = import.meta.env.VITE_HOST +"login/"
+
   
   const [messageLogin,setMessageLogin] = React.useState({
     message: '',
