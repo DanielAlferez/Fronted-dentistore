@@ -17,6 +17,7 @@ const SideBar = () => {
     { name: "Clientes", link: "/", icon: AiOutlineUser },
     { name: "Mensajes", link: "/", icon: FiMessageSquare },
     { name: "Ordenes", link: "/", icon: TbReportAnalytics},
+    { name: "Ventas", link: "/", icon: FiShoppingCart },
     { name: "Categorias", link: "/admin-categorias", icon: FiFolder, margin: true },
     { name: "Productos", link: "/", icon: FiShoppingCart },
     { name: "Colores", link: "/", icon: AiOutlineHeart},

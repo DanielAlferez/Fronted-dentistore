@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
+import { MdOutlineDashboard, MdPointOfSale, MdOutlineColorLens } from "react-icons/md";
 import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart,AiOutlineRollback } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHeart,AiOutlineRollback, AiOutlineColumnHeight } from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import IMG from '../../../images/logo.png'
@@ -12,10 +12,15 @@ import Clientes from "./pages/AdminCategorias";
 import AdminInicio from "./pages/AdminInicio";
 import AdminClientes from "./pages/AdminClientes";
 import AdminProductos from "./pages/AdminProductos";
+import AdminVentas from "./pages/AdminVentas";
+import AdminOrdenes from "./pages/AdminOrdenes";
+import AdminColores from "./pages/AdminColores";
 
 import jwt_decode from 'jwt-decode';
 import Spinner from '../spinner/spinner';
 import AdminCategories from "./pages/AdminCategorias";
+import Swal from 'sweetalert2'
+
 
 const Home = () => {
   const menus = [
@@ -23,10 +28,11 @@ const Home = () => {
     { name: "Clientes", link: "clientes", icon: AiOutlineUser },
     { name: "Mensajes", link: "mensajes", icon: FiMessageSquare },
     { name: "Ordenes", link: "ordenes", icon: TbReportAnalytics},
+    { name: "Ventas", link: "ventas", icon: MdPointOfSale},
     { name: "Categorias", link: "categorias", icon: FiFolder, margin: true },
     { name: "Productos", link: "productos", icon: FiShoppingCart },
-    { name: "Colores", link: "colores", icon: AiOutlineHeart},
-    { name: "Tamaños", link: "tamanos", icon: AiOutlineHeart},
+    { name: "Colores", link: "colores", icon: MdOutlineColorLens},
+    { name: "Tamaños", link: "tamanos", icon: AiOutlineColumnHeight},
     { name: "Regresar",link: "/", icon: AiOutlineRollback},
   ];
   
@@ -37,19 +43,35 @@ const Home = () => {
   
   const [loading,setLoading] = React.useState(true)
   const URL = import.meta.env.VITE_HOST + "user/"
-
+  let status
   React.useEffect(()=>{
     const token = localStorage.getItem('token')
     if(token  === null){
-      alert("Error de autenticacion")
-      window.location.replace('/')
+     
+      Swal.fire({
+        title:'Error '+401,
+        icon:'error',
+        text:'Inicia sesión primero para acceder aqui'
+      }).then(function(si){
+        localStorage.removeItem('token')
+        window.location.replace('/')
+      }
+      )
+
       return;
     }
     const decodedToken = jwt_decode(token);
     setUserData(decodedToken)
     if(decodedToken.role !== 'admin'){
-      alert("Error de autenticacion")
-      window.location.replace('/')
+      Swal.fire({
+        title:'Error '+403,
+        icon:'error',
+        text:'No tienes los permisos suficientes para entrar aqui'
+      }).then(function(si){
+        
+        window.location.replace('/')
+      }
+      )
       return;
     }
     const response = fetch(URL,{
@@ -58,13 +80,26 @@ const Home = () => {
         "Authorization" :  `Bearer ${token}`,
         "Content-Type": 'application/json',
     }}).then(function(res){  
+      status = res.status
+
       return res.json();
     }).then(function(data){
+      if(status !== 200)throw new Error(data.token,data.message)
       localStorage.setItem('token',data.token)
       setLoading(false)
     }).catch(function(error){
-      localStorage.removeItem('token')
-      alert("Su sesión ha expirado o ha habido un error con el servidor")
+
+      Swal.fire({
+        title:'Error '+status,
+        icon:'error',
+        text:'Su sesión ha expirado o ha habido un error con el servidor'
+      }).then(function(si){
+        localStorage.removeItem('token')
+        window.location.replace('/')
+      }
+      )
+      
+
       return;
     })
     
@@ -77,7 +112,7 @@ const Home = () => {
   }
 
   return (
-    <section >
+    <section className="">
       {(()=>{
           if(loading){
             return(
@@ -131,7 +166,10 @@ const Home = () => {
                 {page === 'inicio' && <AdminInicio name={userData.username}/>}
                 {page === 'clientes' && <AdminClientes/>}
                 {page === 'categorias' && <AdminCategories/>}
+                {page === 'ordenes' && <AdminOrdenes/>}
                 {page === 'productos' && <AdminProductos/>}
+                {page === 'colores' && <AdminColores/>}
+                {page === 'ventas' && <AdminVentas/>}
                 {page === '/' && window.location.replace('/')}
                 
               </div>

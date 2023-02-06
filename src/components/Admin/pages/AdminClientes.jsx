@@ -96,11 +96,11 @@ export default function AdminClientes(){
                 return res.json();
             }).then(function(data){
                 setToken(data.token)
+                localStorage.setItem('token',data.token)
                 if(status !== 200)throw new Error(data.token,data.message)
 
                 alertSuccessfull(data.message)
 
-                localStorage.setItem('token',data.token)
                 setToken(data.token)
             }).catch(function(error){
                 alertError("Error al borrar usuario")
@@ -131,28 +131,77 @@ export default function AdminClientes(){
                     return(
                         <>
                             <h2 className='text-5xl mb-5'>Clientes registrados</h2>
-                            <table className="table-auto border-2 border-solid border-black">
-                                <thead>
-                                    <tr>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Correo electronico</th>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Nombre</th>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Telefono</th>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Fecha de registro <br></br>D-M-A</th>
-                                        <th className='font-semibold text-base '>Opciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {clientes.map((item, index) => (
-                                        <tr key={index}>
-                                        <td className='text-sm border-2 border-solid border-black'>{item.usermail}</td>
-                                        <td className="text-sm border-2 border-solid border-black">{item.username}</td>
-                                        <td className="text-sm border-2 border-solid border-black">{item.userphone}</td>
-                                        <td className="text-sm border-2 border-solid border-black">{item.date_joined}</td>
-                                        <td className="border-2 border-solid border-black"><AiFillDelete className='w-8 h-8 cursor-pointer' onClick={()=>{handledeleteUser(item.userid,item.username)}}/></td>
-                                    </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                <div className="flex flex-col">
+                                <div className="overflow-x-auto">
+                                    
+
+                                    <div className="p-1.5 w-full inline-block align-middle">
+                                        <div className="overflow-hidden border rounded-lg">
+                                            <table className="min-w-full divide-y divide-gray-200">
+                                                <thead className="bg-gray-50">
+                                                    <tr>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Correo electronico
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Nombre
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Telefono
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Fecha de registro DDD-MMM-AAA
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Opciones
+                                                        </th>
+                                                        
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-gray-200">
+                                                    
+                                                {clientes.map((item,index)=>(
+                                                        <tr key={index}>
+                                                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                                                                {item.usermail}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                                            {item.username}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                                            {item.userphone}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                                            {item.date_joined}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                                            <AiFillDelete className='w-8 h-8 cursor-pointer' onClick={()=>{handleDelete(item.userid,item.username)}}/>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                        ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </>
                     )
                 }else{
@@ -161,6 +210,7 @@ export default function AdminClientes(){
                     )
                 }
             })()}
+            
         </>
         
     )

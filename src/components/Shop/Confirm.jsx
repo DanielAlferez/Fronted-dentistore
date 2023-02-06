@@ -7,7 +7,6 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineNotes } from "react-icons/md";
 import useProductsContext from '../../hooks/useProducts';
 
-
 export default function Confirm() {
 
     const [params, setParams] = React.useState({});

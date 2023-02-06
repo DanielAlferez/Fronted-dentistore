@@ -22,7 +22,6 @@ function RequireAdmin({children}){
 
 }
 
-
 function App() {
   return (
     <ProductsProvider>

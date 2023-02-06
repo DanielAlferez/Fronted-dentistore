@@ -27,6 +27,10 @@ export default function AdminCategories(){
             if(data.length){
                 setCategorias(data)
             }
+            else{
+                setCategorias(undefined)
+            }
+            
 
         }).catch(function(error){
             alert("Error al consultar el servidor")
@@ -97,11 +101,11 @@ export default function AdminCategories(){
                 return res.json();
             }).then(function(data){
                 setToken(data.token)
+                localStorage.setItem('token',data.token)
                 if(status !== 200)throw new Error(data.token,data.message)
 
                 alertSuccessfull(data.message)
 
-                localStorage.setItem('token',data.token)
                 setToken(data.token)
             }).catch(function(error){
                 alertError("Error al borrar categoria")
@@ -134,10 +138,10 @@ export default function AdminCategories(){
             return res.json();
         }).then(function(data){
             setToken(data.token)
+            localStorage.setItem('token',data.token)
             if(status !== 200)throw new Error(data.token,data.message)
           
             alertSuccessfull(data.message)
-            localStorage.setItem('token',data.token)
             setToken(data.token)
 
         }).catch(function(error){
@@ -170,9 +174,9 @@ export default function AdminCategories(){
 
         }).then(function(data){
             setToken(data.token)
+            localStorage.setItem('token',data.token)
             if(status !== 200)throw new Error(data.token,data.message)
             alertSuccessfull(data.message)
-            localStorage.setItem('token',data.token)
 
         }).catch(function(error){
             alertError("Error al editar categoria")
@@ -194,6 +198,7 @@ export default function AdminCategories(){
     return(
         <>
                 {(()=>{
+                    
                     if(loadingCategories){
                         return(
                             <>
@@ -203,35 +208,65 @@ export default function AdminCategories(){
                             </center>
                         </>
                     )
-                }else if(categorias.length){
+                }else if(categorias !== undefined){
                     return(
                         <>
                             <h2 className='text-5xl mb-5'>Categorias</h2>
-                            <table className="table-auto border-2 border-solid border-black">
-                                <thead>
-                                    <tr>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Nombre de la categoria</th>
-                                        <th className='font-semibold text-base border-2 border-solid border-black'>Imagen</th>
-                                        <th className='font-semibold text-base '>Opciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {categorias.map((item, index) => (
-                                        <tr key={index}>
-                                        <td className='text-sm border-2 border-solid border-black'>{item.category_name}</td>
-                                        <td className="border-2 border-solid border-black"><img className='w-40' src={'data:image/png;base64,'+item.category_image}/></td>
-                                        <td className="border-2 border-solid border-black"><AiFillDelete className='w-8 h-8 cursor-pointer' onClick={()=>{handledeleteCategorie(item.category_id,item.category_name)}}/></td>
-                                        <td className="border-2 border-solid border-black"><AiFillEdit className='w-8 h-8 cursor-pointer' onClick={()=>{handleEdit(item.category_id,item.category_name)}}/></td>
-                                    </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                            <button 
-                                className='bg-green-500 hover:bg-green-700 text-white font-bold rounded text-base p-1'
-                                onClick={()=>{setModal(true)}}
-                            >
-                                AGREGAR
-                            </button>
+                            <div className="flex flex-col">
+                                <div className="overflow-x-auto">
+                                    
+
+                                    <div className="p-1.5 w-full inline-block align-middle">
+                                        <div className="overflow-hidden border rounded-lg">
+                                            <table className="min-w-full divide-y divide-gray-200">
+                                                <thead className="bg-gray-50">
+                                                    <tr>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Nombre de la categoria
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Imagen
+                                                        </th>
+                                                        <th
+                                                            scope="col"
+                                                            className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
+                                                        >
+                                                            Opciones
+                                                        </th>
+                                                        
+                                                        
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-gray-200">
+                                                    
+                                                {categorias.map((item,index)=>(
+                                                        <tr key={index}>
+                                                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                                                                {item.category_name}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                                                            <img className='w-24' src={'data:image/png;base64,'+item.category_image}/>
+                                                        </td>
+                                                        <td className="px-6 py-6 text-sm text-gray-800 whitespace-nowrap flex ">
+                                                        <AiFillDelete className='w-8 h-8 cursor-pointer' onClick={()=>{handledeleteCategorie(item.category_id,item.category_name)}}/>
+                                                        <AiFillEdit className='w-8 h-8 cursor-pointer' onClick={()=>{handleEdit(item.category_id,item.category_name)}}/>
+                                                        </td>
+                                                        
+                                                    </tr>
+                                                ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </>
                     )
                 }
@@ -241,6 +276,12 @@ export default function AdminCategories(){
                     )
                 }
             })()}
+            <button 
+                className='bg-green-500 hover:bg-green-700 text-white font-bold rounded text-base p-1'
+                onClick={()=>{setModal(true)}}
+            >
+                AGREGAR
+            </button>
 
             {modal && (
                     <div className="fixed bottom-0 inset-x-0 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center">

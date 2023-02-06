@@ -1,15 +1,89 @@
 import React from 'react'
 import Layout from "../../hocs/Layout";
 import IMG from "../../../images/contact.jpeg";
+import MAIL from "../../../images/mailchimp.png";
 import { BsFillTelephoneFill} from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { HiLocationMarker } from "react-icons/hi";
 
 export default function Contact() {
+
   return (
     <Layout>
       <center>
+      <div className="mt-10 px-4 pb-4 ">
+        <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+          <form action='https://gmail.us21.list-manage.com/subscribe/post?u=6559b8db8ab71933efae7559a&amp;id=612715a04b&amp;f_id=0068f8e1f0' method='post' noValidate>
+              <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div>
+                      <h3 className="text-2xl p-5 leading-6 font-medium text-gray-900 ">
+                          ¡Suscribete para recibir promociones increibles!
+                      </h3>
+                      <div className="mt-2">
+                          <div className="text-sm leading-5 text-gray-500">
+                              <div className=" relative mt-1 p">
+                                  <input
+                                      // onChange={handleChangeFormAdd}
+                                      name="EMAIL"    
+                                      type="email"
+                                      required
+                                      id="floatingInput1_login"
+                                      placeholder=" "
+                                      autoComplete="off"
+                                      className='block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer'/>
+                                  
+                                  <label
+                                      htmlFor="email"
+                                      for="floatingInput1_login" 
+                                      className='absolute ml-1 text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1'
+                                      >
+                                          <p className='flex'>
+                                            Correo electronico
+                                            <p className='text-red-600 ml-1'> *</p>
+                                          </p>
+                                  </label>
+                              </div>
+                              <div className=" relative mt-5">
+                                  <input
+                                      // onChange={handleChangeFormAdd}
+                                      name="FNAME"    
+                                      type="text"
+                                      required
+                                      id="floatingInput2_login"
+                                      placeholder=" "
+                                      autoComplete="off"
+                                      className='block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer'/>
+                                  
+                                  <label
+                                      htmlFor="FNAME"
+                                      for="floatingInput2_login" 
+                                      className='absolute ml-1 text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-white spx-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1'
+                                      >
+                                          <p className='flex'>
+                                              Nombre Completo
+                                            <p className='text-red-600 ml-1'> *</p>
+                                          </p>
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div className="bg-gray-50 px-4 py-3 flex flex-row">
+                  <span className="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                      <button
+                      type="submit"
+                      className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-red active:bg-green-700 transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                      >
+                          Suscribirse
+                      </button>
+                  </span>
+                  <img src={MAIL} className='w-48 ml-40' alt="" />
+              </div>
+              </form>
+          </div>
+        </div>
         <div className='max-w-3xl my-14 mx-10 md:mx-0'>
           <div>
             <h1 className='text-4xl mb-5 font-extrabold text-gray-800'>¿Tienes alguna pregunta?</h1>
@@ -149,7 +223,13 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+        
       </center>
+
+
+                    
+                
 
     </Layout>
   )
