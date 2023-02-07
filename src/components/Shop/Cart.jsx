@@ -9,7 +9,7 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import ThingsContext from '../../context/ProductsContext';
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import useProductsContext from '../../hooks/useProducts';
-
+import Spinner from '../spinner/spinner';
 import Swal from 'sweetalert2'
 
 export default function Cart({cartStatus}) {
@@ -17,12 +17,13 @@ export default function Cart({cartStatus}) {
     const URLC = import.meta.env.VITE_HOST + "user/"
 
     const {products} = useProductsContext();
+    
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
     const [productos,setProductos] = React.useState([])
     const [cantidad,setCantidad] = React.useState(0)
     const [total,setTotal] = React.useState();
-    const [loading,setLoading] = React.useState(false);
+    const [loading,setLoading] = React.useState(true);
     const [scroll, setScroll] = React.useState(0);
 
     const handleScroll = () => {
@@ -30,13 +31,63 @@ export default function Cart({cartStatus}) {
         setScroll(position);
     }
 
+    React.useEffect(()=>{
+        if(products.length === 0){
+            setLoading(true)
+        }else{
+            setLoading(false)
+            let datos_existentes = localStorage.getItem('car');
+            datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+            datos_existentes.forEach(function(i){
+                products.forEach(function(j){
+                    if(i.id === j.product_id){
+                        i.title = j.product_name
+                        i.image = j.images
+                        i.price = j.product_price
+                    }
+                })
+            })
+
+            setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
+            setProductos(datos_existentes);
+            
+        }
+    },[products])
+
     setInterval(()=>{
-        setLocalStorageState(localStorage.getItem('car'));
+        if(localStorageState !== localStorage.getItem('car')){
+            setLocalStorageState(localStorage.getItem('car'));
+        }
     }, 500);
 
     const handleDeleteProduct = (id,color) => {
         deleteProduct(id,color)
     }
+
+    React.useEffect(()=>{
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+        datos_existentes.forEach(function(i){
+            products.forEach(function(j){
+                if(i.id === j.product_id){
+                    i.title = j.product_name
+                    i.image = j.images
+                    i.price = j.product_price
+                }
+            })
+        })
+
+        window.addEventListener('scroll', handleScroll, {passive: true});
+
+        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
+        setProductos(datos_existentes);
+        setLoading(false)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+
+    },[localStorageState]);
 
     const handleAddCant = (id,count,color) => {
         const data = {
@@ -60,31 +111,7 @@ export default function Cart({cartStatus}) {
         //setProducts(resultado)
     }
 
-    React.useEffect(()=>{
-        let datos_existentes = localStorage.getItem('car');
-        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-        
-        datos_existentes.forEach(function(i){
-            products.forEach(function(j){
-                if(i.id === j.id){
-                    i.title = j.title
-                    i.image = j.image
-                    i.price = j.price
-                }
-            })
-        })
-
-        window.addEventListener('scroll', handleScroll, {passive: true});
-
-        setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
-        setProductos(datos_existentes);
-        setLoading(false)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        }
-
-    },[localStorageState]);
+    
 
     React.useEffect(()=>{
         setCantidad(productos.length);
@@ -190,14 +217,26 @@ return (
                                             </button>
                                         </div>
                                 </div>    
-                                <div className="mt-8">
+                                {(()=>{
+                                    if(loading){
+                                        return(
+                                            <>
+                                                <center>
+                                                    <Spinner/>
+                                                    <h1 className='font-semibold text-2xl'>Espera</h1>
+                                                </center>
+                                            </>
+                                        )
+                                    }else{
+                                        return(
+                                            <div className="mt-8">
                                     <div className="flow-root">
                                         <ul role="list" className="-my-6 divide-y divide-gray-200">
                                             {productos.length > 0 && productos.map((product, index) => (
                                             <li key={index} className="flex py-6">
                                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                     <img
-                                                        src={product.image}
+                                                         src={'data:image/png;base64,'+product.image[0].image_text}
                                                         className="h-full w-full object-cover object-center"
                                                     />
                                                 </div>    
@@ -263,6 +302,9 @@ return (
                                     </ul>
                                     </div>
                                     </div>
+                                        )
+                                    }
+                                })()}
                                     
                             </div>
                             

@@ -68,12 +68,12 @@ const Home = () => {
                 {products.map((element, index) => (
                   <Card
                     key={index}
-                    id={element.id}
-                    title={element.title}
-                    image={element.image}
-                    price={element.price}
-                    color={element.color}
-                    description={element.description}
+                    id={element.product_id}
+                    title={element.product_name}
+                    image={element.images}
+                    price={element.product_price}
+                    color={element.colors}
+                    description={element.product_descrip}
                   />
                 ))}
               </div>          
