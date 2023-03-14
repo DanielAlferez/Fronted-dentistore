@@ -16,7 +16,6 @@ import { AiOutlineBgColors } from "react-icons/ai";
 import {  IoMdPricetags } from "react-icons/io";
 import { Link, Route, Router } from "react-router-dom";
 import Products from "./Shop/Products";
-import IMG7 from '../../images/imagen-no-disponible.jpg'
 
 
 const Card = ({ id, title, image, price, color, description }) => {
@@ -24,7 +23,7 @@ const Card = ({ id, title, image, price, color, description }) => {
   
   //const [colorS,setColor] = React.useState()
   //var colorS = color[0]
-  
+
   const [selectColor, setSelectColor] = useState(color[0]);
 
   let shortDescription = description;
@@ -91,20 +90,7 @@ const Card = ({ id, title, image, price, color, description }) => {
       <div onClick={openModal}  className="group relative border border-gray-300 bg-white hover:border-light hover:shadow-2xl hover:shadow-gray-400 shadow-none cursor-pointer w-full rounded-lg flex flex-col items-center justify-center">
         <div className="relative">
           <div className="h-40 sm:h-44 lg:h-48 2xl:h-52 w-full rounded-xl overflow-hidden flex">
-            {(()=>{
-              if(image.length > 0 ){
-                return(
-                  <img src={'data:image/png;base64,'+image[0].image_text} className="group-hover:animate-scale-up-center" alt="" />
-                )
-              }
-              else{
-                return(
-                  <div>
-                    <img src={IMG7} className="group-hover:animate-scale-up-center object-cover " alt="" />
-                  </div>
-                )
-              }
-            })()}
+            <img src={image} className="group-hover:animate-scale-up-center object-cover w-full h-full" alt="" />
           </div>
         </div>
         <div className="opacity-90 invisible group-hover:visible ">
@@ -163,7 +149,7 @@ const Card = ({ id, title, image, price, color, description }) => {
                   <div className="grid md:grid-cols-7 grid-cols-1 content-center md:px-3 md:pb-3 items-center ">
                     {/* Image */}
                     <div className="col-span-3 px-10 md:px-0">
-                      <ImageSlider images={image}/>
+                      <ImageSlider image={image}/>
                     </div>
                     {/* product */}
                     <div className="col-span-4 mt-5 md:mt-0 pb-2 px-4 md:p-10">
@@ -200,13 +186,13 @@ const Card = ({ id, title, image, price, color, description }) => {
 
                                                 
                         {/* Color */}
-                        {color.length === 0 ? <div></div> : 
+                        {color[0] === "No aplica" ? <div></div> : 
                           <div className="my-5">
                             <p className="font-semibold text-lg">Elije un color</p>
                             <div className="flex flex-wrap mt-2">
                               {color.map((color, index) => (
-                              <div key={index} className={`${selectColor === color.color_name ? 'border-dark text-black bg-light' : 'border-gray-700 text-gray-700' } rounded-xl cursor-pointer border px-2 py-1.5 mr-1`}>
-                                <button onClick={()=>{handleSetColor(color.color_name)}}>{color.color_name}</button>
+                              <div key={index} className={`${selectColor === color ? 'border-dark text-black bg-light' : 'border-gray-700 text-gray-700' } rounded-xl cursor-pointer border px-2 py-1.5 mr-1`}>
+                                <button onClick={()=>{handleSetColor(color)}}>{color}</button>
                               </div>
                               ))}
                             </div>

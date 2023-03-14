@@ -8,7 +8,7 @@ import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import PaymentMet from "../../containers/static/PaymentMet";
 import { Radio } from "@material-tailwind/react";
 import md5 from 'md5';
-import Spinner from '../spinner/spinner';
+
 //CartStatus, es necesario?
 export default function Payment() {
 
@@ -28,35 +28,6 @@ export default function Payment() {
     const [formData,setFormData] = useState();
     const [envio,setEnvio] = useState(true);
 
-    const [loading,setLoading] = React.useState(true);
-
-    React.useEffect(()=>{
-        if(products.length === 0){
-            setLoading(true)
-        }else{
-
-            let datos_existentes = localStorage.getItem('car');
-            datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-            datos_existentes.forEach(function(i){
-                products.forEach(function(j){
-                    if(i.id === j.product_id){
-                        i.title = j.product_name
-                        i.image = j.images
-                        i.price = j.product_price
-                    }
-                })
-            })
-
-            const subtotal = datos_existentes.reduce((acummulator, currentvalue) => ( acummulator + currentvalue.price * currentvalue.count ), 0); 
-        
-            setTotal(subtotal + 16000)
-            setSubtotal(subtotal);
-            setProductos(datos_existentes);
-            
-            setLoading(false)
-        }
-    },[products])
-
     const handleRadioChange = (event) => {
         if (event.target.value === "add") {
             setTotal(subTotal + 16000);
@@ -67,6 +38,31 @@ export default function Payment() {
         }
     }
       
+
+    React.useEffect(()=>{
+        let datos_existentes = localStorage.getItem('car');
+        datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+        
+        const data = JSON.parse(localStorage.getItem('car'));
+        setVenta(data)
+        datos_existentes.forEach(function(i){
+            products.forEach(function(j){
+                if(i.id === j.id){
+                    i.title = j.title
+                    i.image = j.image
+                    i.price = j.price
+                }
+            })
+        })
+
+        const subtotal = datos_existentes.reduce((acummulator, currentvalue) => ( acummulator + currentvalue.price * currentvalue.count ), 0); 
+        
+        setTotal(subtotal + 16000)
+        setSubtotal(subtotal);
+        setProductos(datos_existentes);
+
+        
+    },[]);
 
     React.useEffect(()=>{
         setCantidad(productos.length);
@@ -119,9 +115,7 @@ export default function Payment() {
   return (
     <div>
         <center>
-            {!loading && (
-                <>
-                <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
+            <div className='grid grid-cols-5 max-w-3xl my-10 mx-7'>
                 <div>
                     <p className='rounded-full bg-dark w-9 h-9 flex justify-center items-center text-white font-bold text-lg'>1</p>
                     <p className='text-dark'>Carrito de compras</p>
@@ -227,8 +221,7 @@ export default function Payment() {
                                             <div className='font-semibold grid grid-cols-4 col-span-2'>
                                                 <div className="h-8 w-8 flex-shrink-0 overflow-hidden">
                                                     <img
-                                                        src={'data:image/png;base64,'+product.image[0].image_text}
-
+                                                        src={product.image}
                                                     />
                                                 </div>     
                                                 <div className="text-left grid justify-items-start font-normal text-gray-600 text-xs col-span-3">
@@ -284,16 +277,8 @@ export default function Payment() {
                         </form>
                         );
                     }})()}
-                    <PaymentMet/>
-                </>
-            )}
-            {loading && (
-                <center>
-                    <Spinner/>
-                    <h1 className='font-semibold text-2xl'>Espera</h1>
-                </center>
-            )}
         </center>
+        <PaymentMet/>
         </div>
   )
 }

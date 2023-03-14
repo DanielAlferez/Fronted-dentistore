@@ -7,13 +7,11 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import Spinner from '../spinner/spinner';
 import Swal from 'sweetalert2'
-import { useEffect } from 'react';
 
 //CartStatus, es necesario?
 export default function CartPage() {
 
     const {products} = useProductsContext();
-
     const [localStorageState, setLocalStorageState] = useState(localStorage.getItem('car'));
     const [open, setOpen] = useState(false)
     const [productos,setProductos] = React.useState([])
@@ -22,36 +20,6 @@ export default function CartPage() {
     const [loading,setLoading] = React.useState(true);
 
     const URLC = import.meta.env.VITE_HOST + "user/"
-
-    useEffect(()=>{
-        if(products.length === 0){
-            setLoading(true)
-        }else{
-
-            let datos_existentes = localStorage.getItem('car');
-            datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
-            datos_existentes.forEach(function(i){
-                products.forEach(function(j){
-                    if(i.id === j.product_id){
-                        i.title = j.product_name
-                        i.image = j.images
-                        i.price = j.product_price
-                    }
-                })
-            })
-
-            setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
-            setProductos(datos_existentes);
-            console.log(datos_existentes)
-            setLoading(false)
-        }
-    },[products])
-
-    setInterval(()=>{
-        if(localStorageState !== localStorage.getItem('car')){
-            setLocalStorageState(localStorage.getItem('car'));
-        }
-    }, 500);
 
     const handleDeleteProduct = (id,color) => {
         deleteProduct(id,color)
@@ -78,24 +46,24 @@ export default function CartPage() {
         //setLoading(true)
         //setProducts(resultado)
     }
-    
 
     React.useEffect(()=>{
         let datos_existentes = localStorage.getItem('car');
         datos_existentes = datos_existentes === null ? [] : JSON.parse(datos_existentes);
+        
         datos_existentes.forEach(function(i){
             products.forEach(function(j){
-                if(i.id === j.product_id){
-                    i.title = j.product_name
-                    i.image = j.images
-                    i.price = j.product_price
+                if(i.id === j.id){
+                    i.title = j.title
+                    i.image = j.image
+                    i.price = j.price
                 }
             })
         })
 
         setTotal(datos_existentes.reduce((sum, value) => ( sum + value.price * value.count ), 0))
         setProductos(datos_existentes);
-        
+        setLoading(false)
 
     },[localStorageState]);
 
@@ -129,7 +97,7 @@ export default function CartPage() {
             window.location.replace('/')
             return;
         })
-        
+        setLoading(false)
     },[])
 
   return (
@@ -212,7 +180,7 @@ export default function CartPage() {
                                                     
                                                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                                         <img
-                                                            src={'data:image/png;base64,'+product.image[0].image_text}
+                                                            src={product.image}
                                                             className="h-full w-full object-cover object-center"
                                                         />
                                                     </div>     
