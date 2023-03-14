@@ -12,6 +12,7 @@ import CartPage from "./components/Shop/CartPage";
 import Payment from "./components/Shop/Payment";
 import Product from "./components/Product";
 import Confirm from "./components/Shop/Confirm";
+import { Fragment } from 'react';
 
 function RequireAdmin({children}){
 
@@ -24,7 +25,7 @@ function RequireAdmin({children}){
 
 function App() {
   return (
-    <ProductsProvider>
+    <Fragment>
       <Router>
           <Routes>
             {/* Error Display */}
@@ -48,7 +49,7 @@ function App() {
 
           </Routes>
       </Router> 
-    </ProductsProvider>
+    </Fragment>
   )
 }
 
