@@ -14,7 +14,7 @@ import Product from "./components/Product";
 import Confirm from "./components/Shop/Confirm";
 import { Fragment } from 'react';
 
-function RequireAdmin({children}){
+function RequireAdmin(){
 
   // aqui ustedes van a traer los datos de la sesion si es que lo esta
 
