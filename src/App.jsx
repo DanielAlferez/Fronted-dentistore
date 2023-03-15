@@ -26,6 +26,7 @@ function RequireAdmin(){
 function App() {
   return (
     <Fragment>
+      <ProductsProvider>
       <Router>
           <Routes>
             {/* Error Display */}
@@ -49,6 +50,7 @@ function App() {
 
           </Routes>
       </Router> 
+    </ProductsProvider>
     </Fragment>
   )
 }
