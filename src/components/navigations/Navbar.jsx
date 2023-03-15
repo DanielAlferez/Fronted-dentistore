@@ -178,7 +178,7 @@ export default function Navbar({cartStatus}) {
                 <Link to="/nosotros" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Nosotros
                 </Link>
-                <Link tp="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <Link to="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Contactanos
                 </Link> 
                 <Link to="/medios-pago" className="text-base font-medium text-gray-500 hover:text-gray-900">

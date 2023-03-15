@@ -11,6 +11,7 @@ import { addProduct,reduceProduct,deleteProduct } from './CartFunctions';
 import useProductsContext from '../../hooks/useProducts';
 
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 export default function Cart({cartStatus}) {
 
@@ -90,32 +91,32 @@ export default function Cart({cartStatus}) {
         setCantidad(productos.length);
     }, [productos]);
     
-    const handlePay = () =>{
-        const token = localStorage.getItem('token')
-        if(token === null){
-            alert('Debes estar logeado para comprar')
-        }
-        else{
-            let status
-            fetch(URLC,{
-                method: 'POST',
-                headers: {
-                    "Authorization" :  `Bearer ${token}`
-                }
-                }).then(function(res){
-                status = res.status
-                return res.json();
-            }).then(function(data){
-                if(status !== 200)throw new Error()
-                localStorage.setItem('token',data.token)
-                window.location.replace('/carrito')
+    // const handlePay = () =>{
+    //     const token = localStorage.getItem('token')
+    //     if(token === null){
+    //         alert('Debes estar logeado para comprar')
+    //     }
+    //     else{
+    //         let status
+    //         fetch(URLC,{
+    //             method: 'POST',
+    //             headers: {
+    //                 "Authorization" :  `Bearer ${token}`
+    //             }
+    //             }).then(function(res){
+    //             status = res.status
+    //             return res.json();
+    //         }).then(function(data){
+    //             if(status !== 200)throw new Error()
+    //             localStorage.setItem('token',data.token)
+    //             window.location.replace('/carrito')
     
-            }).catch(function(error){
-                alert("El usuario no es valido")
-                console.log(error)
-            })
-        }
-    }
+    //         }).catch(function(error){
+    //             alert("El usuario no es valido")
+    //             console.log(error)
+    //         })
+    //     }
+    // }
 
 
 return (
@@ -275,13 +276,13 @@ return (
                             </div>
                             <p className="mt-0.5 text-sm text-gray-500">Pedido mínimo: $20.000</p>
                             <div className="mt-3">
-                                <a
-                                onClick={()=>{handlePay()}}
-                                // href="/carrito"
+                                <Link
+                                // onClick={()=>{handlePay()}}
+                                to="/carrito"
                                 className="flex items-center justify-center rounded-md border border-transparent bg-light px-6 py-2 text-base font-medium text-white shadow-sm hover:bg-dark cursor-pointer"
                                 >
                                 Ir a Pagar
-                                </a>
+                                </Link>
                             </div>
                             <div className="mt-3 flex justify-center text-center text-sm text-gray-500">
                                 <p>

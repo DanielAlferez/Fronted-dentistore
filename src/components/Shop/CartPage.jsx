@@ -71,34 +71,34 @@ export default function CartPage() {
         setCantidad(productos.length);
     }, [productos]);
 
-    React.useEffect(()=>{
-        const token = localStorage.getItem('token')
-        if(token === null){
-            alert('Debes estar logeado para comprar')
-            window.location.replace('/')
-            return;
-        }
-        let status
-        fetch(URLC,{
-            method: 'POST',
-            headers: {
-                "Authorization" :  `Bearer ${token}`
-            }
-            }).then(function(res){
-            status = res.status
-            return res.json();
-        }).then(function(data){
-            if(status !== 200)throw new Error()
-            localStorage.setItem('token',data.token)
-        }).catch(function(error){
-            alert('Usuario no valido')
-            console.log(error)
-            localStorage.removeItem('token')
-            window.location.replace('/')
-            return;
-        })
-        setLoading(false)
-    },[])
+    // React.useEffect(()=>{
+    //     const token = localStorage.getItem('token')
+    //     if(token === null){
+    //         alert('Debes estar logeado para comprar')
+    //         window.location.replace('/')
+    //         return;
+    //     }
+    //     let status
+    //     fetch(URLC,{
+    //         method: 'POST',
+    //         headers: {
+    //             "Authorization" :  `Bearer ${token}`
+    //         }
+    //         }).then(function(res){
+    //         status = res.status
+    //         return res.json();
+    //     }).then(function(data){
+    //         if(status !== 200)throw new Error()
+    //         localStorage.setItem('token',data.token)
+    //     }).catch(function(error){
+    //         alert('Usuario no valido')
+    //         console.log(error)
+    //         localStorage.removeItem('token')
+    //         window.location.replace('/')
+    //         return;
+    //     })
+    //     setLoading(false)
+    // },[])
 
   return (
     

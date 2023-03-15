@@ -52,7 +52,7 @@ function Presentation({ sectionRef }) {
                     <Link to={sectionRef} smooth={true} duration={1000}>
                         <button href='/' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'> Productos Recientes</button>
                     </Link>
-                    <a href='/productos' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'>Todos los Productos</a>
+                    <Link to='/productos' className='text-sm sm:text-md bg-gray-200 hover:bg-black hover:text-white text-black rounded-3xl my-10 px-5 py-3'>Todos los Productos</Link>
                 </div>
                 <p className="text-gray-400 text-md sm:text-lg mt-0 lg:mt-10">Nuestros Distribuidores</p>
                 <div>
