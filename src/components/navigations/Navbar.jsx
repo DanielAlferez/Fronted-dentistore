@@ -10,6 +10,7 @@ import IMG from '../../../images/logo.png'
 import Logout from '../../containers/auth/logout';
 import Cart from '../Shop/Cart'
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -171,18 +172,18 @@ export default function Navbar({cartStatus}) {
                     </>
                   )}
                 </Popover>
-                <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                <Link to="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Inicio
-                </a>
-                <a href="/nosotros" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                </Link>
+                <Link to="/nosotros" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Nosotros
-                </a>
-                <a href="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                </Link>
+                <Link tp="/contacto" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Contactanos
-                </a> 
-                <a href="/medios-pago" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                </Link> 
+                <Link to="/medios-pago" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   Medios de Pago
-                </a> 
+                </Link> 
                       
               </Popover.Group>
             </div>
@@ -235,21 +236,21 @@ export default function Navbar({cartStatus}) {
               </div>
               <div className="py-6 px-5">
                 <div className="grid grid-cols-2 gap-4">
-                  <a href="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <Link to="/" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Inicio
-                  </a>
+                  </Link>
 
-                  <a href="/nosotros" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <Link to="/nosotros" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Nosotros
-                  </a>
+                  </Link>
 
-                  <a href="/contacto" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <Link to="/contacto" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Contactanos
-                  </a> 
+                  </Link> 
 
-                  <a href="/medios-pago" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+                  <Link to="/medios-pago" className="rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
                     Medios de Pago
-                  </a> 
+                  </Link> 
 
                 </div>
               </div>
